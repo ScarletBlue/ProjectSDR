@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SupCam : MonoBehaviour
+public class SSBCamera : MonoBehaviour
 {
 
 	public FocusCenterStage FocusLevel;
