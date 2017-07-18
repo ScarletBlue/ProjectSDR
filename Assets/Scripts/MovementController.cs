@@ -12,6 +12,8 @@ public class MovementController : MonoBehaviour
 
 	HealthController healthController;
 
+	float Speed;
+	Animator animator;
 	// Layers
 
 	[SerializeField]
@@ -53,6 +55,8 @@ public class MovementController : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 
 		healthController = GetComponent<HealthController> ();
+
+		animator = GetComponent<Animator>();
 	}
 
 	void Start()
@@ -66,6 +70,7 @@ public class MovementController : MonoBehaviour
 
 	void Update()
 	{
+		//Debug.Log(Mathf.Abs(rb2d.velocity.x));
 		SetIfOnFloor();
 	}
 
@@ -96,12 +101,16 @@ public class MovementController : MonoBehaviour
 		{
 			case Direction.Left:
 				rb2d.velocity = new Vector2(-moveVelocity, rb2d.velocity.y);
+				animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
 				break;
 			case Direction.Right:
 				rb2d.velocity = new Vector2(moveVelocity, rb2d.velocity.y);
+				animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
 				break;
 			case Direction.None:
 				rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+				animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
+
 				break;
 		}
 
