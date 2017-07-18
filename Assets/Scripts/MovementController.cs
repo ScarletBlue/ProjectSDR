@@ -24,6 +24,9 @@ public class MovementController : MonoBehaviour
 	public float jumpVelocity;
 	public float doubleJumpVelocity;
 
+	[SerializeField]
+	float wallSlideVelocity =-1f;
+
 	[HideInInspector]
 	public bool onFloor;
 	[HideInInspector]
@@ -103,6 +106,15 @@ public class MovementController : MonoBehaviour
 		}
 
 		SetSpriteDirection(direction);
+	}
+
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		Debug.Log("Hit a wall");
+		if(coll.gameObject.tag == "Wall")
+		{
+			rb2d.drag = 200f;
+		}
 	}
 
 
