@@ -12,15 +12,14 @@ public class MovementController : MonoBehaviour
 
 	HealthController healthController;
 
-	float Speed;
+	//float Speed;
 	Animator animator;
 	// Layers
 
 	[SerializeField]
-	LayerMask groundLayerMask; 
+	LayerMask groundLayerMask;
 
 	// Movement
-
 	public float moveVelocity;
 
 	public float jumpVelocity;
@@ -72,6 +71,7 @@ public class MovementController : MonoBehaviour
 	{
 		//Debug.Log(Mathf.Abs(rb2d.velocity.x));
 		SetIfOnFloor();
+		//SetJumpAnim();
 	}
 
 
@@ -102,15 +102,17 @@ public class MovementController : MonoBehaviour
 			case Direction.Left:
 				rb2d.velocity = new Vector2(-moveVelocity, rb2d.velocity.y);
 				animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
+				//animator.SetBool("Grounded", true);
 				break;
 			case Direction.Right:
 				rb2d.velocity = new Vector2(moveVelocity, rb2d.velocity.y);
 				animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
+				//animator.SetBool("Grounded", true);
 				break;
 			case Direction.None:
 				rb2d.velocity = new Vector2(0, rb2d.velocity.y);
 				animator.SetFloat("Speed", Mathf.Abs(rb2d.velocity.x));
-
+				//animator.SetBool("Grounded", true);
 				break;
 		}
 
@@ -134,7 +136,17 @@ public class MovementController : MonoBehaviour
 		// Debug.DrawRay(transform.position, Vector3.down, Color.red, 1, false);
 		RaycastHit2D floorHit = Physics2D.Raycast(transform.position, Vector2.down, (spriteRenderer.bounds.size.y/2)+0.1f, groundLayerMask);
 		onFloor = (floorHit.collider != null);
-		if (onFloor) performedDoubleJump = false;
+		if (onFloor)
+		{
+			Debug.Log(onFloor);
+			performedDoubleJump = false;
+			animator.SetBool("Grounded", true);
+		}
+		else if(!onFloor)
+		{
+			Debug.Log(onFloor);
+			animator.SetBool("Grounded", false);
+		}
 	}
 
 	/*
@@ -167,12 +179,29 @@ public class MovementController : MonoBehaviour
 		if (onFloor)
 		{
 			rb2d.velocity = new Vector2(rb2d.velocity.x, jumpVelocity);
+			//animator.SetBool("Grounded", false);
+
 		}
 		else if (!performedDoubleJump)
 		{
 			performedDoubleJump = true;
 			rb2d.velocity = new Vector2(rb2d.velocity.x, doubleJumpVelocity);
+			//animator.SetBool("Grounded", false);
+
 		}
+	}
+
+	void SetJumpAnim()
+	{
+		if(rb2d.velocity.y < 0)
+		{
+			animator.SetBool("FallingJump", true);
+		}
+		if(rb2d.velocity.y > 0.1)
+		{
+			animator.SetBool("RisingJump", true);
+		}
+
 	}
 
 	public void SetSpriteDirection(Direction direction)
