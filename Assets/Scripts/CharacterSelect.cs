@@ -55,73 +55,73 @@ public class CharacterSelect : MonoBehaviour {
         //3p: ijkl
         //4P: arrow
         //change to joysticButton later  
-        if (Input.GetKeyDown(KeyCode.A) && p1Choosing)
+        if (InputManager.P1LeftButton() && p1Choosing)
             if (p1character > 1)
             {
                 p1character--;
                 p1.transform.position = new Vector3(p1.transform.position.x - 150, p1.transform.position.y, p1.transform.position.z);
             }
-        if (Input.GetKeyDown(KeyCode.D) && p1Choosing)
+        if (InputManager.P1RightButton() && p1Choosing)
             if (p1character < characterNum)
             {
                 p1character++;
                 p1.transform.position = new Vector3(p1.transform.position.x + 150, p1.transform.position.y, p1.transform.position.z);
             }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (InputManager.P1CrossButton())
         {
             p1Choosing = false;
             PlayerPrefs.SetInt("p1", p1character);
         }
 
-        if (Input.GetKeyDown(KeyCode.F) && p2Choosing)
+        if (InputManager.P2LeftButton() && p2Choosing)
             if (p2character > 1)
             {
                 p2character--;
                 p2.transform.position = new Vector3(p2.transform.position.x - 150, p2.transform.position.y, p2.transform.position.z);
             }
-        if (Input.GetKeyDown(KeyCode.H) && p2Choosing)
+        if (InputManager.P2RightButton() && p2Choosing)
             if (p2character < characterNum)
             {
                 p2character++;
                 p2.transform.position = new Vector3(p2.transform.position.x + 150, p2.transform.position.y, p2.transform.position.z);
             }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (InputManager.P2CrossButton())
         {
             p2Choosing = false;
             PlayerPrefs.SetInt("p2", p2character);
         }
 
-        if (Input.GetKeyDown(KeyCode.J) && p3Choosing)
+        if (InputManager.P3LeftButton() && p3Choosing)
             if (p3character > 1)
             {
                 p3character--;
                 p3.transform.position = new Vector3(p3.transform.position.x - 150, p3.transform.position.y, p3.transform.position.z);
             }
-        if (Input.GetKeyDown(KeyCode.L) && p3Choosing)
+        if (InputManager.P3RightButton() && p3Choosing)
             if (p3character < characterNum)
             {
                 p3character++;
                 p3.transform.position = new Vector3(p3.transform.position.x + 150, p3.transform.position.y, p3.transform.position.z);
             }
-        if (Input.GetKeyDown(KeyCode.U))
+        if (InputManager.P3CrossButton())
         {
             p3Choosing = false;
             PlayerPrefs.SetInt("p3", p3character);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && p4Choosing)
+        if (InputManager.P4LeftButton() && p4Choosing)
             if (p4character > 1)
             {
                 p4character--;
                 p4.transform.position = new Vector3(p4.transform.position.x - 150, p4.transform.position.y, p4.transform.position.z);
             }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && p4Choosing)
+        if (InputManager.P4RightButton() && p4Choosing)
             if (p4character < characterNum)
             {
                 p4character++;
                 p4.transform.position = new Vector3(p4.transform.position.x + 150, p4.transform.position.y, p4.transform.position.z);
             }
-        if (Input.GetKeyDown(KeyCode.M))
+        if (InputManager.P4CrossButton())
         {
             p4Choosing = false;
             PlayerPrefs.SetInt("p4", p4character);
