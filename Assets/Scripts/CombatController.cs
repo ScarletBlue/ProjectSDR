@@ -164,15 +164,15 @@ public class CombatController : MonoBehaviour {
 
 		// Perform Raycast
 		Vector3 facingDir = movementController.IsFacingRight() ? Vector3.right : Vector3.left;
-		Vector3 raycastStart = transform.position + (facingDir * (((spriteRenderer.bounds.size.x/2) + 0.1f)));
+		Vector3 raycastStart = transform.position + (facingDir * (((spriteRenderer.bounds.size.x/5) + 0.1f)));
 
 		Debug.DrawLine(raycastStart, (raycastStart + (facingDir * 0.5f)), Color.red, 0.5f, false);
 		// Debug.DrawLine(transform.position, (transform.position + (facingDir * ((spriteRenderer.bounds.size.x/2)+0.5f))), Color.red, 0.5f, false);
 
 		// Trigger Animation
-		animator.SetTrigger("Punch");
+		animator.SetTrigger("Kick");
 
-		RaycastHit2D characterHit = Physics2D.Raycast(raycastStart, facingDir, 0.5f, attackableLayerMask);
+		RaycastHit2D characterHit = Physics2D.Raycast(raycastStart, facingDir, 0.1f, attackableLayerMask);
 		// RaycastHit2D characterHit = Physics2D.Raycast(transform.position, facingDir, (spriteRenderer.bounds.size.y/2)+0.5f, attackableLayerMask);
 		if (characterHit.collider != null) {
 			CombatController otherCharacterCombatController = characterHit.collider.gameObject.GetComponent<CombatController>();
