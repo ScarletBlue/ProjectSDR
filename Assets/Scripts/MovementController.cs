@@ -245,6 +245,4 @@ public class MovementController : MonoBehaviour
 		yield return new WaitForSeconds (time);
 		movementDisabled = false;
 	}
-
-
 }
