@@ -30,10 +30,12 @@ public class CharacterController : MonoBehaviour {
     {
         if (Input.GetKey("right"))
         {
+            transform.localScale = new Vector3(1, 1, 1);
             return 1;
         }
         else if (Input.GetKey("left"))
         {
+            transform.localScale = new Vector3(-1, 1, 1);
             return -1;
         }
         else return 0;
