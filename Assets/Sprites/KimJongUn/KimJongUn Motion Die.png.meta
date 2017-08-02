@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fb2c9da8a594ab748b454430b6e35fa9
-timeCreated: 1501665108
+timeCreated: 1501674450
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -103,7 +103,7 @@ TextureImporter:
         width: 456
         height: 695
       alignment: 9
-      pivot: {x: 0.5, y: 0.61}
+      pivot: {x: 0.5, y: 0.57}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -117,7 +117,7 @@ TextureImporter:
         width: 456
         height: 695
       alignment: 9
-      pivot: {x: 0.5, y: 0.61}
+      pivot: {x: 0.5, y: 0.57}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,12 +126,12 @@ TextureImporter:
       name: KimJongUn Motion Die_3
       rect:
         serializedVersion: 2
-        x: 3314
-        y: 240
+        x: 3320
+        y: 246
         width: 599
         height: 695
       alignment: 9
-      pivot: {x: 0.5, y: 0.61}
+      pivot: {x: 0.38, y: 0.57}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -140,12 +140,12 @@ TextureImporter:
       name: KimJongUn Motion Die_4
       rect:
         serializedVersion: 2
-        x: 4183
-        y: 213
+        x: 4189
+        y: 219
         width: 1015
         height: 266
       alignment: 9
-      pivot: {x: 0.5, y: 1.7313758}
+      pivot: {x: 0.5, y: 1.6}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,7 +159,7 @@ TextureImporter:
         width: 1015
         height: 569
       alignment: 9
-      pivot: {x: 0.51728755, y: 0.702511}
+      pivot: {x: 0.5, y: 0.74}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
