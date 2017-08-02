@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1de44ec687d58824883e741d7cc61bd5
-timeCreated: 1501557064
+timeCreated: 1501664634
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -18,6 +18,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -33,10 +35,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -79,81 +84,88 @@ TextureImporter:
       name: KimJongUn Motion Utimate_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1044
-        height: 1044
+        x: 213
+        y: 133
+        width: 440
+        height: 808
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: KimJongUn Motion Utimate_1
       rect:
         serializedVersion: 2
-        x: 1044
-        y: 0
-        width: 1044
-        height: 1044
+        x: 1259
+        y: 133
+        width: 440
+        height: 808
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: KimJongUn Motion Utimate_2
       rect:
         serializedVersion: 2
-        x: 2088
-        y: 0
-        width: 1044
-        height: 1044
+        x: 2308
+        y: 133
+        width: 440
+        height: 808
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: KimJongUn Motion Utimate_3
       rect:
         serializedVersion: 2
-        x: 3132
-        y: 0
-        width: 1044
-        height: 1044
+        x: 3345
+        y: 133
+        width: 440
+        height: 808
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: KimJongUn Motion Utimate_4
       rect:
         serializedVersion: 2
-        x: 4176
-        y: 0
-        width: 1044
-        height: 1044
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4406
+        y: 133
+        width: 569
+        height: 808
+      alignment: 9
+      pivot: {x: 0.42804673, y: 0.49276167}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: KimJongUn Motion Utimate_5
       rect:
         serializedVersion: 2
-        x: 5220
-        y: 0
-        width: 1044
-        height: 1044
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5449
+        y: 133
+        width: 713
+        height: 808
+      alignment: 9
+      pivot: {x: 0.37695518, y: 0.49276167}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

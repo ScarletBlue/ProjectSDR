@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9ff6480f612c2364683d06973e8507fa
-timeCreated: 1501428653
+timeCreated: 1501664118
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,8 @@ TextureImporter:
     21300020: Melonpixie Motion Idle_10
     21300022: Melonpixie Motion Idle_11
     21300024: Melonpixie Motion Idle_12
+    21300026: Melonpixie Motion Idle_13
+    21300028: Melonpixie Motion Idle_14
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -25,6 +27,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -40,10 +44,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -86,172 +93,186 @@ TextureImporter:
       name: Melonpixie Motion Idle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 381.75
-        width: 162
-        height: 127.25
+        x: 43
+        y: 399
+        width: 100
+        height: 95
       alignment: 9
-      pivot: {x: 0.6814263, y: 0.4563221}
+      pivot: {x: 0.683583, y: 0.42880443}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Idle_1
       rect:
         serializedVersion: 2
-        x: 162
-        y: 381.75
-        width: 162
-        height: 127.25
+        x: 229
+        y: 389
+        width: 80
+        height: 105
       alignment: 9
-      pivot: {x: 0.7052185, y: 0.4527842}
+      pivot: {x: 0.5905838, y: 0.4723935}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Idle_2
       rect:
         serializedVersion: 2
-        x: 324
-        y: 381.75
-        width: 162
-        height: 127.25
+        x: 367
+        y: 402
+        width: 100
+        height: 95
       alignment: 9
-      pivot: {x: 0.68791085, y: 0.47481826}
+      pivot: {x: 0.688414, y: 0.4186334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Idle_3
       rect:
         serializedVersion: 2
-        x: 486
-        y: 382
-        width: 162
-        height: 127
+        x: 519
+        y: 391
+        width: 112
+        height: 106
       alignment: 9
-      pivot: {x: 0.692856, y: 0.46215293}
+      pivot: {x: 0.7156759, y: 0.4635384}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Idle_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 254.75
-        width: 162
-        height: 127.25
+        x: 46
+        y: 272
+        width: 100
+        height: 95
       alignment: 9
-      pivot: {x: 0.7052185, y: 0.4527842}
+      pivot: {x: 0.678752, y: 0.4186334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Melonpixie Motion Idle_5
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 254.75
-        width: 162
-        height: 127.25
-      alignment: 9
-      pivot: {x: 0.692856, y: 0.44019347}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Idle_6
       rect:
         serializedVersion: 2
-        x: 324
-        y: 254.75
-        width: 162
-        height: 127.25
+        x: 216
+        y: 271
+        width: 90
+        height: 94
       alignment: 9
-      pivot: {x: 0.6804934, y: 0.43075016}
+      pivot: {x: 0.6503021, y: 0.4126285}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Melonpixie Motion Idle_7
-      rect:
-        serializedVersion: 2
-        x: 486
-        y: 254.75
-        width: 162
-        height: 127.25
-      alignment: 9
-      pivot: {x: 0.6903834, y: 0.43704578}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Idle_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 127.75
-        width: 162
-        height: 127.25
+        x: 376
+        y: 270
+        width: 90
+        height: 94
       alignment: 9
-      pivot: {x: 0.7175811, y: 0.43389797}
+      pivot: {x: 0.6503018, y: 0.4126285}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Idle_9
       rect:
         serializedVersion: 2
-        x: 162
-        y: 127.75
-        width: 162
-        height: 127.25
+        x: 562
+        y: 271
+        width: 68
+        height: 94
       alignment: 9
-      pivot: {x: 0.71016365, y: 0.44648883}
+      pivot: {x: 0.53552336, y: 0.4126285}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Idle_10
       rect:
         serializedVersion: 2
-        x: 324
-        y: 127.75
-        width: 162
-        height: 127.25
+        x: 85
+        y: 143
+        width: 59
+        height: 94
       alignment: 9
-      pivot: {x: 0.71263593, y: 0.42445478}
+      pivot: {x: 0.53422844, y: 0.42122617}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Idle_11
       rect:
         serializedVersion: 2
-        x: 486
-        y: 127.75
-        width: 162
-        height: 127.25
+        x: 245
+        y: 145
+        width: 59
+        height: 94
       alignment: 9
-      pivot: {x: 0.71263593, y: 0.43075016}
+      pivot: {x: 0.5519135, y: 0.428316}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Idle_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0.75
-        width: 162
-        height: 127.25
+        x: 405
+        y: 142
+        width: 67
+        height: 98
       alignment: 9
-      pivot: {x: 0.697801, y: 0.42445478}
+      pivot: {x: 0.5274289, y: 0.41248944}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Melonpixie Motion Idle_13
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 143
+        width: 65
+        height: 98
+      alignment: 9
+      pivot: {x: 0.49256685, y: 0.40140548}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Melonpixie Motion Idle_14
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 15
+        width: 65
+        height: 98
+      alignment: 9
+      pivot: {x: 0.5, y: 0.40383443}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
       tessellationDetail: 0
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

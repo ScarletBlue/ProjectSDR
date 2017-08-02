@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1f532f31cad75cd4a8f89f6f26b4309a
-timeCreated: 1501428719
+timeCreated: 1501664258
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -21,6 +21,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -36,10 +38,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -82,120 +87,130 @@ TextureImporter:
       name: Melonpixie Motion Utimate_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 254
-        width: 162
-        height: 127
+        x: 43
+        y: 271
+        width: 100
+        height: 95
       alignment: 9
-      pivot: {x: 0.68396187, y: 0.44949943}
+      pivot: {x: 0.6901965, y: 0.42324796}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Utimate_1
       rect:
         serializedVersion: 2
-        x: 163
-        y: 254
-        width: 162
-        height: 127
+        x: 206
+        y: 272
+        width: 103
+        height: 95
       alignment: 9
-      pivot: {x: 0.6880071, y: 0.4571752}
+      pivot: {x: 0.67590094, y: 0.41779816}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Utimate_2
       rect:
         serializedVersion: 2
-        x: 324
-        y: 254
-        width: 162
-        height: 127
+        x: 340
+        y: 269
+        width: 124
+        height: 97
       alignment: 9
-      pivot: {x: 0.6947216, y: 0.45146504}
+      pivot: {x: 0.78019667, y: 0.4321824}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Utimate_3
       rect:
         serializedVersion: 2
-        x: 486
-        y: 254
-        width: 162
-        height: 127
+        x: 554
+        y: 266
+        width: 76
+        height: 99
       alignment: 9
-      pivot: {x: 0.6969597, y: 0.44290018}
+      pivot: {x: 0.59031355, y: 0.44919747}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Utimate_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 127
-        width: 162
-        height: 127
+        x: 34
+        y: 135
+        width: 112
+        height: 106
       alignment: 9
-      pivot: {x: 0.6961705, y: 0.45047465}
+      pivot: {x: 0.7128704, y: 0.4622381}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Utimate_5
       rect:
         serializedVersion: 2
-        x: 162
-        y: 127
-        width: 162
-        height: 127
+        x: 218
+        y: 144
+        width: 84
+        height: 94
       alignment: 9
-      pivot: {x: 0.69208366, y: 0.44265482}
+      pivot: {x: 0.68466115, y: 0.4094917}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Utimate_6
       rect:
         serializedVersion: 2
-        x: 324
-        y: 127
-        width: 162
-        height: 127
+        x: 371
+        y: 141
+        width: 103
+        height: 95
       alignment: 9
-      pivot: {x: 0.70638776, y: 0.4296218}
+      pivot: {x: 0.67006916, y: 0.4164959}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Utimate_7
       rect:
         serializedVersion: 2
-        x: 486
-        y: 127
-        width: 162
-        height: 127
+        x: 553
+        y: 142
+        width: 82
+        height: 107
       alignment: 9
-      pivot: {x: 0.7043442, y: 0.42440867}
+      pivot: {x: 0.5978982, y: 0.36614063}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Utimate_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 162
-        height: 127
+        x: 67
+        y: 13
+        width: 80
+        height: 106
       alignment: 9
-      pivot: {x: 0.7043443, y: 0.4113757}
+      pivot: {x: 0.603031, y: 0.36432156}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

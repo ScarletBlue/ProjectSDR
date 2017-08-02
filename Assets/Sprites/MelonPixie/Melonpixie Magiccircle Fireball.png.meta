@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7a6f137839e853b45b9a24ba2f3c0962
-timeCreated: 1501347852
+timeCreated: 1501664547
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -32,10 +34,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -78,68 +83,74 @@ TextureImporter:
       name: Melonpixie Magiccircle Fireball_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 43
-        height: 61
+        x: 10
+        y: 12
+        width: 23
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Magiccircle Fireball_1
       rect:
         serializedVersion: 2
-        x: 43
-        y: 0
-        width: 43
-        height: 61
+        x: 51
+        y: 8
+        width: 27
+        height: 45
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Magiccircle Fireball_2
       rect:
         serializedVersion: 2
-        x: 86
-        y: 0
-        width: 43
-        height: 61
+        x: 92
+        y: 6
+        width: 31
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Magiccircle Fireball_3
       rect:
         serializedVersion: 2
-        x: 129
-        y: 0
-        width: 43
-        height: 61
+        x: 133
+        y: 4
+        width: 35
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Magiccircle Fireball_4
       rect:
         serializedVersion: 2
-        x: 172
-        y: 0
-        width: 43
-        height: 61
+        x: 174
+        y: 2
+        width: 39
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
