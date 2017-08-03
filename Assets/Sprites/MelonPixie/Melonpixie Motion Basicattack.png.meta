@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2319ab4b84ff845428937a9367c9a297
-timeCreated: 1501428883
+timeCreated: 1501664451
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -17,6 +17,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -32,10 +34,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -78,68 +83,74 @@ TextureImporter:
       name: Melonpixie Motion Basicattack_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 127
-        width: 162
-        height: 127
+        x: 43
+        y: 144
+        width: 100
+        height: 95
       alignment: 9
-      pivot: {x: 0.6829711, y: 0.45020878}
+      pivot: {x: 0.6829711, y: 0.42473322}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Basicattack_1
       rect:
         serializedVersion: 2
-        x: 162
-        y: 127
-        width: 162
-        height: 127
+        x: 196
+        y: 136
+        width: 112
+        height: 106
       alignment: 9
-      pivot: {x: 0.69760865, y: 0.45643267}
+      pivot: {x: 0.708413, y: 0.46784857}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Basicattack_2
       rect:
         serializedVersion: 2
-        x: 324
-        y: 127
-        width: 162
-        height: 127
+        x: 343
+        y: 139
+        width: 130
+        height: 101
       alignment: 9
-      pivot: {x: 0.7037881, y: 0.42910442}
+      pivot: {x: 0.71775043, y: 0.41712317}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Basicattack_3
       rect:
         serializedVersion: 2
-        x: 486
-        y: 127
-        width: 162
-        height: 127
+        x: 520
+        y: 136
+        width: 112
+        height: 106
       alignment: 9
-      pivot: {x: 0.7037881, y: 0.45746258}
+      pivot: {x: 0.7037877, y: 0.46317047}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Basicattack_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 162
-        height: 127
+        x: 43
+        y: 17
+        width: 100
+        height: 95
       alignment: 9
-      pivot: {x: 0.68526185, y: 0.4480099}
+      pivot: {x: 0.6913122, y: 0.4289032}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

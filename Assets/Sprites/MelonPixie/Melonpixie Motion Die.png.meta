@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d92576ad2b47dd14ca4c59d518cef08c
-timeCreated: 1501428837
+timeCreated: 1501664415
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -19,6 +19,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -34,10 +36,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -80,94 +85,102 @@ TextureImporter:
       name: Melonpixie Motion Die_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 127
-        width: 162
-        height: 127
+        x: 43
+        y: 144
+        width: 100
+        height: 95
       alignment: 9
-      pivot: {x: 0.6928481, y: 0.44728678}
+      pivot: {x: 0.68679756, y: 0.41544253}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Die_1
       rect:
         serializedVersion: 2
-        x: 162
-        y: 127
-        width: 162
-        height: 127
+        x: 206
+        y: 142
+        width: 100
+        height: 95
       alignment: 9
       pivot: {x: 0.6928481, y: 0.43410847}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Die_2
       rect:
         serializedVersion: 2
-        x: 324
-        y: 127
-        width: 162
-        height: 127
+        x: 355
+        y: 144
+        width: 116
+        height: 89
       alignment: 9
       pivot: {x: 0.70317924, y: 0.44289392}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Die_3
       rect:
         serializedVersion: 2
-        x: 486
-        y: 127
-        width: 162
-        height: 127
+        x: 516
+        y: 142
+        width: 112
+        height: 81
       alignment: 9
-      pivot: {x: 0.70317924, y: 0.43410847}
+      pivot: {x: 0.7301903, y: 0.49386558}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Die_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 162
-        height: 127
+        x: 95
+        y: 30
+        width: 42
+        height: 67
       alignment: 9
-      pivot: {x: 0.7187838, y: 0.5405113}
+      pivot: {x: 0.5171031, y: 0.5856636}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Die_5
       rect:
         serializedVersion: 2
-        x: 162
-        y: 0
-        width: 162
-        height: 127
+        x: 260
+        y: 46
+        width: 29
+        height: 35
       alignment: 9
-      pivot: {x: 0.6940824, y: 0.52700746}
+      pivot: {x: 0.52717435, y: 0.5961548}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: Melonpixie Motion Die_6
       rect:
         serializedVersion: 2
-        x: 324
-        y: 0
-        width: 162
-        height: 127
+        x: 441
+        y: 55
+        width: 13
+        height: 19
       alignment: 9
-      pivot: {x: 0.7540715, y: 0.51800495}
+      pivot: {x: 0.52136, y: 0.5180046}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

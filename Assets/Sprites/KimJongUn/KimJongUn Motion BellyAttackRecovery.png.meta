@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 738ccfcdbdeefc44ba16a232db73ab03
-timeCreated: 1501558894
+timeCreated: 1501665148
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -16,6 +16,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -31,10 +33,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -77,55 +82,60 @@ TextureImporter:
       name: KimJongUn Motion BellyAttackRecovery_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1044
-        height: 1044
+        x: 180
+        y: 326
+        width: 620
+        height: 599
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: KimJongUn Motion BellyAttackRecovery_1
       rect:
         serializedVersion: 2
-        x: 1044
-        y: 0
-        width: 1044
-        height: 1044
+        x: 1370
+        y: 244
+        width: 599
+        height: 620
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: KimJongUn Motion BellyAttackRecovery_2
       rect:
         serializedVersion: 2
-        x: 2088
-        y: 0
-        width: 1044
-        height: 1044
+        x: 2332
+        y: 119
+        width: 620
+        height: 599
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: KimJongUn Motion BellyAttackRecovery_3
       rect:
         serializedVersion: 2
-        x: 3132
-        y: 0
-        width: 1044
-        height: 1044
+        x: 3251
+        y: 180
+        width: 598
+        height: 616
       alignment: 9
       pivot: {x: 0.5, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

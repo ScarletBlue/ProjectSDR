@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f94fd98953d892b449f25d00d808dba3
-timeCreated: 1501557034
+timeCreated: 1501665182
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -16,6 +16,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -31,10 +33,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -77,55 +82,60 @@ TextureImporter:
       name: KimJongUn Motion BasicAttack_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1044
-        height: 1044
+        x: 211
+        y: 136
+        width: 605
+        height: 805
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: KimJongUn Motion BasicAttack_1
       rect:
         serializedVersion: 2
-        x: 1044
-        y: 0
-        width: 1044
-        height: 1044
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1272
+        y: 136
+        width: 713
+        height: 772
+      alignment: 9
+      pivot: {x: 0.40156406, y: 0.4999999}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: KimJongUn Motion BasicAttack_2
       rect:
         serializedVersion: 2
-        x: 2088
-        y: 0
-        width: 1044
-        height: 1044
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2240
+        y: 119
+        width: 680
+        height: 822
+      alignment: 9
+      pivot: {x: 0.41398925, y: 0.49999994}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
       name: KimJongUn Motion BasicAttack_3
       rect:
         serializedVersion: 2
-        x: 3132
-        y: 0
-        width: 1044
-        height: 1044
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3360
+        y: 136
+        width: 505
+        height: 852
+      alignment: 9
+      pivot: {x: 0.48455775, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
