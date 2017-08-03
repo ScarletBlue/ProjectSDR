@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour {
 
+
+    public float speed;
     public float jump1Speed;
     public float jump2Speed;
+    public Character character;
 
     Rigidbody2D rb;
 
@@ -45,12 +48,15 @@ public class CharacterController : MonoBehaviour {
     {
         if(IsOnFloor())
         {
-            jumpCount = 0;
-            rb.velocity = new Vector2(5 * MovingDirection(),rb.velocity.y);
+            if (jumpCount != 0)
+            {
+                jumpCount = 0;
+            }
+            rb.velocity = new Vector2(speed * MovingDirection(),rb.velocity.y);
         }
-        if(!IsOnFloor())
+        else
         {
-            rb.velocity = new Vector2(5 * MovingDirection(), rb.velocity.y);
+            rb.velocity = new Vector2(speed * MovingDirection(), rb.velocity.y);
         }
     }
 

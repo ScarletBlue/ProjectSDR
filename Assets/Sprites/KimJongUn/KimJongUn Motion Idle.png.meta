@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f9b9783a6625dfb4a8298fa0214bc863
-timeCreated: 1501557092
+timeCreated: 1501662096
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -77,10 +77,10 @@ TextureImporter:
       name: KimJongUn Motion Idle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1044
-        height: 1044
+        x: 211
+        y: 136
+        width: 457
+        height: 805
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -90,10 +90,10 @@ TextureImporter:
       name: KimJongUn Motion Idle_1
       rect:
         serializedVersion: 2
-        x: 1044
-        y: 0
-        width: 1044
-        height: 1044
+        x: 1255
+        y: 136
+        width: 426
+        height: 805
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -103,10 +103,10 @@ TextureImporter:
       name: KimJongUn Motion Idle_2
       rect:
         serializedVersion: 2
-        x: 2088
-        y: 0
-        width: 1044
-        height: 1044
+        x: 2299
+        y: 136
+        width: 426
+        height: 805
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,10 +116,10 @@ TextureImporter:
       name: KimJongUn Motion Idle_3
       rect:
         serializedVersion: 2
-        x: 3132
-        y: 0
-        width: 1044
-        height: 1044
+        x: 3343
+        y: 136
+        width: 426
+        height: 805
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

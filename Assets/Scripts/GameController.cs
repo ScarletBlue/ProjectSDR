@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameController : MonoBehaviour {
+public enum Character { KimJongUn, Kurisu, MelonPixie}
 
+public class GameController : MonoBehaviour
+{
 	
 }
