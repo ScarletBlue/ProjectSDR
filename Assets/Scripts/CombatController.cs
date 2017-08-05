@@ -164,7 +164,7 @@ public class CombatController : MonoBehaviour {
 
 		// Perform Raycast
 		Vector3 facingDir = movementController.IsFacingRight() ? Vector3.right : Vector3.left;
-		Vector3 raycastStart = transform.position + (facingDir * (((spriteRenderer.bounds.size.x/5) + 0.1f)));
+		Vector3 raycastStart = transform.position + (facingDir * (((spriteRenderer.bounds.size.x/5) + 0.35f)));
 
 		Debug.DrawLine(raycastStart, (raycastStart + (facingDir * 0.5f)), Color.red, 0.5f, false);
 		// Debug.DrawLine(transform.position, (transform.position + (facingDir * ((spriteRenderer.bounds.size.x/2)+0.5f))), Color.red, 0.5f, false);
