@@ -6,10 +6,10 @@ public class PointSysyem : MonoBehaviour {
 
     GameManager gameManager;
 
-    public float healthPoint;
+    public int healthPoint;
     public float victoryPoint;
     public float ultimatePoint;
-    public float healthPointMax;
+    public int healthPointMax;
     public float victoryPointMax;
     public float ultimatePointMax;
 
@@ -23,7 +23,7 @@ public class PointSysyem : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (victoryPoint == 100)
+        if (victoryPoint >= 100)
         {
             gameManager.isVictory = true;
             //gameManeger에있는 승리 효과 발생
