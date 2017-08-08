@@ -6,12 +6,10 @@ public class GameManager : MonoBehaviour {
 
     public bool isVictory;
 
-    // Use this for initialization
     void Start () {
         isVictory = false;
     }
 	
-	// Update is called once per frame
 	void Update () {
         if (isVictory == true)
         {

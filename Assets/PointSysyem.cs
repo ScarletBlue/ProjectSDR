@@ -28,5 +28,16 @@ public class PointSysyem : MonoBehaviour {
             gameManager.isVictory = true;
             //gameManeger에있는 승리 효과 발생
         }
+
+        if (ultimatePoint >= 100)
+        {
+            ultimatePoint = 100;
+        }
+
+        if (healthPoint <= 0)
+        {
+            healthPoint = 0;
+            //this.Die();
+        }
 	}
 }
