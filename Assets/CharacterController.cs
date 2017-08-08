@@ -48,7 +48,7 @@ public class CharacterController : MonoBehaviour {
     {
         if(IsOnFloor())
         {
-            if (jumpCount != 0)
+            if (jumpCount != 0 && rb.velocity.y <= 0.1)
             {
                 jumpCount = 0;
             }
@@ -87,5 +87,10 @@ public class CharacterController : MonoBehaviour {
         {
             return false;
         }
+    }
+
+    public void Hit(float Damage, Attack attack)
+    {
+        Debug.Log("hit!");
     }
 }

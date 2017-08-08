@@ -1,10 +1,6 @@
 fileFormatVersion: 2
 guid: f9b9783a6625dfb4a8298fa0214bc863
-<<<<<<< HEAD
-timeCreated: 1501662096
-=======
-timeCreated: 1501674021
->>>>>>> 367339fc485a0f9b50e7c1046bd0ce8e83301eed
+timeCreated: 1502188572
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -42,8 +38,8 @@ TextureImporter:
     aniso: -1
     mipBias: -1
     wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapV: -1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -79,6 +75,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -90,13 +94,8 @@ TextureImporter:
         y: 136
         width: 457
         height: 805
-<<<<<<< HEAD
       alignment: 0
       pivot: {x: 0, y: 0}
-=======
-      alignment: 9
-      pivot: {x: 0.47, y: 0.5}
->>>>>>> 367339fc485a0f9b50e7c1046bd0ce8e83301eed
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -110,7 +109,7 @@ TextureImporter:
         width: 426
         height: 805
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -124,7 +123,7 @@ TextureImporter:
         width: 426
         height: 805
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -137,13 +136,8 @@ TextureImporter:
         y: 136
         width: 426
         height: 805
-<<<<<<< HEAD
       alignment: 0
       pivot: {x: 0, y: 0}
-=======
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
->>>>>>> 367339fc485a0f9b50e7c1046bd0ce8e83301eed
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
