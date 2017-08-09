@@ -95,6 +95,11 @@ public class CharacterAttackController : MonoBehaviour {
         }
     }
 
+    void KimDash()
+    {
+
+    }
+
     void Melee(float damage, Attack attack)
     {
         if(meleeAttack.GetComponent<MeleeCheck>().playersInRange.Count != 0)

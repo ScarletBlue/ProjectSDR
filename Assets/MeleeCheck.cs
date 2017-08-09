@@ -6,7 +6,6 @@ public class MeleeCheck : MonoBehaviour {
 
    // [System.NonSerialized]
     public List<GameObject> playersInRange;
-
     void Start()
     {
         playersInRange = new List<GameObject>();
@@ -14,7 +13,7 @@ public class MeleeCheck : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.layer == LayerMask.NameToLayer("Character"))
         {
             playersInRange.Add(other.gameObject);
         }
@@ -22,7 +21,7 @@ public class MeleeCheck : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.layer == LayerMask.NameToLayer("Character"))
         {
             playersInRange.Remove(other.gameObject);
         }

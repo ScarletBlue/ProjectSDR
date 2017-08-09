@@ -6,13 +6,20 @@ public class CharacterController : MonoBehaviour {
 
 
     public float speed;
+    public float dashSpeed;
     public float jump1Speed;
     public float jump2Speed;
     public Character character;
+    public float dashDelayTime = 0.3f;
+    public float AirDashTime = 0.5f;
 
     Rigidbody2D rb;
 
     int jumpCount = 0;
+    float dashDelay = 0f;
+    int dashInput = 0;
+    bool isDashing = false;
+    int dashDirection = 0;
 
     void Start()
     {
@@ -22,7 +29,15 @@ public class CharacterController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        IsDashing();
+        if (!isDashing)
+        {
+            Movement();
+        }
+        else if (isDashing)
+        {
+            Dash();
+        }
         if(Input.GetKeyDown("space"))
         {
             Jump();
@@ -71,6 +86,86 @@ public class CharacterController : MonoBehaviour {
         {
             rb.velocity = new Vector2(rb.velocity.x, jump2Speed);
             jumpCount++;
+        }
+    }
+
+    void IsDashing()
+    {
+        dashDelay += Time.deltaTime;
+        if(dashDelay> dashDelayTime)
+        {
+            dashInput = 0;
+        }
+        if(Input.GetKeyDown("right") && dashInput ==0)
+        {
+            dashInput++;
+            dashDelay = 0;
+            return;
+        }
+        else if(Input.GetKeyDown("right") && dashInput < 0)
+        {
+            dashInput = 0;
+            dashDelay = 0;
+            return;
+        }
+        else if (Input.GetKeyDown("left") && dashInput == 0)
+        {
+            dashInput--;
+            dashDelay = 0;
+            return;
+        }
+        else if (Input.GetKeyDown("left") && dashInput > 0)
+        {
+            dashInput = 0;
+            dashDelay = 0;
+            return;
+        }
+
+        if (Input.GetKeyDown("right") && dashInput == 1 && dashDelay <= dashDelayTime)
+        {
+            dashDirection = 1;
+            isDashing = true;
+        }
+        else if (Input.GetKeyDown("left") && dashInput == -1 && dashDelay <= dashDelayTime)
+        {
+            dashDirection = -1;
+            isDashing = true;
+        }
+
+        if(Input.GetKeyUp("right") || Input.GetKeyUp("left"))
+        {
+            if(isDashing)
+            {
+                dashDirection = 0;
+                isDashing = false;
+            }
+        }
+    }
+
+    void Dash()
+    {
+        if(IsOnFloor())
+        {
+            if (jumpCount != 0 && rb.velocity.y <= 0.1)
+            {
+                jumpCount = 0;
+            }
+            rb.velocity = new Vector2(dashSpeed * dashDirection, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(dashSpeed * dashDirection, rb.velocity.y);
+            StartCoroutine(AirDashDelay());
+        }
+    }
+
+    IEnumerator AirDashDelay()
+    {
+        yield return new WaitForSeconds(AirDashTime);
+        if (!IsOnFloor())
+        {
+            dashDirection = 0;
+            isDashing = false;
         }
     }
 
