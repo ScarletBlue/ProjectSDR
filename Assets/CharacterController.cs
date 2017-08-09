@@ -42,7 +42,7 @@ public class CharacterController : MonoBehaviour {
             Dash();
             anim.SetBool("isDashing", true);
         }
-        if(Input.GetKeyDown("space"))
+        if(Input.GetKeyDown("up"))
         {
             Jump();
         }
