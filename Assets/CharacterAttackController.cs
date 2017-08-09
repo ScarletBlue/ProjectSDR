@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Attack { Kim_melee, kim_melee_up, Pixie_melee}
+public enum Attack { Kim_melee = 5, kim_melee_up = 20, Pixie_melee}
 
 public class CharacterAttackController : MonoBehaviour {
 
