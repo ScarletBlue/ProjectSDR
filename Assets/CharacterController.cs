@@ -154,7 +154,7 @@ public class CharacterController : MonoBehaviour {
         }
         else
         {
-            rb.velocity = new Vector2(dashSpeed * dashDirection, rb.velocity.y);
+            rb.velocity = new Vector2(dashSpeed * dashDirection, 0);
             StartCoroutine(AirDashDelay());
         }
     }
