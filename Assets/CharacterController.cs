@@ -26,6 +26,10 @@ public class CharacterController : MonoBehaviour {
     bool isDashing = false;
     int dashDirection = 0;
 
+    int hp = 1000;
+
+    bool hit = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,12 +40,12 @@ public class CharacterController : MonoBehaviour {
     void Update()
     {
         IsDashing();
-        if (!isDashing)
+        if (!isDashing && !hit)
         {
             Movement();
             anim.SetBool("isDashing", false);
         }
-        else if (isDashing)
+        else if (isDashing && !hit)
         {
             Dash();
             anim.SetBool("isDashing", true);
@@ -167,6 +171,7 @@ public class CharacterController : MonoBehaviour {
         }
     }
 
+
     IEnumerator AirDashDelay()
     {
         yield return new WaitForSeconds(AirDashTime);
@@ -192,8 +197,16 @@ public class CharacterController : MonoBehaviour {
         }
     }
 
-    public void Hit(float Damage, Attack attack)
+    public void Hit(float damage, Attack attack, Vector2 knockBackDirection)
     {
-        Debug.Log("hit!");
+        hit = true;
+        StartCoroutine(KnockBackDelay(damage));
+        rb.AddForce(knockBackDirection * (2000 - hp) * damage * 0.05f);
+    }
+
+    IEnumerator KnockBackDelay(float damage)
+    {
+        yield return new WaitForSeconds(0.3f);
+        hit = false;
     }
 }
