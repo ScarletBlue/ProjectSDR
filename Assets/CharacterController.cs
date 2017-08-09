@@ -27,7 +27,7 @@ public class CharacterController : MonoBehaviour {
     bool isDashing = false;
     int dashDirection = 0;
 
-    int hp = 1000;
+    float hp = 1000;
 
     bool hit = false;
 
@@ -201,6 +201,7 @@ public class CharacterController : MonoBehaviour {
     public void Hit(float damage, Attack attack, Vector2 knockBackDirection)
     {
         hit = true;
+        hp -= damage;
         StartCoroutine(KnockBackDelay(damage));
         rb.velocity = new Vector2(0, 0);
         rb.AddForce(knockBackDirection * (2000 - hp) * (int)attack * 0.05f);

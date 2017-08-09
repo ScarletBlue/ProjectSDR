@@ -17,6 +17,8 @@ public class CharacterAttackController : MonoBehaviour {
     int kimMeleeStage = 0;
     float kimMeleeDelay = 0;
 
+    float ultimateGauge = 0;
+
 	void Start ()
     {
         character = GetComponent<CharacterController>().character;
@@ -66,7 +68,7 @@ public class CharacterAttackController : MonoBehaviour {
         if(kimMeleeStage == 0 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee1");
-            Melee(5f, Attack.Kim_melee,new Vector2(transform.localScale.x,0));
+            Melee(50f, Attack.Kim_melee,new Vector2(transform.localScale.x,0));
             kimMeleeStage++;
             kimMeleeDelay = 0;
         }
@@ -74,7 +76,7 @@ public class CharacterAttackController : MonoBehaviour {
         else if(kimMeleeStage == 1 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee2");
-            Melee(5f, Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
+            Melee(50f, Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
             kimMeleeStage++;
             kimMeleeDelay = 0;
         }
@@ -82,14 +84,14 @@ public class CharacterAttackController : MonoBehaviour {
         else if(kimMeleeStage ==2 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee3");
-            Melee(5f, Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
+            Melee(50f, Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
             kimMeleeStage++;
             kimMeleeDelay = 0;
         }
         else if (kimMeleeStage == 3 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee4");
-            Melee(5f, Attack.kim_melee_up, new Vector2(transform.localScale.x, 1));
+            Melee(100f, Attack.kim_melee_up, new Vector2(transform.localScale.x, 1));
             kimMeleeStage = 0;
             kimMeleeDelay = 0;
         }
@@ -106,6 +108,7 @@ public class CharacterAttackController : MonoBehaviour {
         {
             foreach(GameObject player in meleeAttack.GetComponent<MeleeCheck>().playersInRange)
             {
+                ultimateGauge += damage;
                 player.GetComponent<CharacterController>().Hit(damage, attack, knockBackDirection);
             }
         }
