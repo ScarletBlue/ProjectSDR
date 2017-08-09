@@ -14,6 +14,7 @@ public class CharacterController : MonoBehaviour {
     public float AirDashTime = 0.5f;
 
     Rigidbody2D rb;
+    Animator anim;    
 
     int jumpCount = 0;
     float dashDelay = 0f;
@@ -24,6 +25,7 @@ public class CharacterController : MonoBehaviour {
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,10 +35,12 @@ public class CharacterController : MonoBehaviour {
         if (!isDashing)
         {
             Movement();
+            anim.SetBool("isDashing", false);
         }
         else if (isDashing)
         {
             Dash();
+            anim.SetBool("isDashing", true);
         }
         if(Input.GetKeyDown("space"))
         {
