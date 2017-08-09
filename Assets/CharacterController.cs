@@ -12,6 +12,7 @@ public class CharacterController : MonoBehaviour {
     public Character character;
     public float dashDelayTime = 0.3f;
     public float AirDashTime = 0.5f;
+    public float knockBackTime = 0.3f;
 
     public KeyCode key_jump;
     public KeyCode key_right;
@@ -201,12 +202,13 @@ public class CharacterController : MonoBehaviour {
     {
         hit = true;
         StartCoroutine(KnockBackDelay(damage));
+        rb.velocity = new Vector2(0, 0);
         rb.AddForce(knockBackDirection * (2000 - hp) * damage * 0.05f);
     }
 
     IEnumerator KnockBackDelay(float damage)
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(knockBackTime);
         hit = false;
     }
 }
