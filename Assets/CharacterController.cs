@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour {
 
@@ -13,6 +14,8 @@ public class CharacterController : MonoBehaviour {
     public float dashDelayTime = 0.3f;
     public float airDashTime = 0.5f;
     public float knockBackTime = 0.3f;
+
+    public Text hpText; //테스트용
 
     public KeyCode key_jump;
     public KeyCode key_right;
@@ -55,6 +58,10 @@ public class CharacterController : MonoBehaviour {
         if(Input.GetKeyDown(key_jump))
         {
             Jump();
+        }
+        if (hpText != null)
+        {
+            hpText.text = "hp : " + hp + "/1000";//테스트용
         }
     }
 

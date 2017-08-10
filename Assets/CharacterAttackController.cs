@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Attack { Kim_melee = 5, kim_melee_up = 20, kim_dash = 10, Pixie_melee}
 
@@ -14,6 +15,8 @@ public class CharacterAttackController : MonoBehaviour {
     public float meleeAttackDelay = 0.3f;
     public float meleeAtaackResetTime = 0.7f;
     public float dashAttackTime = 0.7f;
+
+    public Text ultimateGaugeText; // 테스트용
 
     int kimMeleeStage = 0;
     float kimMeleeDelay = 0;
@@ -30,6 +33,10 @@ public class CharacterAttackController : MonoBehaviour {
 	
 	void Update ()
     {
+        if (ultimateGaugeText != null) // 테스트용
+        {
+            ultimateGaugeText.text = "ultimate : " + ultimateGauge + "/1000";
+        }
 		if(Input.GetKeyDown("left ctrl"))
         {
             switch(character)
@@ -71,7 +78,6 @@ public class CharacterAttackController : MonoBehaviour {
         }
         else if(dashAttack && dashAttackDelay >= dashAttackTime)
         {
-            Debug.Log("aa");
             dashAttackDelay = 0f;
             dashAttack = false;
             GetComponent<CharacterController>().isDashing = false;
