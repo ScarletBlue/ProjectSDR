@@ -69,6 +69,13 @@ public class CharacterAttackController : MonoBehaviour {
             dashAttackDelay += Time.deltaTime;
             DashMelee(100f, Attack.kim_dash, new Vector2(transform.localScale.x,0));
         }
+        else if(dashAttack && dashAttackDelay >= dashAttackTime)
+        {
+            Debug.Log("aa");
+            dashAttackDelay = 0f;
+            dashAttack = false;
+            GetComponent<CharacterController>().isDashing = false;
+        }
 	}
 
     void KimMelee()
