@@ -26,6 +26,9 @@ public class CharacterSelect : MonoBehaviour {
     int leftTimeint;
     bool moveToNextScene;
 
+
+	private GameObject[] characterList;
+
     // Use this for initialization
     void Start () {
         p1character = 1;
@@ -38,6 +41,30 @@ public class CharacterSelect : MonoBehaviour {
         p4Choosing = true;
         leftTime = selectTime;
         moveToNextScene = false;
+		/*
+		characterList = new GameObject[transform.childCount];
+
+		for(int i = 0; i< transform.childCount; i++)
+		{
+			//to get the gameobject, not the transform
+			characterList[i] = transform.GetChild(i).gameObject; 
+
+		}
+
+		foreach(GameObject go in characterList)
+		{
+			//disable all the character model renderers
+			go.SetActive(false);
+		}
+
+
+		*/
+		/*
+		if(characterList[0])
+		{
+			characterList[0].SetActive(true);
+		}
+		*/
     }
 
     // Update is called once per frame
@@ -71,6 +98,7 @@ public class CharacterSelect : MonoBehaviour {
         {
             p1Choosing = false;
             PlayerPrefs.SetInt("p1", p1character);
+			Debug.Log(p1character);
         }
 
         if (InputManager.P2LeftButton() && p2Choosing)
@@ -153,7 +181,7 @@ public class CharacterSelect : MonoBehaviour {
             }
             else
             {
-                //move to next scene;
+				SceneManager.LoadScene("TestCharacterSelect");
             }
         }
     }
