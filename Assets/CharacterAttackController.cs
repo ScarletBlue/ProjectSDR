@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Attack { Kim_melee = 5, kim_melee_up = 20, kim_dash = 10, Pixie_melee}
+public enum Attack { Kim_melee = 5, kim_melee_up = 20, kim_dash = 10, kim_mine = 15, Pixie_melee}
 
 public class CharacterAttackController : MonoBehaviour {
 
@@ -12,6 +12,9 @@ public class CharacterAttackController : MonoBehaviour {
     Animator anim;
 
     public GameObject meleeAttack;
+    public GameObject mine;
+    public Transform minePosition;
+
     ParticleSystem ultimateParticle;
     public float meleeAttackDelay = 0.3f;
     public float meleeAtaackResetTime = 0.7f;
@@ -25,7 +28,7 @@ public class CharacterAttackController : MonoBehaviour {
     float dashAttackDelay = 0f;
 
     float ultimateGauge;
-    float UltimateGauge { get { return Mathf.Min(1000,ultimateGauge); } set { ultimateGauge = value; } }
+    public float UltimateGauge { get { return Mathf.Min(1000,ultimateGauge); } set { ultimateGauge = value; } }
 
 	void Start ()
     {
@@ -64,6 +67,10 @@ public class CharacterAttackController : MonoBehaviour {
             switch (character)
             {
                 case Character.KimJongUn:
+                    if (GetComponent<CharacterController>().IsOnFloor())
+                    {
+                        Mine(200f, Attack.kim_mine);
+                    }
                     break;
 
                 case Character.Kurisu:
@@ -155,5 +162,13 @@ public class CharacterAttackController : MonoBehaviour {
                 player.GetComponent<CharacterController>().Hit(damage, attack, knockBackDirection);
             }
         }
+    }
+
+    void Mine(float damage, Attack attack)
+    {
+        GameObject newMine = Instantiate(mine, minePosition.position, new Quaternion());
+        newMine.GetComponent<Mine>().kim = this;
+        newMine.GetComponent<Mine>().damage = damage;
+        newMine.GetComponent<Mine>().attack = Attack.kim_mine;
     }
 }

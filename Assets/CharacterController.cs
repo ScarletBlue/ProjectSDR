@@ -49,11 +49,20 @@ public class CharacterController : MonoBehaviour {
         {
             Movement();
             anim.SetBool("isDashing", false);
+            if(MovingDirection() != 0)
+            {
+                anim.SetBool("isWalking", true);
+            }
+            else
+            {
+                anim.SetBool("isWalking", false);
+            }
         }
         else if (isDashing && !hit)
         {
             Dash();
             anim.SetBool("isDashing", true);
+            anim.SetBool("isWalking", false);
         }
         if(Input.GetKeyDown(key_jump))
         {
@@ -196,7 +205,7 @@ public class CharacterController : MonoBehaviour {
         }
     }
 
-    bool IsOnFloor()
+    public bool IsOnFloor()
     {
         int layerMask = 1 << LayerMask.NameToLayer("Character");
         layerMask = ~layerMask;
