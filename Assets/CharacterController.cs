@@ -11,7 +11,7 @@ public class CharacterController : MonoBehaviour {
     public float jump2Speed;
     public Character character;
     public float dashDelayTime = 0.3f;
-    public float AirDashTime = 0.5f;
+    public float airDashTime = 0.5f;
     public float knockBackTime = 0.3f;
 
     public KeyCode key_jump;
@@ -26,6 +26,7 @@ public class CharacterController : MonoBehaviour {
     int dashInput = 0;
     bool isDashing = false;
     int dashDirection = 0;
+    float airDashDelay = 0f;
 
     float hp = 1000;
 
@@ -136,11 +137,13 @@ public class CharacterController : MonoBehaviour {
 
         if (Input.GetKeyDown(key_right) && dashInput == 1 && dashDelay <= dashDelayTime)
         {
+            airDashDelay = 0f;
             dashDirection = 1;
             isDashing = true;
         }
         else if (Input.GetKeyDown(key_left) && dashInput == -1 && dashDelay <= dashDelayTime)
         {
+            airDashDelay = 0f;
             dashDirection = -1;
             isDashing = true;
         }
@@ -149,6 +152,7 @@ public class CharacterController : MonoBehaviour {
         {
             if(isDashing)
             {
+                dashInput = 0;
                 dashDirection = 0;
                 isDashing = false;
             }
@@ -167,19 +171,13 @@ public class CharacterController : MonoBehaviour {
         }
         else
         {
+            airDashDelay += Time.deltaTime;
             rb.velocity = new Vector2(dashSpeed * dashDirection, Mathf.Max(0f, rb.velocity.y));
-            StartCoroutine(AirDashDelay());
-        }
-    }
-
-
-    IEnumerator AirDashDelay()
-    {
-        yield return new WaitForSeconds(AirDashTime);
-        if (!IsOnFloor())
-        {
-            dashDirection = 0;
-            isDashing = false;
+            if(airDashDelay >= airDashTime && isDashing)
+            {
+                dashDirection = 0;
+                isDashing = false;
+            }
         }
     }
 
