@@ -12,6 +12,7 @@ public class CharacterAttackController : MonoBehaviour {
     Animator anim;
 
     public GameObject meleeAttack;
+    ParticleSystem ultimateParticle;
     public float meleeAttackDelay = 0.3f;
     public float meleeAtaackResetTime = 0.7f;
     public float dashAttackTime = 0.7f;
@@ -23,19 +24,25 @@ public class CharacterAttackController : MonoBehaviour {
     bool dashAttack = false;
     float dashAttackDelay = 0f;
 
-    float ultimateGauge = 0;
+    float ultimateGauge;
+    float UltimateGauge { get { return Mathf.Min(1000,ultimateGauge); } set { ultimateGauge = value; } }
 
 	void Start ()
     {
         character = GetComponent<CharacterController>().character;
+        ultimateParticle = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
 	}
 	
 	void Update ()
     {
+        if(UltimateGauge == 1000 && !ultimateParticle.isPlaying)
+        {
+            ultimateParticle.Play();
+        }
         if (ultimateGaugeText != null) // 테스트용
         {
-            ultimateGaugeText.text = "ultimate : " + ultimateGauge + "/1000";
+            ultimateGaugeText.text = "ultimate : " + UltimateGauge + "/1000";
         }
 		if(Input.GetKeyDown("left ctrl"))
         {
@@ -130,7 +137,7 @@ public class CharacterAttackController : MonoBehaviour {
         {
             foreach (GameObject player in meleeAttack.GetComponent<MeleeCheck>().playersInRange)
             {
-                ultimateGauge += damage;
+                UltimateGauge += damage;
                 player.GetComponent<CharacterController>().Hit(damage, attack, knockBackDirection);
                 dashAttack = false;
                 GetComponent<CharacterController>().isDashing = false;
@@ -144,7 +151,7 @@ public class CharacterAttackController : MonoBehaviour {
         {
             foreach(GameObject player in meleeAttack.GetComponent<MeleeCheck>().playersInRange)
             {
-                ultimateGauge += damage;
+                UltimateGauge += damage;
                 player.GetComponent<CharacterController>().Hit(damage, attack, knockBackDirection);
             }
         }

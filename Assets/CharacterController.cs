@@ -31,7 +31,7 @@ public class CharacterController : MonoBehaviour {
     int dashDirection = 0;
     float airDashDelay = 0f;
 
-    float hp = 1000;
+    public float hp = 1000;
 
     bool hit = false;
 
@@ -62,6 +62,14 @@ public class CharacterController : MonoBehaviour {
         if (hpText != null)
         {
             hpText.text = "hp : " + hp + "/1000";//테스트용
+        }
+        if(hp<=100)
+        {
+            anim.SetBool("hp_low", true);
+        }
+        else
+        {
+            anim.SetBool("hp_low", false);
         }
     }
 
