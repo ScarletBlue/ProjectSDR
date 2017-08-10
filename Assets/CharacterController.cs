@@ -24,7 +24,7 @@ public class CharacterController : MonoBehaviour {
     int jumpCount = 0;
     float dashDelay = 0f;
     int dashInput = 0;
-    bool isDashing = false;
+    public bool isDashing = false;
     int dashDirection = 0;
     float airDashDelay = 0f;
 

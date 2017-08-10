@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Attack { Kim_melee = 5, kim_melee_up = 20, Pixie_melee}
+public enum Attack { Kim_melee = 5, kim_melee_up = 20, kim_dash = 10, Pixie_melee}
 
 public class CharacterAttackController : MonoBehaviour {
 
@@ -13,9 +13,12 @@ public class CharacterAttackController : MonoBehaviour {
     public GameObject meleeAttack;
     public float meleeAttackDelay = 0.3f;
     public float meleeAtaackResetTime = 0.7f;
+    public float dashAttackTime = 0.7f;
 
     int kimMeleeStage = 0;
     float kimMeleeDelay = 0;
+    bool dashAttack = false;
+    float dashAttackDelay = 0f;
 
     float ultimateGauge = 0;
 
@@ -61,11 +64,22 @@ public class CharacterAttackController : MonoBehaviour {
         {
             kimMeleeStage = 0;
         }
+        if(dashAttack && dashAttackDelay <= dashAttackTime)
+        {
+            dashAttackDelay += Time.deltaTime;
+            DashMelee(100f, Attack.kim_dash, new Vector2(transform.localScale.x,0));
+        }
 	}
 
     void KimMelee()
     {
-        if(kimMeleeStage == 0 && kimMeleeDelay >= meleeAttackDelay)
+        if(GetComponent<CharacterController>().isDashing)
+        {
+            dashAttack = true;
+            dashAttackDelay = 0;
+            anim.SetTrigger("dashMelee");
+        }
+        else if(kimMeleeStage == 0 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee1");
             Melee(50f, Attack.Kim_melee,new Vector2(transform.localScale.x,0));
@@ -91,15 +105,24 @@ public class CharacterAttackController : MonoBehaviour {
         else if (kimMeleeStage == 3 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee4");
-            Melee(100f, Attack.kim_melee_up, new Vector2(transform.localScale.x, 1));
+            Melee(100f, Attack.kim_melee_up, new Vector2(transform.localScale.x, 1).normalized);
             kimMeleeStage = 0;
             kimMeleeDelay = 0;
         }
     }
 
-    void KimDash()
+    void DashMelee(float damage, Attack attack, Vector2 knockBackDirection)
     {
-
+        if (meleeAttack.GetComponent<MeleeCheck>().playersInRange.Count != 0)
+        {
+            foreach (GameObject player in meleeAttack.GetComponent<MeleeCheck>().playersInRange)
+            {
+                ultimateGauge += damage;
+                player.GetComponent<CharacterController>().Hit(damage, attack, knockBackDirection);
+                dashAttack = false;
+                GetComponent<CharacterController>().isDashing = false;
+            }
+        }
     }
 
     void Melee(float damage, Attack attack, Vector2 knockBackDirection)
