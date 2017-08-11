@@ -26,7 +26,7 @@ public class CharacterSelect : MonoBehaviour {
     int leftTimeint;
     bool moveToNextScene;
 
-
+	[SerializeField]
 	private GameObject[] characterList;
 
     // Use this for initialization
@@ -41,30 +41,8 @@ public class CharacterSelect : MonoBehaviour {
         p4Choosing = true;
         leftTime = selectTime;
         moveToNextScene = false;
-		/*
-		characterList = new GameObject[transform.childCount];
+		
 
-		for(int i = 0; i< transform.childCount; i++)
-		{
-			//to get the gameobject, not the transform
-			characterList[i] = transform.GetChild(i).gameObject; 
-
-		}
-
-		foreach(GameObject go in characterList)
-		{
-			//disable all the character model renderers
-			go.SetActive(false);
-		}
-
-
-		*/
-		/*
-		if(characterList[0])
-		{
-			characterList[0].SetActive(true);
-		}
-		*/
     }
 
     // Update is called once per frame
@@ -166,7 +144,7 @@ public class CharacterSelect : MonoBehaviour {
         }
         else
         {
-            if (moveToNextScene == false)
+            if (moveToNextScene == false && leftTime <= 0.0f)
             {
                 p1Choosing = false;
                 PlayerPrefs.SetInt("p1", p1character);
