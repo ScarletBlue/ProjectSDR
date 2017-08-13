@@ -35,10 +35,43 @@ public class CharacterController : MonoBehaviour {
 
     bool hit = false;
 
+    ///캐릭터 컨트롤러 구분
+    public int thisCharacter = 1;
+    int player1 = 2;
+    int player2 = 1;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+
+        ///캐릭터 컨트롤러 구분
+        if(player1 == thisCharacter)
+        {
+            key_jump = KeyCode.W;
+            key_left = KeyCode.A;
+            key_right = KeyCode.D;
+        }
+        else if(player1 == thisCharacter)
+        {
+            key_jump = KeyCode.T;
+            key_left = KeyCode.F;
+            key_right = KeyCode.H;
+        }
+        if (player2 == thisCharacter)
+        {
+            key_jump = KeyCode.T;
+            key_left = KeyCode.F;
+            key_right = KeyCode.H;
+        }
+        else if (player2 == thisCharacter)
+        {
+            key_jump = KeyCode.W;
+            key_left = KeyCode.A;
+            key_right = KeyCode.D;
+        }
+
     }
 
     // Update is called once per frame
