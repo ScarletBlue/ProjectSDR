@@ -1,9 +1,12 @@
 fileFormatVersion: 2
 guid: 2785be8ee0f925b489d7ed8a8b1748a6
-timeCreated: 1502614493
+timeCreated: 1502631509
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: chandelierBackSide_0
+    21300002: chandelierBackSide_1
+    21300004: chandelierBackSide_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -40,7 +43,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 50
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -68,7 +71,46 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: chandelierBackSide_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 52
+        width: 168
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: chandelierBackSide_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 75
+        width: 37
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: chandelierBackSide_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 59
+        width: 110
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

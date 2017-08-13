@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: 223a7250727099f4f903a84693d4649a
-timeCreated: 1502614493
+timeCreated: 1502631556
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: chandelierFrontSide_0
+    21300002: chandelierFrontSide_1
+    21300004: chandelierFrontSide_2
+    21300006: chandelierFrontSide_3
+    21300008: chandelierFrontSide_4
+    21300010: chandelierFrontSide_5
+    21300012: chandelierFrontSide_6
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -40,7 +47,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 50
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -68,7 +75,20 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: chandelierFrontSide_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 384
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
