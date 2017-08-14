@@ -1,9 +1,12 @@
 fileFormatVersion: 2
-guid: 7cfae11c28129a749ae77bd9e5919c21
-timeCreated: 1501690092
+guid: 2785be8ee0f925b489d7ed8a8b1748a6
+timeCreated: 1502631509
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: chandelierBackSide_0
+    21300002: chandelierBackSide_1
+    21300004: chandelierBackSide_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -12,8 +15,6 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
-    mipMapsPreserveCoverage: 0
-    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -29,13 +30,10 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -73,9 +71,47 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: chandelierBackSide_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 52
+        width: 168
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: chandelierBackSide_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 75
+        width: 37
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: chandelierBackSide_2
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 59
+        width: 110
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
-    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
