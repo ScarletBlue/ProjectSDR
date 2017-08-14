@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a54d528a264e5504296aa443dec9c95d
-timeCreated: 1502631617
+guid: f7feacfe102bec147961b9b964d2dbde
+timeCreated: 1502631436
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: cashCounter_0
+    21300000: fittingRoom_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -31,7 +31,7 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -71,15 +71,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cashCounter_0
+      name: fittingRoom_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 8
-        width: 232
-        height: 132
+        x: 34
+        y: 37
+        width: 170
+        height: 181
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
