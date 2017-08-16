@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 203814ccd6236cd498759dc944b66652
-timeCreated: 1502631652
+guid: 63145244ae7a8594681429e114885da8
+timeCreated: 1502861112
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: boxs_0
+    21300000: box_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -76,13 +76,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boxs_0
+      name: box_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 28
-        width: 120
-        height: 71
+        x: 3
+        y: 1
+        width: 233
+        height: 138
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

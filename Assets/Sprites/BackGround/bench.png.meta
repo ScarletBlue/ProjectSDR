@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d21b5d50ad91ea64eaa345cd7eb28c3e
-timeCreated: 1502631672
+guid: b1856ac2454c4df4695b22e9a38292c0
+timeCreated: 1502861092
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -34,9 +34,9 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapU: -1
-    wrapV: -1
-    wrapW: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -79,10 +79,10 @@ TextureImporter:
       name: bench_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 4
         y: 25
-        width: 102
-        height: 51
+        width: 202
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

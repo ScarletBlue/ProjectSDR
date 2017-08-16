@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ecef36d463797e64c80f4e4f08d3d8ed
-timeCreated: 1502631379
+guid: 60815407270ba974592375b6cfa972e8
+timeCreated: 1502861706
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -34,9 +34,9 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapU: -1
-    wrapV: -1
-    wrapW: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -79,10 +79,10 @@ TextureImporter:
       name: gacha_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 3
-        width: 70
-        height: 84
+        x: 3
+        y: 8
+        width: 139
+        height: 166
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

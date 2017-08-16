@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 223a7250727099f4f903a84693d4649a
-timeCreated: 1502631556
+guid: 573d51b1ac6ebab468bbb30e6f647d1f
+timeCreated: 1502861659
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: chandelierFrontSide_0
-    21300002: chandelierFrontSide_1
-    21300004: chandelierFrontSide_2
-    21300006: chandelierFrontSide_3
-    21300008: chandelierFrontSide_4
-    21300010: chandelierFrontSide_5
-    21300012: chandelierFrontSide_6
+    21300000: CahndelierFrontSide_0
+    21300002: CahndelierFrontSide_1
+    21300004: CahndelierFrontSide_2
+    21300006: CahndelierFrontSide_3
+    21300008: CahndelierFrontSide_4
+    21300010: CahndelierFrontSide_5
+    21300012: CahndelierFrontSide_6
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -82,15 +82,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chandelierFrontSide_0
+      name: CahndelierFrontSide_4
       rect:
         serializedVersion: 2
-        x: 0
+        x: 17
         y: 0
-        width: 384
-        height: 224
+        width: 684
+        height: 443
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

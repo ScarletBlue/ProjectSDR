@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 48f56717280895b4699d9183e93db1e8
-timeCreated: 1502631337
+guid: e04d4f1a71eaee447b365b451eebfaff
+timeCreated: 1502861739
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: kimFigure_0
+    21300000: kimStatue_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -76,13 +76,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kimFigure_0
+      name: kimStatue_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 15
-        width: 108
-        height: 215
+        x: 5
+        y: 12
+        width: 216
+        height: 430
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

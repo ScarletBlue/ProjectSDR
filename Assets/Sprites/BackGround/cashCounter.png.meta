@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a54d528a264e5504296aa443dec9c95d
-timeCreated: 1502631617
+guid: 7fe8b29633d32b1428783916b66e1efa
+timeCreated: 1502861179
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -34,9 +34,9 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapU: -1
-    wrapV: -1
-    wrapW: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -79,12 +79,12 @@ TextureImporter:
       name: cashCounter_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 8
-        width: 232
-        height: 132
+        x: 4
+        y: 35
+        width: 345
+        height: 196
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

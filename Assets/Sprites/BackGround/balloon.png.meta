@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c251c1430d28a614bb616f73f6e58c0a
-timeCreated: 1502631685
+guid: 9483ca551fef86947ba13d10bc7689ee
+timeCreated: 1502861074
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -34,9 +34,9 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapU: -1
-    wrapV: -1
-    wrapW: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -80,9 +80,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 82
-        height: 170
+        y: 1
+        width: 154
+        height: 319
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

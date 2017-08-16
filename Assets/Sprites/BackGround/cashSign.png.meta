@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a418c09a1d3238c4bbc401a0e04449f3
-timeCreated: 1502631628
+guid: 184f30c1f4cf91d47952186592007bbe
+timeCreated: 1502861271
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -79,10 +79,10 @@ TextureImporter:
       name: cashSign_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 34
-        width: 71
-        height: 105
+        x: 2
+        y: 16
+        width: 139
+        height: 205
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

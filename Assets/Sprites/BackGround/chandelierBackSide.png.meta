@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 2785be8ee0f925b489d7ed8a8b1748a6
-timeCreated: 1502631509
+guid: 30e51391a1def454ea83eddd2914b0e3
+timeCreated: 1502861684
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: chandelierBackSide_0
-    21300002: chandelierBackSide_1
-    21300004: chandelierBackSide_2
+    21300000: CahndelierBackside_0
+    21300002: CahndelierBackside_1
+    21300004: CahndelierBackside_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -78,41 +78,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chandelierBackSide_0
+      name: CahndelierBackside_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 52
-        width: 168
-        height: 156
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: chandelierBackSide_1
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 75
-        width: 37
-        height: 133
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: chandelierBackSide_2
-      rect:
-        serializedVersion: 2
-        x: 206
-        y: 59
-        width: 110
-        height: 149
+        x: 3
+        y: 99
+        width: 603
+        height: 318
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f7feacfe102bec147961b9b964d2dbde
-timeCreated: 1502631436
+guid: def139b0a10b76644a35918704c7a2bd
+timeCreated: 1502861588
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -79,10 +79,10 @@ TextureImporter:
       name: fittingRoom_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 37
-        width: 170
-        height: 181
+        x: 5
+        y: 18
+        width: 339
+        height: 361
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

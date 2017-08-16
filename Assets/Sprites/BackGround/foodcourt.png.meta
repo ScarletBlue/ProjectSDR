@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: a70e965b47ea81d4f956caf337849a53
-timeCreated: 1502631927
+guid: 2d264903b4c1c5d489e07fb115e3f44c
+timeCreated: 1502861620
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: foodcourt_0
-    21300002: foodcourt_1
+    21300000: foodCourt_1
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -35,9 +34,9 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapU: -1
-    wrapV: -1
-    wrapW: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -77,13 +76,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: foodcourt_0
+      name: foodCourt_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 224
+        x: 8
+        y: 8
+        width: 500
+        height: 431
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

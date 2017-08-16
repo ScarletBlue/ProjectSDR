@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e9f79047141949848b47572a5d23604a
-timeCreated: 1502631388
+guid: f946edfea6dc80044995aea718d460d2
+timeCreated: 1502861695
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -79,10 +79,10 @@ TextureImporter:
       name: forkLift_0
       rect:
         serializedVersion: 2
-        x: 54
-        y: 1
-        width: 263
-        height: 158
+        x: 12
+        y: 4
+        width: 520
+        height: 312
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

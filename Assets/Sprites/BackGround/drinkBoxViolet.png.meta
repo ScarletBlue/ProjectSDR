@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 2fafd193cef8c4449b2fe7b1e0438d71
-timeCreated: 1502631477
+guid: da97a99690748f74ebd88a091461820d
+timeCreated: 1502861368
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -28,10 +30,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -74,16 +79,18 @@ TextureImporter:
       name: drinkBoxViolet_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 15
-        width: 146
-        height: 134
+        x: 1
+        y: 2
+        width: 290
+        height: 265
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
     outline: []
+    physicsShape: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
