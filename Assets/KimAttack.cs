@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Attack { Kim_melee = 5, kim_melee_up = 20, kim_dash = 10, kim_mine = 15, Pixie_melee}
-
-public class CharacterAttackController : MonoBehaviour {
-
+public class KimAttack : MonoBehaviour {
     Character character;
 
     Animator anim;
@@ -28,18 +25,18 @@ public class CharacterAttackController : MonoBehaviour {
     float dashAttackDelay = 0f;
 
     float ultimateGauge;
-    public float UltimateGauge { get { return Mathf.Min(1000,ultimateGauge); } set { ultimateGauge = value; } }
+    public float UltimateGauge { get { return Mathf.Min(1000, ultimateGauge); } set { ultimateGauge = value; } }
 
-	void Start ()
+    void Start()
     {
         character = GetComponent<CharacterController>().character;
         ultimateParticle = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
-	}
-	
-	void Update ()
+    }
+
+    void Update()
     {
-        if(UltimateGauge == 1000 && !ultimateParticle.isPlaying)
+        if (UltimateGauge == 1000 && !ultimateParticle.isPlaying)
         {
             ultimateParticle.Play();
         }
@@ -47,74 +44,52 @@ public class CharacterAttackController : MonoBehaviour {
         {
             ultimateGaugeText.text = "ultimate : " + UltimateGauge + "/1000";
         }
-		if(Input.GetKeyDown("left ctrl"))
+        if (Input.GetKeyDown("left ctrl"))
         {
-            switch(character)
-            {
-                case Character.KimJongUn:
-                    KimMelee();
-                    break;
-
-                case Character.Kurisu:
-                    break;
-
-                case Character.MelonPixie:
-                    break;
-            }
+            KimMelee();
         }
-        if(Input.GetKeyDown("left alt"))
+        if (Input.GetKeyDown("left alt"))
         {
-            switch (character)
+            if (GetComponent<CharacterController>().IsOnFloor())
             {
-                case Character.KimJongUn:
-                    if (GetComponent<CharacterController>().IsOnFloor())
-                    {
-                        Mine(200f, Attack.kim_mine);
-                    }
-                    break;
-
-                case Character.Kurisu:
-                    break;
-
-                case Character.MelonPixie:
-                    break;
+                Mine(200f, Attack.kim_mine);
             }
         }
         kimMeleeDelay += Time.deltaTime;
-        if(kimMeleeDelay >= meleeAtaackResetTime)
+        if (kimMeleeDelay >= meleeAtaackResetTime)
         {
             kimMeleeStage = 0;
         }
-        if(dashAttack && dashAttackDelay <= dashAttackTime)
+        if (dashAttack && dashAttackDelay <= dashAttackTime)
         {
             dashAttackDelay += Time.deltaTime;
-            DashMelee(100f, Attack.kim_dash, new Vector2(transform.localScale.x,0));
+            DashMelee(100f, Attack.kim_dash, new Vector2(transform.localScale.x, 0));
         }
-        else if(dashAttack && dashAttackDelay >= dashAttackTime)
+        else if (dashAttack && dashAttackDelay >= dashAttackTime)
         {
             dashAttackDelay = 0f;
             dashAttack = false;
             GetComponent<CharacterController>().isDashing = false;
         }
-	}
+    }
 
     void KimMelee()
     {
-        if(GetComponent<CharacterController>().isDashing)
+        if (GetComponent<CharacterController>().isDashing)
         {
             dashAttack = true;
             dashAttackDelay = 0;
             anim.SetTrigger("dashMelee");
         }
-        else if(kimMeleeStage == 0 && kimMeleeDelay >= meleeAttackDelay)
+        else if (kimMeleeStage == 0 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee1");
-            Melee(50f, Attack.Kim_melee,new Vector2(transform.localScale.x,0));
+            Melee(50f, Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
             kimMeleeStage++;
             kimMeleeDelay = 0;
         }
 
-        else if(kimMeleeStage == 1 && kimMeleeDelay >= meleeAttackDelay)
+        else if (kimMeleeStage == 1 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee2");
             Melee(50f, Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
@@ -122,7 +97,7 @@ public class CharacterAttackController : MonoBehaviour {
             kimMeleeDelay = 0;
         }
 
-        else if(kimMeleeStage ==2 && kimMeleeDelay >= meleeAttackDelay)
+        else if (kimMeleeStage == 2 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee3");
             Melee(50f, Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
@@ -154,13 +129,21 @@ public class CharacterAttackController : MonoBehaviour {
 
     void Melee(float damage, Attack attack, Vector2 knockBackDirection)
     {
-        if(meleeAttack.GetComponent<MeleeCheck>().playersInRange.Count != 0)
+        if (meleeAttack.GetComponent<MeleeCheck>().playersInRange.Count != 0)
         {
-            foreach(GameObject player in meleeAttack.GetComponent<MeleeCheck>().playersInRange)
+            foreach (GameObject player in meleeAttack.GetComponent<MeleeCheck>().playersInRange)
             {
                 UltimateGauge += damage;
                 player.GetComponent<CharacterController>().Hit(damage, attack, knockBackDirection);
             }
         }
+    }
+
+    void Mine(float damage, Attack attack)
+    {
+        GameObject newMine = Instantiate(mine, minePosition.position, new Quaternion());
+        newMine.GetComponent<Mine>().kim = this;
+        newMine.GetComponent<Mine>().damage = damage;
+        newMine.GetComponent<Mine>().attack = Attack.kim_mine;
     }
 }

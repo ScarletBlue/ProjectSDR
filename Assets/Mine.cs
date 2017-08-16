@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour {
 
-    public CharacterAttackController kim;
+    public KimAttack kim;
 
     public float damage;
     public Attack attack;
