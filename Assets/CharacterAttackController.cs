@@ -69,7 +69,7 @@ public class CharacterAttackController : MonoBehaviour {
                 case Character.KimJongUn:
                     if (GetComponent<CharacterController>().IsOnFloor())
                     {
-                        Mine(200f, Attack.kim_mine);
+                        //Mine(200f, Attack.kim_mine);
                     }
                     break;
 
