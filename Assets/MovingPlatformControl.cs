@@ -19,20 +19,23 @@ public class MovingPlatformControl : MonoBehaviour {
 
         public void MakePlatform()
         {
-            GameObject newPlatform = Instantiate(platform);
-            platform = newPlatform;
-            platform.transform.position = startPosition;
+            if (!platform.activeInHierarchy)
+            {
+                GameObject newPlatform = Instantiate(platform);
+                platform = newPlatform;
+            }
+            platform.transform.localPosition = startPosition;
         }
         
         public void Move()
         {
-            platform.transform.position = Vector3.MoveTowards(platform.transform.position, destPosition, speed * Time.deltaTime);
+            platform.transform.localPosition = Vector3.MoveTowards(platform.transform.localPosition, destPosition, speed * Time.deltaTime);
 
-            if((destPosition - platform.transform.position).magnitude < 0.1f && isLooping)
+            if((destPosition - platform.transform.localPosition).magnitude < 0.1f && isLooping)
             {
                 if (!ismovingBnF)
                 {
-                    platform.transform.position = startPosition;
+                    platform.transform.localPosition = startPosition;
                 }
                 else
                 {
@@ -41,7 +44,7 @@ public class MovingPlatformControl : MonoBehaviour {
                     startPosition = temp;
                 }
             }
-            else if((destPosition - platform.transform.position).magnitude < 0.1f && !isLooping)
+            else if((destPosition - platform.transform.localPosition).magnitude < 0.1f && !isLooping)
             {
                 Destroy(platform);
             }

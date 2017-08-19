@@ -77,6 +77,7 @@ public class CharacterController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        IsOnFloor();
         IsDashing();
         if (!isDashing && !hit)
         {
@@ -245,10 +246,17 @@ public class CharacterController : MonoBehaviour {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, GetComponent<BoxCollider2D>().size.y / 2 + 0.1f, layerMask);
         if (hit.collider != null && hit.collider.tag == "Platform")
         {
+            
+            return true;
+        }
+        else if (hit.collider != null && hit.collider.tag == "movingPlatform")
+        {
+            transform.parent = hit.transform;
             return true;
         }
         else
         {
+            transform.parent = null;
             return false;
         }
     }

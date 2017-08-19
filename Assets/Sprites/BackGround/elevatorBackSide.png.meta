@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: 559b797d970e5da4595047a64118dbf2
-timeCreated: 1502892539
+timeCreated: 1503160016
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: elevatorBackSide_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -39,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -63,11 +64,92 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
-    outline: []
-    physicsShape: []
+    sprites:
+    - serializedVersion: 2
+      name: elevatorBackSide_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline:
+    - - {x: 112, y: -163}
+      - {x: 112, y: 61}
+      - {x: 243, y: 196}
+      - {x: 243, y: 220}
+      - {x: 242, y: 242}
+      - {x: -212, y: 241}
+      - {x: -365, y: 90}
+      - {x: -365, y: -364}
+      - {x: -363, y: -366}
+      - {x: 91, y: -366}
+      - {x: 152, y: -305}
+      - {x: 152, y: -165}
+      - {x: 150, y: -163}
+    - - {x: -113, y: 168}
+      - {x: -110, y: 169}
+      - {x: -110, y: 172}
+      - {x: -113, y: 173}
+      - {x: -115, y: 171}
+    - - {x: -42, y: 239}
+      - {x: -39, y: 240}
+      - {x: -39, y: 243}
+      - {x: -42, y: 244}
+      - {x: -44, y: 242}
+    physicsShape:
+    - - {x: 359, y: 300}
+      - {x: 359, y: 361}
+      - {x: -94, y: 361}
+      - {x: -365, y: 90}
+      - {x: -365, y: -364}
+      - {x: -363, y: -366}
+      - {x: 91, y: -366}
+      - {x: 152, y: -305}
+      - {x: 152, y: -165}
+      - {x: 150, y: -163}
+    - - {x: -223, y: 60}
+      - {x: 59, y: 60}
+      - {x: 59, y: -201}
+      - {x: -223, y: -201}
+    - - {x: -12, y: 291}
+      - {x: 8, y: 316}
+      - {x: 78, y: 112}
+      - {x: -196, y: 112}
+    - - {x: -113, y: 168}
+      - {x: -110, y: 169}
+      - {x: -110, y: 172}
+      - {x: -113, y: 173}
+      - {x: -115, y: 171}
+    - - {x: -42, y: 239}
+      - {x: -39, y: 240}
+      - {x: -39, y: 243}
+      - {x: -42, y: 244}
+      - {x: -44, y: 242}
   spritePackingTag: 
   userData: 
   assetBundleName: 
