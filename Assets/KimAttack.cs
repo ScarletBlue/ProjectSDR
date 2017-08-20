@@ -17,8 +17,6 @@ public class KimAttack : MonoBehaviour {
     public float meleeAtaackResetTime = 0.7f;
     public float dashAttackTime = 0.7f;
 
-    public Text ultimateGaugeText; // 테스트용
-
     int kimMeleeStage = 0;
     float kimMeleeDelay = 0;
     bool dashAttack = false;
@@ -40,10 +38,6 @@ public class KimAttack : MonoBehaviour {
         {
             ultimateParticle.Play();
         }
-        if (ultimateGaugeText != null) // 테스트용
-        {
-            ultimateGaugeText.text = "ultimate : " + UltimateGauge + "/1000";
-        }
         if (Input.GetKeyDown("left ctrl"))
         {
             KimMelee();
@@ -53,6 +47,7 @@ public class KimAttack : MonoBehaviour {
             if (GetComponent<CharacterController>().IsOnFloor())
             {
                 Mine(200f, Attack.kim_mine);
+                anim.SetTrigger("mine");
             }
         }
         kimMeleeDelay += Time.deltaTime;

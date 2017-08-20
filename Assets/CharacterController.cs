@@ -15,8 +15,6 @@ public class CharacterController : MonoBehaviour {
     public float airDashTime = 0.5f;
     public float knockBackTime = 0.3f;
 
-    public Text hpText; //테스트용
-
     public KeyCode key_jump;
     public KeyCode key_right;
     public KeyCode key_left;
@@ -44,34 +42,6 @@ public class CharacterController : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
-
-        ///캐릭터 컨트롤러 구분
-        if(player1 == thisCharacter)
-        {
-            key_jump = KeyCode.W;
-            key_left = KeyCode.A;
-            key_right = KeyCode.D;
-        }
-        else if(player1 == thisCharacter)
-        {
-            key_jump = KeyCode.T;
-            key_left = KeyCode.F;
-            key_right = KeyCode.H;
-        }
-        if (player2 == thisCharacter)
-        {
-            key_jump = KeyCode.T;
-            key_left = KeyCode.F;
-            key_right = KeyCode.H;
-        }
-        else if (player2 == thisCharacter)
-        {
-            key_jump = KeyCode.W;
-            key_left = KeyCode.A;
-            key_right = KeyCode.D;
-        }
-
     }
 
     // Update is called once per frame
@@ -101,10 +71,6 @@ public class CharacterController : MonoBehaviour {
         if(Input.GetKeyDown(key_jump))
         {
             Jump();
-        }
-        if (hpText != null)
-        {
-            hpText.text = "hp : " + hp + "/1000";//테스트용
         }
         if(hp<=100)
         {
