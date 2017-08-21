@@ -53,6 +53,7 @@ public class KimAttack : MonoBehaviour {
         {
             if (GetComponent<CharacterController>().IsOnFloor())
             {
+                Debug.Log("mine");
                 Mine(200f, Attack.kim_mine);
                 anim.SetTrigger("mine");
             }

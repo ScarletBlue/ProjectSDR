@@ -31,7 +31,7 @@ public class CharacterController : MonoBehaviour {
 
     public float hp = 1000;
 
-    bool hit = false;
+    public bool hit = false;
 
     ///캐릭터 컨트롤러 구분
     public int thisCharacter = 1;
@@ -234,6 +234,8 @@ public class CharacterController : MonoBehaviour {
         StartCoroutine(KnockBackDelay(damage));
         rb.velocity = new Vector2(0, 0);
         rb.AddForce(knockBackDirection * (2000 - hp) * attack * 0.05f);
+        transform.localScale = new Vector3(-(knockBackDirection.x / Mathf.Abs(knockBackDirection.x)), 1, 1);
+        anim.SetTrigger("hit");
     }
 
     IEnumerator KnockBackDelay(float damage)
