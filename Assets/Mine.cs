@@ -7,7 +7,7 @@ public class Mine : MonoBehaviour {
     public KimAttack kim;
 
     public float damage;
-    public Attack attack;
+    public int attack;
 
     bool isExploded = false;
 

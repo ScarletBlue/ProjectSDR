@@ -227,13 +227,13 @@ public class CharacterController : MonoBehaviour {
         }
     }
 
-    public void Hit(float damage, Attack attack, Vector2 knockBackDirection)
+    public void Hit(float damage, int attack, Vector2 knockBackDirection)
     {
         hit = true;
         hp -= damage;
         StartCoroutine(KnockBackDelay(damage));
         rb.velocity = new Vector2(0, 0);
-        rb.AddForce(knockBackDirection * (2000 - hp) * (int)attack * 0.05f);
+        rb.AddForce(knockBackDirection * (2000 - hp) * attack * 0.05f);
     }
 
     IEnumerator KnockBackDelay(float damage)

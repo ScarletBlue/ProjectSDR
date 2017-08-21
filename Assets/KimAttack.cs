@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class KimAttack : MonoBehaviour {
+    enum Attack { Kim_melee = 5, kim_melee_up = 20, kim_dash = 10, kim_mine = 15 }
     Character character;
 
     Animator anim;
+
+    public KeyCode melee;
+    public KeyCode skill;
+    public KeyCode ultimate;
 
     public GameObject meleeAttack;
     public GameObject mine;
@@ -38,11 +45,11 @@ public class KimAttack : MonoBehaviour {
         {
             ultimateParticle.Play();
         }
-        if (Input.GetKeyDown("left ctrl"))
+        if (Input.GetKeyDown(melee))
         {
             KimMelee();
         }
-        if (Input.GetKeyDown("left alt"))
+        if (Input.GetKeyDown(skill))
         {
             if (GetComponent<CharacterController>().IsOnFloor())
             {
@@ -58,7 +65,7 @@ public class KimAttack : MonoBehaviour {
         if (dashAttack && dashAttackDelay <= dashAttackTime)
         {
             dashAttackDelay += Time.deltaTime;
-            DashMelee(100f, Attack.kim_dash, new Vector2(transform.localScale.x, 0));
+            DashMelee(100f, (int)Attack.kim_dash, new Vector2(transform.localScale.x, 0));
         }
         else if (dashAttack && dashAttackDelay >= dashAttackTime)
         {
@@ -79,7 +86,7 @@ public class KimAttack : MonoBehaviour {
         else if (kimMeleeStage == 0 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee1");
-            Melee(50f, Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
+            Melee(50f, (int)Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
             kimMeleeStage++;
             kimMeleeDelay = 0;
         }
@@ -87,7 +94,7 @@ public class KimAttack : MonoBehaviour {
         else if (kimMeleeStage == 1 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee2");
-            Melee(50f, Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
+            Melee(50f, (int)Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
             kimMeleeStage++;
             kimMeleeDelay = 0;
         }
@@ -95,20 +102,20 @@ public class KimAttack : MonoBehaviour {
         else if (kimMeleeStage == 2 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee3");
-            Melee(50f, Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
+            Melee(50f, (int)Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
             kimMeleeStage++;
             kimMeleeDelay = 0;
         }
         else if (kimMeleeStage == 3 && kimMeleeDelay >= meleeAttackDelay)
         {
             anim.Play("Kim_Melee4");
-            Melee(100f, Attack.kim_melee_up, new Vector2(transform.localScale.x, 1).normalized);
+            Melee(100f, (int)Attack.kim_melee_up, new Vector2(transform.localScale.x, 1).normalized);
             kimMeleeStage = 0;
             kimMeleeDelay = 0;
         }
     }
 
-    void DashMelee(float damage, Attack attack, Vector2 knockBackDirection)
+    void DashMelee(float damage, int attack, Vector2 knockBackDirection)
     {
         if (meleeAttack.GetComponent<MeleeCheck>().playersInRange.Count != 0)
         {
@@ -122,7 +129,7 @@ public class KimAttack : MonoBehaviour {
         }
     }
 
-    void Melee(float damage, Attack attack, Vector2 knockBackDirection)
+    void Melee(float damage, int attack, Vector2 knockBackDirection)
     {
         if (meleeAttack.GetComponent<MeleeCheck>().playersInRange.Count != 0)
         {
@@ -139,6 +146,6 @@ public class KimAttack : MonoBehaviour {
         GameObject newMine = Instantiate(mine, minePosition.position, new Quaternion());
         newMine.GetComponent<Mine>().kim = this;
         newMine.GetComponent<Mine>().damage = damage;
-        newMine.GetComponent<Mine>().attack = Attack.kim_mine;
+        newMine.GetComponent<Mine>().attack = (int)Attack.kim_mine;
     }
 }

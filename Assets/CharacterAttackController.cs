@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Attack { Kim_melee = 5, kim_melee_up = 20, kim_dash = 10, kim_mine = 15, Pixie_melee}
+
 
 public class CharacterAttackController : MonoBehaviour {
 
-    Character character;
+    /*Character character;
 
     Animator anim;
 
@@ -162,5 +162,5 @@ public class CharacterAttackController : MonoBehaviour {
                 player.GetComponent<CharacterController>().Hit(damage, attack, knockBackDirection);
             }
         }
-    }
+    }*/
 }
