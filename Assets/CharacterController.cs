@@ -18,6 +18,8 @@ public class CharacterController : MonoBehaviour {
     public KeyCode key_jump;
     public KeyCode key_right;
     public KeyCode key_left;
+    public KeyCode key_up;
+    public KeyCode key_down;
 
     Rigidbody2D rb;
     Animator anim;    

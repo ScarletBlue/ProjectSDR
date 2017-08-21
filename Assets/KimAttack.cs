@@ -18,22 +18,31 @@ public class KimAttack : MonoBehaviour {
     public GameObject meleeAttack;
     public GameObject mine;
     public Transform minePosition;
+    public GameObject ultimateTarget;
+    public GameObject TargetSprite;
+    public GameObject missile;
 
     ParticleSystem ultimateParticle;
     public float meleeAttackDelay = 0.3f;
     public float meleeAtaackResetTime = 0.7f;
     public float dashAttackTime = 0.7f;
+    public float skillCoolTime = 8f;
 
+    float speedTemp;
+    bool isCastingUltimate = false;
+    float skillDelay = 8f;
     int kimMeleeStage = 0;
     float kimMeleeDelay = 0;
     bool dashAttack = false;
     float dashAttackDelay = 0f;
+    GameObject newUltimateTarget;
 
-    float ultimateGauge;
+    float ultimateGauge = 1000;
     public float UltimateGauge { get { return Mathf.Min(1000, ultimateGauge); } set { ultimateGauge = value; } }
 
     void Start()
     {
+        speedTemp = GetComponent<CharacterController>().speed;
         character = GetComponent<CharacterController>().character;
         ultimateParticle = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
@@ -49,16 +58,42 @@ public class KimAttack : MonoBehaviour {
         {
             KimMelee();
         }
-        if (Input.GetKeyDown(skill))
+        if (Input.GetKeyDown(skill) && skillDelay > skillCoolTime)
         {
             if (GetComponent<CharacterController>().IsOnFloor())
             {
                 Debug.Log("mine");
                 Mine(200f, Attack.kim_mine);
                 anim.SetTrigger("mine");
+                skillDelay = 0f;
             }
         }
+        if (ultimateGauge == 1000 && Input.GetKeyDown(ultimate))
+        {
+            StartCoroutine(UltimateCasting());
+            newUltimateTarget = Instantiate(ultimateTarget);
+            newUltimateTarget.GetComponent<KimUltimateTarget>().CC = GetComponent<CharacterController>();
+            newUltimateTarget.GetComponent<KimUltimateTarget>().Target = TargetSprite;
+            newUltimateTarget.GetComponent<KimUltimateTarget>().missile = missile;
+            anim.SetTrigger("ultimate");
+        }
+
+        if(isCastingUltimate)
+        {
+            GetComponent<CharacterController>().speed = 0;
+            if(GetComponent<CharacterController>().hit)
+            {
+                CancelUltimate();
+                isCastingUltimate = false;
+            }
+        }
+        else
+        {
+            GetComponent<CharacterController>().speed = speedTemp;
+        }
         kimMeleeDelay += Time.deltaTime;
+        skillDelay += Time.deltaTime;
+
         if (kimMeleeDelay >= meleeAtaackResetTime)
         {
             kimMeleeStage = 0;
@@ -73,6 +108,23 @@ public class KimAttack : MonoBehaviour {
             dashAttackDelay = 0f;
             dashAttack = false;
             GetComponent<CharacterController>().isDashing = false;
+        }
+    }
+
+    void CancelUltimate()
+    {
+        newUltimateTarget.GetComponent<KimUltimateTarget>().DestroyByHit();
+        Destroy(newUltimateTarget);
+    }
+
+    IEnumerator UltimateCasting()
+    {
+        isCastingUltimate = true;
+        yield return new WaitForSeconds(2f);
+        if(isCastingUltimate)
+        {
+            isCastingUltimate = false;
+            UltimateGauge = 0;
         }
     }
 

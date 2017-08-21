@@ -58,7 +58,7 @@ public class MelonPixieAttack : MonoBehaviour {
             anim.Play("MP_Melee");
         }
 
-        if(Input.GetKeyDown(skill) && castingDelay > 6f)
+        if(Input.GetKeyDown(skill) && castingDelay > 6f && GetComponent<CharacterController>().IsOnFloor())
         {
             FireBall(200f, 8, new Vector3(transform.localScale.x,0,0));
             StartCoroutine(Casting());
@@ -97,6 +97,7 @@ public class MelonPixieAttack : MonoBehaviour {
         {
             Destroy(newFireBall);
             Destroy(newPortal);
+            isCasting = false;
         }
     }
 
