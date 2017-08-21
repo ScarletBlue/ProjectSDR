@@ -8,6 +8,7 @@ public class Missile : MonoBehaviour {
     public List<GameObject> playersInRange;
     public CharacterController CC;
 
+    GameObject newNuclear;
     CircleCollider2D collider;
 
     bool isDestroyed = false;
@@ -30,7 +31,8 @@ public class Missile : MonoBehaviour {
         isDestroyed = true;
         GetComponent<SpriteRenderer>().enabled = false;
         collider.enabled = true;
-        Instantiate(nuclear, transform.position, Quaternion.identity);
+        newNuclear = Instantiate(nuclear, transform.position, Quaternion.identity);
+        StartCoroutine(DestroyThis());
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -47,5 +49,12 @@ public class Missile : MonoBehaviour {
             player.GetComponent<CharacterController>().Hit(800 - 70 * distance, Mathf.RoundToInt(13 - 1f * distance), direction);
         }
         collider.enabled = false;
+    }
+
+    IEnumerator DestroyThis()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(newNuclear);
+        Destroy(gameObject);
     }
 }

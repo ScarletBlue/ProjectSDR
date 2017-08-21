@@ -54,6 +54,10 @@ public class KimAttack : MonoBehaviour {
         {
             ultimateParticle.Play();
         }
+        else if(UltimateGauge < 1000)
+        {
+            ultimateParticle.Stop();
+        }
         if (Input.GetKeyDown(melee))
         {
             KimMelee();
@@ -68,7 +72,7 @@ public class KimAttack : MonoBehaviour {
                 skillDelay = 0f;
             }
         }
-        if (ultimateGauge == 1000 && Input.GetKeyDown(ultimate))
+        if (UltimateGauge == 1000 && Input.GetKeyDown(ultimate))
         {
             StartCoroutine(UltimateCasting());
             newUltimateTarget = Instantiate(ultimateTarget);
@@ -81,14 +85,17 @@ public class KimAttack : MonoBehaviour {
         if(isCastingUltimate)
         {
             GetComponent<CharacterController>().speed = 0;
-            if(GetComponent<CharacterController>().hit)
+            GetComponent<CharacterController>().canJump = false;
+            if (GetComponent<CharacterController>().hit)
             {
                 CancelUltimate();
+                UltimateGauge = 0;
                 isCastingUltimate = false;
             }
         }
         else
         {
+            GetComponent<CharacterController>().canJump = true;
             GetComponent<CharacterController>().speed = speedTemp;
         }
         kimMeleeDelay += Time.deltaTime;

@@ -14,6 +14,7 @@ public class CharacterController : MonoBehaviour {
     public float dashDelayTime = 0.3f;
     public float airDashTime = 0.5f;
     public float knockBackTime = 0.3f;
+    public bool canJump = true;
 
     public KeyCode key_jump;
     public KeyCode key_right;
@@ -117,12 +118,12 @@ public class CharacterController : MonoBehaviour {
 
     void Jump()
     {
-        if(jumpCount == 0)
+        if(jumpCount == 0 && canJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, jump1Speed);
             jumpCount++;
         }
-        else if(jumpCount == 1)
+        else if(jumpCount == 1 && canJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, jump2Speed);
             jumpCount++;
