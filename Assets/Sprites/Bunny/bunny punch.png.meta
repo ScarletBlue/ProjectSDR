@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2436448346772324289ae46fc9aec886
-timeCreated: 1503422972
+timeCreated: 1503423403
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -88,12 +88,12 @@ TextureImporter:
       name: bunny motion_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 39
         y: 588
-        width: 288
+        width: 257
         height: 477
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -107,7 +107,7 @@ TextureImporter:
         width: 263
         height: 477
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,7 +121,7 @@ TextureImporter:
         width: 265
         height: 471
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,25 +131,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 897
-        y: 586
-        width: 293
-        height: 478
+        y: 594
+        width: 247
+        height: 470
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: bunny motion_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 579
-        width: 4
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -158,12 +144,12 @@ TextureImporter:
       name: bunny motion_5
       rect:
         serializedVersion: 2
-        x: 1263
+        x: 1264
         y: 90
         width: 249
         height: 498
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,21 +163,7 @@ TextureImporter:
         width: 253
         height: 465
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: bunny motion_7
-      rect:
-        serializedVersion: 2
-        x: 1509
-        y: 395
-        width: 4
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,25 +173,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1544
-        y: 67
-        width: 327
-        height: 465
+        y: 69
+        width: 251
+        height: 463
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: bunny motion_9
-      rect:
-        serializedVersion: 2
-        x: 354
-        y: 101
-        width: 4
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
