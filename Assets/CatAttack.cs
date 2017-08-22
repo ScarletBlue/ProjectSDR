@@ -13,6 +13,7 @@ public class CatAttack : MonoBehaviour {
     public GameObject meleeCheck;
     public GameObject skillObject;
     public Transform skillPos;
+    public GameObject ultimateCollider;
     public float meleeAttackDelay = 0.3f;
 
     ParticleSystem ultimateParticle;
@@ -62,6 +63,11 @@ public class CatAttack : MonoBehaviour {
             StartCoroutine(SkillCasting());
             anim.Play("Cat_Skill");
         }
+        if(Input.GetKeyDown(ultimate) && UltimateGauge == 1000)
+        {
+            StartCoroutine(UltimateCastingDelay());
+            anim.Play("Cat_Ultimate");
+        }
 
         if (isCasting)
         {
@@ -77,6 +83,25 @@ public class CatAttack : MonoBehaviour {
         {
             GetComponent<CharacterControll>().moveSpeed = speedTemp;
             GetComponent<CharacterControll>().isCasting = false;
+        }
+    }
+
+    IEnumerator UltimateCastingDelay()
+    {
+        yield return new WaitForSeconds(0.15f);
+        Ultimate();
+    }
+
+    void Ultimate()
+    {
+        UltimateGauge = 0;
+        if (ultimateCollider.GetComponent<MeleeCheck>().playersInRange.Count != 0)
+        {
+            foreach (GameObject player in ultimateCollider.GetComponent<MeleeCheck>().playersInRange)
+            {
+                int direction = (int)((player.transform.position.x - transform.position.x) / Mathf.Abs(player.transform.position.x - transform.position.x));
+                player.GetComponent<CharacterControll>().Hit(250f, 20, new Vector2(direction,0));
+            }
         }
     }
 
