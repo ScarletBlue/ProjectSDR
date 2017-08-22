@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterBarController : MonoBehaviour {
     float Health_percentage;
     float Ult_percentage;
-    float Win_percentage;
+    public float Win_percentage;
     float HPconstant1 = -24.4f;
     float HPconstant2 = 77.6f;
     float Ultconstant1 = -35.2f;
