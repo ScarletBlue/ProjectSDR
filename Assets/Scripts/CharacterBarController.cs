@@ -23,9 +23,9 @@ public class CharacterBarController : MonoBehaviour {
     public float MaxHP = 1000;
     public GameObject character;
     CharacterControll CC;
-
-	// Use this for initialization
-	void Start () {
+    public Inventory inventory;
+    // Use this for initialization
+    void Start () {
         //  0<= percentage <=1
         Health_percentage = 1;
         Ult_percentage = 0;
@@ -33,7 +33,7 @@ public class CharacterBarController : MonoBehaviour {
         CC = character.GetComponent<CharacterControll>();
         Health_percentage = CC.hp / MaxHP;
         Debug.Log(CC.hp);
-
+        inventory = character.GetComponent<Inventory>();
 
     }
 	
@@ -44,8 +44,11 @@ public class CharacterBarController : MonoBehaviour {
         GuageControl(Win_bar, Win_percentage, Winconstant1, Winconstant2);
         Health_percentage = CC.hp / MaxHP;
         Debug.Log(CC.hp);
-        //Ult_percentage += Time.deltaTime / 30;
-        //Win_percentage += Time.deltaTime / 30;
+        if (inventory.itemAdded == true)
+        {
+            Win_percentage += 0.05f * Time.deltaTime;
+            Debug.Log(Win_percentage);
+        }
     }
 
     void GuageControl(GameObject bar, float percentage, float constant1, float constant2)
