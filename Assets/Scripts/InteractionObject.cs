@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class InteractionObject : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public void DoInteraction()
+	{
+		gameObject.SetActive(false);
+		//Destroy(gameObject);
 	}
 }
