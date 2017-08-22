@@ -74,6 +74,17 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD:Assets/Sprites/Bunny/bunny idle.png.meta
+=======
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+>>>>>>> 46b816ca647289024fc2e1c3d9104bc0c49b5559:Assets/Sprites/Bunny/idle.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites:
