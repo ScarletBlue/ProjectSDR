@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: d1d197cc5a380974ea1b2b1a63a1c0a4
-timeCreated: 1503422853
+guid: f54cbe3219937c74f84be2c7c190cf39
+timeCreated: 1503423298
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: bunny idle_0
-    21300002: bunny idle_1
-    21300004: bunny idle_2
+    21300000: bunny idle_1
+    21300002: bunny idle_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -74,34 +73,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-<<<<<<< HEAD:Assets/Sprites/Bunny/bunny idle.png.meta
-=======
-  - buildTarget: Android
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
->>>>>>> 46b816ca647289024fc2e1c3d9104bc0c49b5559:Assets/Sprites/Bunny/idle.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites:
-    - serializedVersion: 2
-      name: bunny idle_0
-      rect:
-        serializedVersion: 2
-        x: 155
-        y: 372
-        width: 12
-        height: 117
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
     - serializedVersion: 2
       name: bunny idle_1
       rect:
