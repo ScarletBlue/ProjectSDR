@@ -11,12 +11,14 @@ public class CatAttack : MonoBehaviour {
     public KeyCode ultimate;
 
     public GameObject meleeCheck;
+    public GameObject skillObject;
+    public Transform skillPos;
     public float meleeAttackDelay = 0.3f;
 
     ParticleSystem ultimateParticle;
     public float meleeAtaackResetTime = 0.7f;
     public float dashAttackTime = 0.7f;
-    public float castingTime = 1f;
+    public float skillCastingTime = 0.7f;
     public float coolTime = 6f;
 
     float skillCoolTime = 6f;
@@ -24,6 +26,9 @@ public class CatAttack : MonoBehaviour {
     float ultimateGauge = 1000;
     public float UltimateGauge { get { return Mathf.Min(1000, ultimateGauge); } set { ultimateGauge = value; } }
     float speedTemp;
+    bool isSkillShooting;
+
+    GameObject newSkill;
 
     void Start ()
     {
@@ -51,6 +56,28 @@ public class CatAttack : MonoBehaviour {
             Melee(100f, 7, new Vector2(transform.localScale.x, 0));
             anim.Play("Cat_Melee");
         }
+        if (Input.GetKeyDown(skill) && skillCoolTime > coolTime && GetComponent<CharacterControll>().IsOnFloor())
+        {
+            skillCoolTime = 0;
+            StartCoroutine(SkillCasting());
+            anim.Play("Cat_Skill");
+        }
+
+        if (isCasting)
+        {
+            GetComponent<CharacterControll>().moveSpeed = 0;
+            GetComponent<CharacterControll>().isCasting = true;
+            if (GetComponent<CharacterControll>().hit)
+            {
+                CancelCasting();
+                StopAllCoroutines();
+            }
+        }
+        else
+        {
+            GetComponent<CharacterControll>().moveSpeed = speedTemp;
+            GetComponent<CharacterControll>().isCasting = false;
+        }
     }
 
     void Melee(float damage, int attack, Vector2 knockBackDirection)
@@ -62,6 +89,43 @@ public class CatAttack : MonoBehaviour {
                 UltimateGauge += damage;
                 player.GetComponent<CharacterControll>().Hit(damage, attack, knockBackDirection);
             }
+        }
+    }
+
+    void CancelCasting()
+    {
+        if (isCasting)
+        {
+            if (newSkill != null)
+            {
+                Destroy(newSkill);
+            }
+            isCasting = false;
+        }
+    }
+
+    void Skill()
+    {
+        
+        foreach (var player in newSkill.GetComponent<MeleeCheck>().playersInRange)
+        {
+            player.GetComponent<CharacterControll>().hit = true;
+            player.GetComponent<CharacterControll>().Hit(150f, 10, new Vector2(transform.localScale.x,0));
+        }
+    }
+
+    IEnumerator SkillCasting()
+    {
+        isCasting = true;
+        yield return new WaitForSeconds(skillCastingTime);
+        newSkill = Instantiate(skillObject, skillPos.position, Quaternion.identity, this.transform);
+        yield return new WaitForSeconds(0.1f);
+        Skill();
+        yield return new WaitForSeconds(0.9f);
+        isCasting = false;
+        if (newSkill != null)
+        {
+            Destroy(newSkill);
         }
     }
 }

@@ -129,7 +129,9 @@ public class MelonPixieAttack : MonoBehaviour {
     IEnumerator Casting()
     {
         isCasting = true;
+        GetComponent<CharacterControll>().isCasting = true;
         yield return new WaitForSeconds(castingTime);
+        GetComponent<CharacterControll>().isCasting = false;
         isCasting = false;
     }
 
