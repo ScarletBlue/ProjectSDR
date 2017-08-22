@@ -86,7 +86,7 @@ public class CharacterSelect : MonoBehaviour {
             if (InputManager.P1DownButton() && p1character < characterNum - 4 && !isOccupied(p1character + 4))
                 p1character += 4;
             p1.transform.position = characterList[p1character].transform.position;
-            if (InputManager.P1CrossButton())
+            if (InputManager.P1AButton())
             {
                 p1Choosing = false;
                 PlayerPrefs.SetInt("p1", p1character);
@@ -105,7 +105,7 @@ public class CharacterSelect : MonoBehaviour {
             if (InputManager.P2DownButton() && p2character < characterNum - 4 && !isOccupied(p2character + 4))
                 p2character += 4;
             p2.transform.position = characterList[p2character].transform.position;
-            if (InputManager.P2CrossButton())
+            if (InputManager.P2AButton())
             {
                 p2Choosing = false;
                 PlayerPrefs.SetInt("p2", p2character);
@@ -124,7 +124,7 @@ public class CharacterSelect : MonoBehaviour {
             if (InputManager.P3DownButton() && p3character < characterNum - 4 && !isOccupied(p3character + 4))
                 p3character += 4;
             p3.transform.position = characterList[p3character].transform.position;
-            if (InputManager.P3CrossButton())
+            if (InputManager.P3AButton())
             {
                 p3Choosing = false;
                 PlayerPrefs.SetInt("p3", p3character);
@@ -143,7 +143,7 @@ public class CharacterSelect : MonoBehaviour {
             if (InputManager.P4DownButton() && p4character < characterNum - 4 && !isOccupied(p4character + 4))
                 p4character += 4;
             p4.transform.position = characterList[p4character].transform.position;
-            if (InputManager.P4CrossButton())
+            if (InputManager.P4AButton())
             {
                 p4Choosing = false;
                 PlayerPrefs.SetInt("p4", p4character);
