@@ -6,12 +6,19 @@ public class PlayerInteract : MonoBehaviour {
 
 
 	public GameObject currentInterObj = null;
-
+	public InteractionObject currentInterObjScript = null;
+	public Inventory inventory;
 	private void Update()
 	{
 		if (Input.GetButtonDown("Interact") && currentInterObj)
 		{
-			currentInterObj.SendMessage("DoInteraction");
+			//check to see if object is stored
+			if(currentInterObjScript.inventory)
+			{
+				inventory.AddItem(currentInterObj);
+			}
+
+
 		}
 			;
 	}
@@ -21,6 +28,7 @@ public class PlayerInteract : MonoBehaviour {
 		{
 			Debug.Log(other.name);
 			currentInterObj = other.gameObject;
+			currentInterObjScript = currentInterObj.GetComponent<InteractionObject>();
 
 		}
 	}
