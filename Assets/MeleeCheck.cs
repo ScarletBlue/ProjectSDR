@@ -6,6 +6,9 @@ public class MeleeCheck : MonoBehaviour {
 
    // [System.NonSerialized]
     public List<GameObject> playersInRange;
+    void Awake()
+    {
+    }
     void Start()
     {
         playersInRange = new List<GameObject>();

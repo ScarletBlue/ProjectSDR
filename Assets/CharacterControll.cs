@@ -33,7 +33,7 @@ public class CharacterControll : MonoBehaviour {
     float airDashDelay = 0f;
 
     public float hp = 1000;
-
+    public bool isCasting = false;
     public bool hit = false;
 
     void Start()
@@ -82,12 +82,12 @@ public class CharacterControll : MonoBehaviour {
 
     int MovingDirection() // retrun 1(right) , -1(left), 0(none)
     {
-        if (Input.GetKey(key_right))
+        if (Input.GetKey(key_right) && !isCasting)
         {
             transform.localScale = new Vector3(1, 1, 1);
             return 1;
         }
-        else if (Input.GetKey(key_left))
+        else if (Input.GetKey(key_left) && !isCasting)
         {
             transform.localScale = new Vector3(-1, 1, 1);
             return -1;
