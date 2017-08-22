@@ -21,7 +21,7 @@ public class CharacterBarController : MonoBehaviour {
     public GameObject Win_bar;
 
     public float MaxHP = 1000;
-    GameObject character;
+    public GameObject character;
     CharacterControll CC;
 
 	// Use this for initialization
@@ -42,8 +42,8 @@ public class CharacterBarController : MonoBehaviour {
         GuageControl(Health_bar, Health_percentage, HPconstant1, HPconstant2);
         GuageControl(Ult_bar, Ult_percentage, Ultconstant1, Ultconstant2);
         GuageControl(Win_bar, Win_percentage, Winconstant1, Winconstant2);
-        //Health_percentage = CC.hp / MaxHP;
-        //Debug.Log(CC.hp);
+        Health_percentage = CC.hp / MaxHP;
+        Debug.Log(CC.hp);
         //Ult_percentage += Time.deltaTime / 30;
         //Win_percentage += Time.deltaTime / 30;
     }
