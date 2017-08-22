@@ -20,11 +20,18 @@ public class CharacterBarController : MonoBehaviour {
     public GameObject Ult_bar;
     public GameObject Win_bar;
 
+    public float MaxHP = 1000;
+    CharacterControll CC;
+
 	// Use this for initialization
 	void Start () {
+        //  0<= percentage <=1
         Health_percentage = 1;
         Ult_percentage = 0;
         Win_percentage = 0;
+        CC = GetComponent<CharacterControll>();
+        Health_percentage = CC.hp / MaxHP;
+
     }
 	
 	// Update is called once per frame
@@ -32,7 +39,7 @@ public class CharacterBarController : MonoBehaviour {
         GuageControl(Health_bar, Health_percentage, HPconstant1, HPconstant2);
         GuageControl(Ult_bar, Ult_percentage, Ultconstant1, Ultconstant2);
         GuageControl(Win_bar, Win_percentage, Winconstant1, Winconstant2);
-        //Health_percentage -= Time.deltaTime / 30;
+        Health_percentage = CC.hp / MaxHP;
         //Ult_percentage += Time.deltaTime / 30;
         //Win_percentage += Time.deltaTime / 30;
     }

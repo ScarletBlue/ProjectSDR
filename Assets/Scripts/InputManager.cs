@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class InputManager {
-    public static bool P1CrossButton()
+    public static bool P1AButton()
     {
-        return Input.GetButtonDown("P1_Cross_Button");
+        return Input.GetButtonDown("P1_A_Button");
     }
-    public static bool P1CircleButton()
+    public static bool P1BButton()
     {
-        return Input.GetButtonDown("P1_Circle_Button");
+        return Input.GetButtonDown("P1_B_Button");
     }
-    public static bool P1TriangleButton()
+    public static bool P1XButton()
     {
-        return Input.GetButtonDown("P1_Triangle_Button");
+        return Input.GetButtonDown("P1_X_Button");
     }
-    public static bool P1SquareButton()
+    public static bool P1YButton()
     {
-        return Input.GetButtonDown("P1_Square_Button");
+        return Input.GetButtonDown("P1_Y_Button");
     }
     public static bool P1UpButton()
     {
@@ -35,21 +35,21 @@ public static class InputManager {
     {
         return Input.GetButtonDown("P1_Left_Button");
     }
-    public static bool P2CrossButton()
+    public static bool P2AButton()
     {
-        return Input.GetButtonDown("P2_Cross_Button");
+        return Input.GetButtonDown("P2_A_Button");
     }
-    public static bool P2CircleButton()
+    public static bool P2BButton()
     {
-        return Input.GetButtonDown("P2_Circle_Button");
+        return Input.GetButtonDown("P2_B_Button");
     }
-    public static bool P2TriangleButton()
+    public static bool P2XButton()
     {
-        return Input.GetButtonDown("P2_Triangle_Button");
+        return Input.GetButtonDown("P2_X_Button");
     }
-    public static bool P2SquareButton()
+    public static bool P2YButton()
     {
-        return Input.GetButtonDown("P2_Square_Button");
+        return Input.GetButtonDown("P2_Y_Button");
     }
     public static bool P2UpButton()
     {
@@ -67,21 +67,21 @@ public static class InputManager {
     {
         return Input.GetButtonDown("P2_Left_Button");
     }
-    public static bool P3CrossButton()
+    public static bool P3AButton()
     {
-        return Input.GetButtonDown("P3_Cross_Button");
+        return Input.GetButtonDown("P3_A_Button");
     }
-    public static bool P3CircleButton()
+    public static bool P3BButton()
     {
-        return Input.GetButtonDown("P3_Circle_Button");
+        return Input.GetButtonDown("P3_B_Button");
     }
-    public static bool P3TriangleButton()
+    public static bool P3XButton()
     {
-        return Input.GetButtonDown("P3_Triangle_Button");
+        return Input.GetButtonDown("P3_X_Button");
     }
-    public static bool P3SquareButton()
+    public static bool P3YButton()
     {
-        return Input.GetButtonDown("P3_Square_Button");
+        return Input.GetButtonDown("P3_Y_Button");
     }
     public static bool P3UpButton()
     {
@@ -99,21 +99,21 @@ public static class InputManager {
     {
         return Input.GetButtonDown("P3_Left_Button");
     }
-    public static bool P4CrossButton()
+    public static bool P4AButton()
     {
-        return Input.GetButtonDown("P4_Cross_Button");
+        return Input.GetButtonDown("P4_A_Button");
     }
-    public static bool P4CircleButton()
+    public static bool P4BButton()
     {
-        return Input.GetButtonDown("P4_Circle_Button");
+        return Input.GetButtonDown("P4_B_Button");
     }
-    public static bool P4TriangleButton()
+    public static bool P4XButton()
     {
-        return Input.GetButtonDown("P4_Triangle_Button");
+        return Input.GetButtonDown("P4_X_Button");
     }
-    public static bool P4SquareButton()
+    public static bool P4YButton()
     {
-        return Input.GetButtonDown("P4_Square_Button");
+        return Input.GetButtonDown("P4_Y_Button");
     }
     public static bool P4UpButton()
     {
