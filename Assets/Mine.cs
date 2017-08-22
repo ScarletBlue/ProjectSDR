@@ -21,7 +21,7 @@ public class Mine : MonoBehaviour {
     {
         if(other.tag == "Player" && other.gameObject != kim.gameObject && isReady)
         {
-            other.GetComponent<CharacterController>().Hit(damage, attack, (other.transform.position - transform.position).normalized);
+            other.GetComponent<CharacterControll>().Hit(damage, attack, (other.transform.position - transform.position).normalized);
             kim.UltimateGauge += damage * 1.5f;
             GetComponent<Animator>().SetTrigger("mine");
             isExploded = true;

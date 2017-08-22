@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-
 public class KimAttack : MonoBehaviour {
     enum Attack { Kim_melee = 5, kim_melee_up = 20, kim_dash = 10, kim_mine = 15 }
     Character character;
@@ -28,6 +27,7 @@ public class KimAttack : MonoBehaviour {
     public float dashAttackTime = 0.7f;
     public float skillCoolTime = 8f;
 
+    CharacterControll CC;
     float speedTemp;
     bool isCastingUltimate = false;
     float skillDelay = 8f;
@@ -42,8 +42,9 @@ public class KimAttack : MonoBehaviour {
 
     void Start()
     {
-        speedTemp = GetComponent<CharacterController>().speed;
-        character = GetComponent<CharacterController>().character;
+        CC = GetComponent<CharacterControll>();
+        speedTemp = CC.moveSpeed;
+        character = CC.character;
         ultimateParticle = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
     }
@@ -64,7 +65,7 @@ public class KimAttack : MonoBehaviour {
         }
         if (Input.GetKeyDown(skill) && skillDelay > skillCoolTime)
         {
-            if (GetComponent<CharacterController>().IsOnFloor())
+            if (CC.IsOnFloor())
             {
                 Debug.Log("mine");
                 Mine(200f, Attack.kim_mine);
@@ -76,7 +77,7 @@ public class KimAttack : MonoBehaviour {
         {
             StartCoroutine(UltimateCasting());
             newUltimateTarget = Instantiate(ultimateTarget);
-            newUltimateTarget.GetComponent<KimUltimateTarget>().CC = GetComponent<CharacterController>();
+            newUltimateTarget.GetComponent<KimUltimateTarget>().CC = CC;
             newUltimateTarget.GetComponent<KimUltimateTarget>().Target = TargetSprite;
             newUltimateTarget.GetComponent<KimUltimateTarget>().missile = missile;
             anim.SetTrigger("ultimate");
@@ -84,9 +85,9 @@ public class KimAttack : MonoBehaviour {
 
         if(isCastingUltimate)
         {
-            GetComponent<CharacterController>().speed = 0;
-            GetComponent<CharacterController>().canJump = false;
-            if (GetComponent<CharacterController>().hit)
+            CC.moveSpeed = 0;
+            CC.canJump = false;
+            if (GetComponent<CharacterControll>().hit)
             {
                 CancelUltimate();
                 UltimateGauge = 0;
@@ -95,8 +96,8 @@ public class KimAttack : MonoBehaviour {
         }
         else
         {
-            GetComponent<CharacterController>().canJump = true;
-            GetComponent<CharacterController>().speed = speedTemp;
+            CC.canJump = true;
+            CC.moveSpeed = speedTemp;
         }
         kimMeleeDelay += Time.deltaTime;
         skillDelay += Time.deltaTime;
@@ -114,7 +115,7 @@ public class KimAttack : MonoBehaviour {
         {
             dashAttackDelay = 0f;
             dashAttack = false;
-            GetComponent<CharacterController>().isDashing = false;
+            CC.isDashing = false;
         }
     }
 
@@ -137,7 +138,7 @@ public class KimAttack : MonoBehaviour {
 
     void KimMelee()
     {
-        if (GetComponent<CharacterController>().isDashing)
+        if (CC.isDashing)
         {
             dashAttack = true;
             dashAttackDelay = 0;
@@ -182,9 +183,9 @@ public class KimAttack : MonoBehaviour {
             foreach (GameObject player in meleeAttack.GetComponent<MeleeCheck>().playersInRange)
             {
                 UltimateGauge += damage;
-                player.GetComponent<CharacterController>().Hit(damage, attack, knockBackDirection);
+                player.GetComponent<CharacterControll>().Hit(damage, attack, knockBackDirection);
                 dashAttack = false;
-                GetComponent<CharacterController>().isDashing = false;
+                CC.isDashing = false;
             }
         }
     }
@@ -196,7 +197,7 @@ public class KimAttack : MonoBehaviour {
             foreach (GameObject player in meleeAttack.GetComponent<MeleeCheck>().playersInRange)
             {
                 UltimateGauge += damage;
-                player.GetComponent<CharacterController>().Hit(damage, attack, knockBackDirection);
+                player.GetComponent<CharacterControll>().Hit(damage, attack, knockBackDirection);
             }
         }
     }

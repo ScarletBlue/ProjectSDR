@@ -6,7 +6,7 @@ public class Missile : MonoBehaviour {
 
     public GameObject nuclear;
     public List<GameObject> playersInRange;
-    public CharacterController CC;
+    public CharacterControll CC;
 
     GameObject newNuclear;
     CircleCollider2D collider;
@@ -40,13 +40,12 @@ public class Missile : MonoBehaviour {
         if (other.gameObject.layer == LayerMask.NameToLayer("Character") && other.gameObject.transform.position.y >= transform.position.y -1 && other.gameObject != CC.gameObject)
         {
             playersInRange.Add(other.gameObject);
-            Debug.Log(playersInRange.Count);
         }
         foreach(var player in playersInRange)
         {
             float distance = (player.transform.position - transform.position).magnitude;
             Vector3 direction = (player.transform.position - transform.position).normalized;
-            player.GetComponent<CharacterController>().Hit(800 - 70 * distance, Mathf.RoundToInt(13 - 1f * distance), direction);
+            player.GetComponent<CharacterControll>().Hit(800 - 70 * distance, Mathf.RoundToInt(13 - 1f * distance), direction);
         }
         collider.enabled = false;
     }

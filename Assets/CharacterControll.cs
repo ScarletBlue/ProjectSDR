@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterController : MonoBehaviour {
+public class CharacterControll : MonoBehaviour {
 
 
-    public float speed;
+    public float moveSpeed = 0;
     public float dashSpeed;
     public float jump1Speed;
     public float jump2Speed;
@@ -35,11 +35,6 @@ public class CharacterController : MonoBehaviour {
     public float hp = 1000;
 
     public bool hit = false;
-
-    ///캐릭터 컨트롤러 구분
-    public int thisCharacter = 1;
-    int player1 = 2;
-    int player2 = 1;
 
     void Start()
     {
@@ -108,11 +103,11 @@ public class CharacterController : MonoBehaviour {
             {
                 jumpCount = 0;
             }
-            rb.velocity = new Vector2(speed * MovingDirection(),rb.velocity.y);
+            rb.velocity = new Vector2(moveSpeed * MovingDirection(),rb.velocity.y);
         }
         else
         {
-            rb.velocity = new Vector2(speed * MovingDirection(), rb.velocity.y);
+            rb.velocity = new Vector2(moveSpeed * MovingDirection(), rb.velocity.y);
         }
     }
 

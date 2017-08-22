@@ -37,8 +37,8 @@ public class MelonPixieAttack : MonoBehaviour {
 
     void Start ()
     {
-        speedTemp = GetComponent<CharacterController>().speed;
-        character = GetComponent<CharacterController>().character;
+        speedTemp = GetComponent<CharacterControll>().moveSpeed;
+        character = GetComponent<CharacterControll>().character;
         ultimateParticle = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
     }
@@ -58,7 +58,7 @@ public class MelonPixieAttack : MonoBehaviour {
             anim.Play("MP_Melee");
         }
 
-        if(Input.GetKeyDown(skill) && castingDelay > 6f && GetComponent<CharacterController>().IsOnFloor())
+        if(Input.GetKeyDown(skill) && castingDelay > 6f && GetComponent<CharacterControll>().IsOnFloor())
         {
             FireBall(200f, 8, new Vector3(transform.localScale.x,0,0));
             StartCoroutine(Casting());
@@ -67,15 +67,15 @@ public class MelonPixieAttack : MonoBehaviour {
 
         if (isCasting)
         {
-            GetComponent<CharacterController>().speed = 0;
-            if(GetComponent<CharacterController>().hit)
+            GetComponent<CharacterControll>().moveSpeed = 0;
+            if(GetComponent<CharacterControll>().hit)
             {
                 CancelCasting();
             }
         }
         else
         {
-            GetComponent<CharacterController>().speed = speedTemp;
+            GetComponent<CharacterControll>().moveSpeed = speedTemp;
         }
     }
 
@@ -86,7 +86,7 @@ public class MelonPixieAttack : MonoBehaviour {
             foreach (GameObject player in meleeAttack.GetComponent<MeleeCheck>().playersInRange)
             {
                 UltimateGauge += damage;
-                player.GetComponent<CharacterController>().Hit(damage, attack, knockBackDirection);
+                player.GetComponent<CharacterControll>().Hit(damage, attack, knockBackDirection);
             }
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KimUltimateTarget : MonoBehaviour {
 
-    public CharacterController CC;
+    public CharacterControll CC;
 
     public GameObject Target;
     public GameObject missile;

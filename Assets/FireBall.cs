@@ -26,7 +26,7 @@ public class FireBall : MonoBehaviour {
     {
         if(other.tag == "Player" && other.gameObject != MPA.gameObject)
         {
-            other.GetComponent<CharacterController>().Hit(damage, attack, direction);
+            other.GetComponent<CharacterControll>().Hit(damage, attack, direction);
             MPA.UltimateGauge += 300;
             Destroy(gameObject);
         }
