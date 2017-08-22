@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class MelonPixieAttack : MonoBehaviour {
 
@@ -19,6 +20,9 @@ public class MelonPixieAttack : MonoBehaviour {
     public Transform fireBallPos;
     public GameObject fireBallPortal;
 
+    public GameObject UltimatePortal;
+    public GameObject UltimateTarget;
+
     ParticleSystem ultimateParticle;
     public float meleeAttackDelay = 0.3f;
     public float meleeAtaackResetTime = 0.7f;
@@ -28,12 +32,14 @@ public class MelonPixieAttack : MonoBehaviour {
 
     float castingDelay = 6f;
     bool isCasting = false;
-    float ultimateGauge;
+    float ultimateGauge = 1000;
     public float UltimateGauge { get { return Mathf.Min(1000, ultimateGauge); } set { ultimateGauge = value; } }
     float speedTemp;
 
     GameObject newPortal;
     GameObject newFireBall;
+    GameObject newUltimatePortal;
+    GameObject newUltimateTarget;
 
     void Start ()
     {
@@ -51,6 +57,10 @@ public class MelonPixieAttack : MonoBehaviour {
         {
             ultimateParticle.Play();
         }
+        else if(UltimateGauge <1000)
+        {
+            ultimateParticle.Stop();
+        }
 
         if(Input.GetKeyDown(melee))
         {
@@ -58,11 +68,17 @@ public class MelonPixieAttack : MonoBehaviour {
             anim.Play("MP_Melee");
         }
 
-        if(Input.GetKeyDown(skill) && castingDelay > 6f && GetComponent<CharacterControll>().IsOnFloor())
+        if(Input.GetKeyDown(skill) && castingDelay > coolTime && GetComponent<CharacterControll>().IsOnFloor())
         {
             FireBall(200f, 8, new Vector3(transform.localScale.x,0,0));
             StartCoroutine(Casting());
             castingDelay = 0f;
+        }
+
+        if(Input.GetKeyDown(ultimate) && UltimateGauge == 1000 && GetComponent<CharacterControll>().IsOnFloor())
+        {
+            Ultimate();
+            StartCoroutine(Casting());
         }
 
         if (isCasting)
@@ -95,8 +111,17 @@ public class MelonPixieAttack : MonoBehaviour {
     {
         if (isCasting)
         {
-            Destroy(newFireBall);
-            Destroy(newPortal);
+            if (newPortal != null)
+            {
+                Destroy(newFireBall);
+                Destroy(newPortal);
+            }
+            if (newUltimatePortal != null)
+            {
+                Destroy(newUltimatePortal);
+                Destroy(newUltimateTarget);
+                StopAllCoroutines();
+            }
             isCasting = false;
         }
     }
@@ -118,5 +143,30 @@ public class MelonPixieAttack : MonoBehaviour {
         newFireBall.GetComponent<FireBall>().direction = direction;
         newFireBall.transform.localScale = new Vector3(-direction.x, 1, 1);
         newFireBall.GetComponent<FireBall>().enabled = false;
+    }
+
+    void Ultimate()
+    {
+        UltimateGauge = 0;
+        newUltimatePortal = Instantiate(UltimatePortal, fireBallPos.position, Quaternion.identity, this.transform);
+        anim.SetTrigger("ultimate");
+        List<CharacterControll> players;
+        players = FindObjectsOfType<CharacterControll>().ToList();
+        players.Remove(this.GetComponent<CharacterControll>());
+        CharacterControll target = players[Random.Range(0, players.Count)];
+        newUltimateTarget = Instantiate(UltimateTarget, target.transform.position, Quaternion.identity);
+        newUltimateTarget.transform.parent = target.transform;
+        StartCoroutine(UltimateHit());
+    }
+
+    IEnumerator UltimateHit()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(newUltimatePortal);
+        yield return new WaitForSeconds(2.1f);
+        newUltimateTarget.GetComponentInParent<CharacterControll>().Hit(350, 10, new Vector2(-newUltimateTarget.GetComponentInParent<Transform>().transform.localScale.x, 0));
+        newUltimateTarget.GetComponentInParent<CharacterControll>().hit = true;
+        
+        Destroy(newUltimateTarget);
     }
 }
