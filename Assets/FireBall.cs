@@ -5,7 +5,9 @@ using UnityEngine;
 public class FireBall : MonoBehaviour {
 
     public AudioSource FireballExplosionSource;
+    public AudioSource FireballFireSource;
     public AudioClip FireballExplosionClip;
+    public AudioClip FireballFireClip;
     public MelonPixieAttack MPA;
 
     public float damage;
@@ -17,6 +19,8 @@ public class FireBall : MonoBehaviour {
     void Start ()
     {
         FireballExplosionSource.clip = FireballExplosionClip;
+        FireballFireSource.clip = FireballFireClip;
+        FireballFireSource.Play();
 	}
 	
 	void Update ()
