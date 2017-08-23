@@ -6,22 +6,27 @@ public class CashRegister : MonoBehaviour {
 
     public GameObject currentInterObj = null;
     public Inventory currentInterObjScriptInventory = null;
-    public CharacterBarController currentInterObjScriptCBC = null;
+	public CharacterBarController currentInterObjScriptCBC;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        currentInterObj = other.gameObject;
-        currentInterObjScriptInventory = currentInterObj.GetComponent<Inventory>();
-        currentInterObjScriptCBC = currentInterObj.GetComponent<CharacterBarController>();
-        
 
 
-        if (currentInterObjScriptInventory.itemAdded)
-        {
-            if (currentInterObjScriptCBC.Win_percentage == 1)
-            {
-                //setVictory(other);
-            }
-        }
-    }
+		if (other.CompareTag("Player") && other.gameObject.name == "KimJongUn")
+		{
+			currentInterObj = other.gameObject;
+			currentInterObjScriptInventory = currentInterObj.GetComponent<Inventory>();
+
+			Debug.Log(currentInterObjScriptCBC.Win_percentage );
+
+			if (currentInterObjScriptInventory.itemAdded )
+			{
+				if(currentInterObjScriptCBC.Win_percentage >= 1.0f)
+				{
+
+				}
+					//setVictory(other);
+			}
+		}
+	}
 }
