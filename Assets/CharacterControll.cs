@@ -242,7 +242,7 @@ public class CharacterControll : MonoBehaviour {
     public void Hit(float damage, int attack, Vector2 knockBackDirection)
     {
         if(enabled)
-        {   Debug.Log("Hit");
+        { 
             hit = true;
             hp -= damage;
             StartCoroutine(KnockBackDelay(damage));
