@@ -97,6 +97,10 @@ public class MelonPixieAttack : MonoBehaviour {
         if (GetComponent<CharacterControll>().hp <= 0)
         {
             anim.Play("MP_Death");
+            CharacterControll characterControll = GetComponent<CharacterControll>();
+            GetComponent<Rigidbody2D>().velocity = new Vector2 (0,0);
+            characterControll.enabled = false;
+           
         }
     }
 
