@@ -9,6 +9,7 @@ public class KimAttack : MonoBehaviour {
     Character character;
 
     Animator anim;
+   
 
     public KeyCode melee;
     public KeyCode skill;
@@ -47,6 +48,7 @@ public class KimAttack : MonoBehaviour {
         character = CC.character;
         ultimateParticle = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
+        AudioSource KimMelee= GetComponent<AudioSource>();
     }
 
     void Update()
