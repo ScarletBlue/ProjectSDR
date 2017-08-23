@@ -51,84 +51,82 @@ public class KimAttack : MonoBehaviour {
 
     void Update()
     {
-        if (UltimateGauge == 1000 && !ultimateParticle.isPlaying)
+        if (GetComponent<CharacterControll>().enabled)
         {
-            ultimateParticle.Play();
-        }
-        else if(UltimateGauge < 1000)
-        {
-            ultimateParticle.Stop();
-        }
-        if (Input.GetKeyDown(melee))
-        {
-            KimMelee();
-        }
-        if (Input.GetKeyDown(skill) && skillDelay > skillCoolTime)
-        {
-            if (CC.IsOnFloor())
+            if (UltimateGauge == 1000 && !ultimateParticle.isPlaying)
             {
-                Debug.Log("mine");
-                Mine(200f, Attack.kim_mine);
-                anim.SetTrigger("mine");
-                skillDelay = 0f;
+                ultimateParticle.Play();
             }
-        }
-        if (UltimateGauge == 1000 && Input.GetKeyDown(ultimate))
-        {
-            StartCoroutine(UltimateCasting());
-            newUltimateTarget = Instantiate(ultimateTarget);
-            newUltimateTarget.GetComponent<KimUltimateTarget>().CC = CC;
-            newUltimateTarget.GetComponent<KimUltimateTarget>().Target = TargetSprite;
-            newUltimateTarget.GetComponent<KimUltimateTarget>().missile = missile;
-            anim.SetTrigger("ultimate");
-        }
-
-        if(isCastingUltimate)
-        {
-            CC.moveSpeed = 0;
-            CC.canJump = false;
-            if (GetComponent<CharacterControll>().hit)
+            else if (UltimateGauge < 1000)
             {
-                CancelUltimate();
-                UltimateGauge = 0;
-                isCastingUltimate = false;
+                ultimateParticle.Stop();
             }
-        }
-        else
-        {
-            CC.canJump = true;
-            CC.moveSpeed = speedTemp;
-        }
-        kimMeleeDelay += Time.deltaTime;
-        skillDelay += Time.deltaTime;
+            if (Input.GetKeyDown(melee))
+            {
+                KimMelee();
+            }
+            if (Input.GetKeyDown(skill) && skillDelay > skillCoolTime)
+            {
+                if (CC.IsOnFloor())
+                {
+                    Debug.Log("mine");
+                    Mine(200f, Attack.kim_mine);
+                    anim.SetTrigger("mine");
+                    skillDelay = 0f;
+                }
+            }
+            if (UltimateGauge == 1000 && Input.GetKeyDown(ultimate))
+            {
+                StartCoroutine(UltimateCasting());
+                newUltimateTarget = Instantiate(ultimateTarget);
+                newUltimateTarget.GetComponent<KimUltimateTarget>().CC = CC;
+                newUltimateTarget.GetComponent<KimUltimateTarget>().Target = TargetSprite;
+                newUltimateTarget.GetComponent<KimUltimateTarget>().missile = missile;
+                anim.SetTrigger("ultimate");
+            }
 
-        if (kimMeleeDelay >= meleeAtaackResetTime)
-        {
-            kimMeleeStage = 0;
-        }
-        if (dashAttack && dashAttackDelay <= dashAttackTime)
-        {
-            dashAttackDelay += Time.deltaTime;
-            DashMelee(100f, (int)Attack.kim_dash, new Vector2(transform.localScale.x, 0));
-        }
-        else if (dashAttack && dashAttackDelay >= dashAttackTime)
-        {
-            dashAttackDelay = 0f;
-            dashAttack = false;
-            CC.isDashing = false;
-        }
+            if (isCastingUltimate)
+            {
+                CC.moveSpeed = 0;
+                CC.canJump = false;
+                if (GetComponent<CharacterControll>().hit)
+                {
+                    CancelUltimate();
+                    UltimateGauge = 0;
+                    isCastingUltimate = false;
+                }
+            }
+            else
+            {
+                CC.canJump = true;
+                CC.moveSpeed = speedTemp;
+            }
+            kimMeleeDelay += Time.deltaTime;
+            skillDelay += Time.deltaTime;
+
+            if (kimMeleeDelay >= meleeAtaackResetTime)
+            {
+                kimMeleeStage = 0;
+            }
+            if (dashAttack && dashAttackDelay <= dashAttackTime)
+            {
+                dashAttackDelay += Time.deltaTime;
+                DashMelee(100f, (int)Attack.kim_dash, new Vector2(transform.localScale.x, 0));
+            }
+            else if (dashAttack && dashAttackDelay >= dashAttackTime)
+            {
+                dashAttackDelay = 0f;
+                dashAttack = false;
+                CC.isDashing = false;
+            }
 
 
-        if (CC.hp == 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("Kim_Death"))
-        {
-            anim.Play("Kim_Death");
-            
-        }
+            if (CC.hp == 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("Kim_Death"))
+            {
+                anim.Play("Kim_Death");
 
-        if(CC.hp <= 0)
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            CC.enabled = false;
+            }
+
         }
     }
 
