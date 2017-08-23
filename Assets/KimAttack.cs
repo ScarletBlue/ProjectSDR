@@ -10,6 +10,17 @@ public class KimAttack : MonoBehaviour {
 
     Animator anim;
 
+    public AudioSource KimMeleeAttackSource;
+    public AudioSource KimDashAttackSource;
+    public AudioSource KimMineSetSource;
+    public AudioSource KimUtimateCastingSource;
+
+    public AudioClip KimMeleeAttackClip;
+    public AudioClip KimDashAttackClip;
+    public AudioClip KimMineSetClip;
+    public AudioClip KimutimateCastingClip;
+
+
     public KeyCode melee;
     public KeyCode skill;
     public KeyCode ultimate;
@@ -47,6 +58,12 @@ public class KimAttack : MonoBehaviour {
         character = CC.character;
         ultimateParticle = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
+
+        KimMeleeAttackSource.clip = KimMeleeAttackClip;
+        KimDashAttackSource.clip = KimDashAttackClip;
+        KimMineSetSource.clip = KimMineSetClip;
+        KimUtimateCastingSource.clip = KimutimateCastingClip;
+       
     }
 
     void Update()
@@ -83,6 +100,7 @@ public class KimAttack : MonoBehaviour {
                 newUltimateTarget.GetComponent<KimUltimateTarget>().Target = TargetSprite;
                 newUltimateTarget.GetComponent<KimUltimateTarget>().missile = missile;
                 anim.SetTrigger("ultimate");
+                KimUtimateCastingSource.Play();
             }
 
             if (isCastingUltimate)
@@ -155,6 +173,7 @@ public class KimAttack : MonoBehaviour {
             dashAttack = true;
             dashAttackDelay = 0;
             anim.SetTrigger("dashMelee");
+            KimDashAttackSource.Play();
         }
         else if (kimMeleeStage == 0 && kimMeleeDelay >= meleeAttackDelay)
         {
@@ -162,6 +181,7 @@ public class KimAttack : MonoBehaviour {
             Melee(50f, (int)Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
             kimMeleeStage++;
             kimMeleeDelay = 0;
+            KimMeleeAttackSource.Play();
         }
 
         else if (kimMeleeStage == 1 && kimMeleeDelay >= meleeAttackDelay)
@@ -170,6 +190,7 @@ public class KimAttack : MonoBehaviour {
             Melee(50f, (int)Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
             kimMeleeStage++;
             kimMeleeDelay = 0;
+            KimMeleeAttackSource.Play();
         }
 
         else if (kimMeleeStage == 2 && kimMeleeDelay >= meleeAttackDelay)
@@ -178,6 +199,7 @@ public class KimAttack : MonoBehaviour {
             Melee(50f, (int)Attack.Kim_melee, new Vector2(transform.localScale.x, 0));
             kimMeleeStage++;
             kimMeleeDelay = 0;
+            KimMeleeAttackSource.Play();
         }
         else if (kimMeleeStage == 3 && kimMeleeDelay >= meleeAttackDelay)
         {
@@ -185,6 +207,7 @@ public class KimAttack : MonoBehaviour {
             Melee(100f, (int)Attack.kim_melee_up, new Vector2(transform.localScale.x, 1).normalized);
             kimMeleeStage = 0;
             kimMeleeDelay = 0;
+            KimMeleeAttackSource.Play();
         }
     }
 

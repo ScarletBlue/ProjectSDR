@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class CharacterControll : MonoBehaviour {
 
+    public AudioSource hitSource;
+    public AudioSource dieSource;
+    public AudioSource jumpSource;
+    public AudioClip hitClip;
+    public AudioClip dieClip;
+    public AudioClip jumpClip;
 
     public float moveSpeed = 0;
     public float dashSpeed;
@@ -15,6 +21,7 @@ public class CharacterControll : MonoBehaviour {
     public float airDashTime = 0.5f;
     public float knockBackTime = 0.3f;
     public bool canJump = true;
+    public float respawnTime = 5f;
 
     public KeyCode key_jump;
     public KeyCode key_right;
@@ -32,6 +39,7 @@ public class CharacterControll : MonoBehaviour {
     int dashDirection = 0;
     float airDashDelay = 0f;
     bool isDead = false;
+    Vector3 respawnPosition;
 
 
     public float hp = 1000;
@@ -42,6 +50,10 @@ public class CharacterControll : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        respawnPosition = GetComponent<Transform>().position;
+        hitSource.clip = hitClip;
+        dieSource.clip = dieClip;
+        jumpSource.clip = jumpClip;
     }
 
     // Update is called once per frame
@@ -71,6 +83,7 @@ public class CharacterControll : MonoBehaviour {
         if(Input.GetKeyDown(key_jump))
         {
             Jump();
+            jumpSource.Play();
         }
         if(hp<=100)
         {
@@ -85,6 +98,7 @@ public class CharacterControll : MonoBehaviour {
         {
             isDead = true;
             anim.SetTrigger("death");
+            dieSource.Play();
             StartCoroutine(DeathDelay());
             
 
@@ -140,9 +154,22 @@ public class CharacterControll : MonoBehaviour {
     IEnumerator DeathDelay()
     {
         yield return null;
+        Inventory inventory = GetComponent<Inventory>();
+        if (inventory.itemAdded)
+        {
+            inventory.regenerate();
+        }
         CharacterControll characterControll = GetComponent<CharacterControll>();
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         characterControll.enabled = false;
+        yield return new WaitForSeconds(respawnTime);
+        characterControll.enabled = true;
+        hp = 1000;
+        isDead = false;
+        GetComponent<Transform>().position = respawnPosition;
+        anim.SetTrigger("respawn");
+
+
     }
 
     void IsDashing()
@@ -256,6 +283,7 @@ public class CharacterControll : MonoBehaviour {
             rb.AddForce(knockBackDirection * (2000 - hp) * attack * 0.05f);
             transform.localScale = new Vector3(-(knockBackDirection.x / Mathf.Abs(knockBackDirection.x)), 1, 1);
             anim.SetTrigger("hit");
+            hitSource.Play();
         }
     }
 

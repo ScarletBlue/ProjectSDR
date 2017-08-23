@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour {
 
+    public AudioSource MissileExplosionSource;
+    public AudioClip MissileExplosionClip;
     public GameObject nuclear;
     public List<GameObject> playersInRange;
     public CharacterControll CC;
@@ -16,6 +18,7 @@ public class Missile : MonoBehaviour {
 	void Start () {
         collider = GetComponent<CircleCollider2D>();
         collider.enabled = false;
+        MissileExplosionSource.clip = MissileExplosionClip;
 	}
 	
 	// Update is called once per frame
@@ -32,6 +35,7 @@ public class Missile : MonoBehaviour {
         GetComponent<SpriteRenderer>().enabled = false;
         collider.enabled = true;
         newNuclear = Instantiate(nuclear, transform.position, Quaternion.identity);
+        MissileExplosionSource.Play();
         StartCoroutine(DestroyThis());
     }
 

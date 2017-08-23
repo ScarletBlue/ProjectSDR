@@ -5,6 +5,13 @@ using UnityEngine;
 public class CatAttack : MonoBehaviour {
 
     Animator anim;
+    public AudioSource CatAttackSource;
+    public AudioSource CatSkillSource;
+    public AudioSource CatUtimateSource;
+
+    public AudioClip CatAttackClip;
+    public AudioClip CatSkillClip;
+    public AudioClip CatUtimateClip;
 
     public KeyCode melee;
     public KeyCode skill;
@@ -36,6 +43,9 @@ public class CatAttack : MonoBehaviour {
         speedTemp = GetComponent<CharacterControll>().moveSpeed;
         ultimateParticle = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
+        CatAttackSource.clip = CatAttackClip;
+        CatSkillSource.clip = CatSkillClip;
+        CatUtimateSource.clip = CatUtimateClip;
 
     }
 	
@@ -58,17 +68,20 @@ public class CatAttack : MonoBehaviour {
             {
                 Melee(100f, 7, new Vector2(transform.localScale.x, 0));
                 anim.Play("Cat_Melee");
+                CatAttackSource.Play();
             }
             if (Input.GetKeyDown(skill) && skillCoolTime > coolTime && GetComponent<CharacterControll>().IsOnFloor())
             {
                 skillCoolTime = 0;
                 StartCoroutine(SkillCasting());
                 anim.Play("Cat_Skill");
+                CatSkillSource.Play();
             }
             if (Input.GetKeyDown(ultimate) && UltimateGauge == 1000)
             {
                 StartCoroutine(UltimateCastingDelay());
                 anim.Play("Cat_Ultimate");
+                CatUtimateSource.Play();
             }
 
             if (isCasting)

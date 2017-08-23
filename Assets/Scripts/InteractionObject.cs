@@ -8,7 +8,6 @@ public class InteractionObject : MonoBehaviour {
 
 	public void DoInteraction()
 	{
-		gameObject.SetActive(false);
-		//Destroy(gameObject);
+		Destroy(gameObject);
 	}
 }
