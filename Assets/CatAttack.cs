@@ -105,6 +105,13 @@ public class CatAttack : MonoBehaviour {
                 GetComponent<CharacterControll>().isCasting = false;
             }
         }
+
+        updateUltGauge();
+    }
+
+    void updateUltGauge()
+    {
+        GetComponent<CharacterControll>().ult = UltimateGauge;
     }
 
     IEnumerator UltimateCastingDelay()

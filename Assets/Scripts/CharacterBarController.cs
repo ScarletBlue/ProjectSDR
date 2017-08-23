@@ -50,7 +50,11 @@ public class CharacterBarController : MonoBehaviour {
             Win_percentage += 0.05f * Time.deltaTime;
         else if (Win_percentage >= 1f)
             Win_percentage = 1f;
-            
+        if (Ult_percentage <= 1f)
+            Ult_percentage = CC.ult / 1000;
+        else if (Ult_percentage >= 1f)
+            Ult_percentage = 1f;
+
     }
 
     void GuageControl(GameObject bar, float percentage, float constant1, float constant2)

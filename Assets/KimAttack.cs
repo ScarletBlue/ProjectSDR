@@ -147,8 +147,14 @@ public class KimAttack : MonoBehaviour {
             }
 
         }
+
+        updateUltGuage();
     }
 
+    void updateUltGuage()
+    {
+        CC.ult = UltimateGauge;
+    }
 
     void CancelUltimate()
     {

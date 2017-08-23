@@ -113,8 +113,15 @@ public class MelonPixieAttack : MonoBehaviour {
             }
 
         }
+
+        updateUltGauge();
     }
 
+
+    void updateUltGauge()
+    {
+        GetComponent<CharacterControll>().ult = ultimateGauge;
+    }
     
 
     void Melee(float damage, int attack, Vector2 knockBackDirection)

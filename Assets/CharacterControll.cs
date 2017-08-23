@@ -43,6 +43,7 @@ public class CharacterControll : MonoBehaviour {
 
 
     public float hp = 1000;
+    public float ult;
     public bool isCasting = false;
     public bool hit = false;
 
