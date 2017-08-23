@@ -11,8 +11,13 @@ public class ItemRandomGenerate : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        randomGenerate();
+	}
+
+    void randomGenerate()
+    {
         a = Random.Range(0, 10);
         position = spawnPoints[a].GetComponent<Transform>().position;
         transform.position = position;
-	}
+    }
 }
