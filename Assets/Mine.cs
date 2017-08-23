@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour {
 
+    public AudioSource MineExplosionSource;
+    public AudioClip MineExplosionClip;
     public KimAttack kim;
 
     public float damage;
@@ -15,6 +17,7 @@ public class Mine : MonoBehaviour {
     void Start()
     {
         StartCoroutine(Delay());
+        MineExplosionSource.clip = MineExplosionClip;
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -26,6 +29,7 @@ public class Mine : MonoBehaviour {
             GetComponent<Animator>().SetTrigger("mine");
             isExploded = true;
             GetComponent<BoxCollider2D>().enabled = false;
+            MineExplosionSource.Play();
             StartCoroutine(Destroy());
         }
     }

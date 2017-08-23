@@ -5,6 +5,13 @@ using System.Linq;
 
 public class MelonPixieAttack : MonoBehaviour {
 
+    public AudioSource MPAttackSource;
+    public AudioSource MPFireballSource;
+    public AudioSource MPUtimateCastingSource;
+    public AudioClip MPAttackClip;
+    public AudioClip MPFireballClip;
+    public AudioClip MpUtimateCastingClip;
+
     enum Attack { MP_melee = 5}
 
     Character character;
@@ -48,6 +55,9 @@ public class MelonPixieAttack : MonoBehaviour {
         character = GetComponent<CharacterControll>().character;
         ultimateParticle = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
+        MPAttackSource.clip = MPAttackClip;
+        MPFireballSource.clip = MPFireballClip;
+        MPUtimateCastingSource.clip = MpUtimateCastingClip;
     }
 	
 	// Update is called once per frame
@@ -69,19 +79,24 @@ public class MelonPixieAttack : MonoBehaviour {
             {
                 Melee(100f, (int)Attack.MP_melee, new Vector2(transform.localScale.x, 0));
                 anim.Play("MP_Melee");
+                MPAttackSource.Play();
             }
 
             if (Input.GetKeyDown(skill) && castingDelay > coolTime && GetComponent<CharacterControll>().IsOnFloor())
             {
                 FireBall(200f, 8, new Vector3(transform.localScale.x, 0, 0));
+                MPFireballSource.Play();
                 StartCoroutine(Casting());
                 castingDelay = 0f;
+                
             }
 
             if (Input.GetKeyDown(ultimate) && UltimateGauge == 1000 && GetComponent<CharacterControll>().IsOnFloor())
             {
                 Ultimate();
+                MPUtimateCastingSource.Play();
                 StartCoroutine(Casting());
+                
             }
 
             if (isCasting)

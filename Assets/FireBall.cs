@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour {
 
+    public AudioSource FireballExplosionSource;
+    public AudioClip FireballExplosionClip;
     public MelonPixieAttack MPA;
 
     public float damage;
@@ -14,7 +16,7 @@ public class FireBall : MonoBehaviour {
 
     void Start ()
     {
-		
+        FireballExplosionSource.clip = FireballExplosionClip;
 	}
 	
 	void Update ()
@@ -28,6 +30,7 @@ public class FireBall : MonoBehaviour {
         {
             other.GetComponent<CharacterControll>().Hit(damage, attack, direction);
             MPA.UltimateGauge += 300;
+            FireballExplosionSource.Play();
             Destroy(gameObject);
         }
     }
