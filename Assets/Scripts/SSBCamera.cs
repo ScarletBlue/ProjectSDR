@@ -8,11 +8,14 @@ public class SSBCamera : MonoBehaviour
 	public FocusCenterStage FocusLevel;
 
 	public List<GameObject> Players;
-
+	//how quickly zoom in and out
 	public float DepthUpdateSpeed = 5f;
+	//how quickly it pans up and down having more depth
 	public float AngleUpdateSpeed = 7f;
+	//how quickly it moves up and down top to bottom
 	public float PositionUpdateSpeed = 5f;
 
+	//how far camera can zoom
 	public float DepthMax = -10f;
 	public float DepthMin = -22f;
 
