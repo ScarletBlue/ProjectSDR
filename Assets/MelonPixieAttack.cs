@@ -159,6 +159,7 @@ public class MelonPixieAttack : MonoBehaviour {
 
     void FireBall(float damage, int knockBackConst, Vector3 direction)
     {
+        anim.SetTrigger("skill");
         newPortal = Instantiate(fireBallPortal, fireBallPos.position, Quaternion.identity);
         newFireBall = Instantiate(fireBall, fireBallPos.position, Quaternion.identity);
         newFireBall.GetComponent<FireBall>().MPA = this;
