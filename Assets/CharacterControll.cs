@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class CharacterControll : MonoBehaviour {
 
+    public AudioSource hitSource;
+    public AudioSource dieSource;
+    public AudioSource jumpSource;
+    public AudioClip hitClip;
+    public AudioClip dieClip;
+    public AudioClip jumpClip;
 
     public float moveSpeed = 0;
     public float dashSpeed;
@@ -45,6 +51,9 @@ public class CharacterControll : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         respawnPosition = GetComponent<Transform>().position;
+        hitSource.clip = hitClip;
+        dieSource.clip = dieClip;
+        jumpSource.clip = jumpClip;
     }
 
     // Update is called once per frame
@@ -74,6 +83,7 @@ public class CharacterControll : MonoBehaviour {
         if(Input.GetKeyDown(key_jump))
         {
             Jump();
+            jumpSource.Play();
         }
         if(hp<=100)
         {
@@ -88,6 +98,7 @@ public class CharacterControll : MonoBehaviour {
         {
             isDead = true;
             anim.SetTrigger("death");
+            dieSource.Play();
             StartCoroutine(DeathDelay());
             
 
@@ -272,6 +283,7 @@ public class CharacterControll : MonoBehaviour {
             rb.AddForce(knockBackDirection * (2000 - hp) * attack * 0.05f);
             transform.localScale = new Vector3(-(knockBackDirection.x / Mathf.Abs(knockBackDirection.x)), 1, 1);
             anim.SetTrigger("hit");
+            hitSource.Play();
         }
     }
 
