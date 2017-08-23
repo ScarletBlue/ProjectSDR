@@ -168,6 +168,7 @@ public class CharacterControll : MonoBehaviour {
         isDead = false;
         GetComponent<Transform>().position = respawnPosition;
         anim.SetTrigger("respawn");
+        rb.velocity = new Vector2(0, 0);
 
 
     }
