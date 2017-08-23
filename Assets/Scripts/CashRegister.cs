@@ -7,6 +7,7 @@ public class CashRegister : MonoBehaviour
 
 	public GameObject currentInterObj = null;
 	public Inventory currentInterObjScriptInventory = null;
+    public VictoryControl victoryControl;
 	[SerializeField]
 	CharacterBarController currentInterObjScriptCBC1;
 	[SerializeField]
@@ -19,7 +20,6 @@ public class CashRegister : MonoBehaviour
 	private void OnTriggerStay2D(Collider2D other)
 	{
 
-
 		if (other.CompareTag("Player") && other.gameObject.name == "KimJongUn")
 		{
 			currentInterObj = other.gameObject;
@@ -31,7 +31,8 @@ public class CashRegister : MonoBehaviour
 			{
 				if (currentInterObjScriptCBC1.Win_percentage >= 1.0f)
 				{
-					Debug.Log("P1 WINs");
+                    victoryControl.setVictory(other.gameObject);
+					
 
 				}
 
@@ -47,8 +48,8 @@ public class CashRegister : MonoBehaviour
 			{
 				if (currentInterObjScriptCBC2.Win_percentage >= 1.0f)
 				{
-					Debug.Log("P2 WINs");
-				}
+                    victoryControl.setVictory(other.gameObject);
+                }
 
 			}
 		}
@@ -62,9 +63,9 @@ public class CashRegister : MonoBehaviour
 			{
 				if (currentInterObjScriptCBC3.Win_percentage >= 1.0f)
 				{
-					Debug.Log("P3 WINs");
+                    victoryControl.setVictory(other.gameObject);
 
-				}
+                }
 
 			}
 		}
@@ -79,9 +80,9 @@ public class CashRegister : MonoBehaviour
 			{
 				if (currentInterObjScriptCBC4.Win_percentage >= 1.0f)
 				{
-					Debug.Log("P4 WINs");
+                    victoryControl.setVictory(other.gameObject);
 
-				}
+                }
 
 			}
 		
