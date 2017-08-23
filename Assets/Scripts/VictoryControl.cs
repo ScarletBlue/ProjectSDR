@@ -7,7 +7,7 @@ public class VictoryControl : MonoBehaviour {
     public GameObject Kim;
     public GameObject MP;
     public GameObject Cat;
-    //public GameObject Bunny;
+    public GameObject Bunny;
     public GameObject victoryUI;
 
     private void Start()
@@ -25,8 +25,8 @@ public class VictoryControl : MonoBehaviour {
         MP.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         Cat.GetComponent<CharacterControll>().enabled = false;
         Cat.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        //Bunny.GetComponent<CharacterControll>().enabled = false;
-        //Bunny.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        Bunny.GetComponent<CharacterControll>().enabled = false;
+        Bunny.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
 
         //UIPopUp;
         victoryUI.gameObject.SetActive(true);
