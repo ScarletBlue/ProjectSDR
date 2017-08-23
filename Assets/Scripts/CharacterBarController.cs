@@ -46,7 +46,7 @@ public class CharacterBarController : MonoBehaviour {
             Health_percentage = CC.hp / MaxHP;
         else if (CC.hp < 0)
             Health_percentage = 0f;
-        if (inventory.itemAdded == true && Win_percentage <= 1f)
+        if (inventory.itemAdded == true && Win_percentage < 1f)
             Win_percentage += 0.05f * Time.deltaTime;
         else if (Win_percentage >= 1f)
             Win_percentage = 1f;
