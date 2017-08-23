@@ -42,12 +42,19 @@ public class CharacterBarController : MonoBehaviour {
         GuageControl(Health_bar, Health_percentage, HPconstant1, HPconstant2);
         GuageControl(Ult_bar, Ult_percentage, Ultconstant1, Ultconstant2);
         GuageControl(Win_bar, Win_percentage, Winconstant1, Winconstant2);
-        Health_percentage = CC.hp / MaxHP;
-        if (inventory.itemAdded == true)
-        {
+        if (CC.hp >= 0)
+            Health_percentage = CC.hp / MaxHP;
+        else if (CC.hp < 0)
+            Health_percentage = 0f;
+        if (inventory.itemAdded == true && Win_percentage <= 1f)
             Win_percentage += 0.05f * Time.deltaTime;
-            //Debug.Log(Win_percentage);
-        }
+        else if (Win_percentage >= 1f)
+            Win_percentage = 1f;
+        if (Ult_percentage <= 1f)
+            Ult_percentage = CC.ult / 1000;
+        else if (Ult_percentage >= 1f)
+            Ult_percentage = 1f;
+
     }
 
     void GuageControl(GameObject bar, float percentage, float constant1, float constant2)

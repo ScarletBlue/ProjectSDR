@@ -32,6 +32,7 @@ public class KimAttack : MonoBehaviour {
     public GameObject TargetSprite;
     public GameObject missile;
 
+	[SerializeField]
     ParticleSystem ultimateParticle;
     public float meleeAttackDelay = 0.3f;
     public float meleeAtaackResetTime = 0.7f;
@@ -146,8 +147,14 @@ public class KimAttack : MonoBehaviour {
             }
 
         }
+
+        updateUltGuage();
     }
 
+    void updateUltGuage()
+    {
+        CC.ult = UltimateGauge;
+    }
 
     void CancelUltimate()
     {
