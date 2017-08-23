@@ -34,6 +34,8 @@ public class Carrot : MonoBehaviour {
             other.GetComponent<CharacterControll>().Hit(50f, 7, new Vector2(BA.transform.localScale.x,0));
             BA.UltimateGauge += 75;
             GetComponent<Animator>().SetTrigger("hit");
+            transform.parent = null;
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }
