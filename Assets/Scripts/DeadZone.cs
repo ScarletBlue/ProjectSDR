@@ -25,14 +25,8 @@ public class DeadZone : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
-            //StartCoroutine(RevivePlayer(other.gameObject));
+            CharacterControll otherCCScript = other.gameObject.GetComponent<CharacterControll>();
+            otherCCScript.hp = 0;
         }
-    }
-
-    IEnumerator RevivePlayer(GameObject other)
-    {
-        yield return new WaitForSeconds(2.0f);
-        Instantiate(other, RandomPositionSelecter(), Quaternion.identity);
     }
 }
