@@ -93,6 +93,11 @@ public class MelonPixieAttack : MonoBehaviour {
         {
             GetComponent<CharacterControll>().moveSpeed = speedTemp;
         }
+
+        if (GetComponent<CharacterControll>().hp <= 0)
+        {
+            anim.Play("MP_Death");
+        }
     }
 
     void Melee(float damage, int attack, Vector2 knockBackDirection)
