@@ -143,6 +143,11 @@ public class CharacterControll : MonoBehaviour {
     IEnumerator DeathDelay()
     {
         yield return null;
+        Inventory inventory = GetComponent<Inventory>();
+        if (inventory.itemAdded)
+        {
+            inventory.regenerate();
+        }
         CharacterControll characterControll = GetComponent<CharacterControll>();
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         characterControll.enabled = false;
