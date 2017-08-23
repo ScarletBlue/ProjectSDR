@@ -93,9 +93,14 @@ public class BunnyAttack : MonoBehaviour {
             }
 
         }
+
+        updateUltGauge();
     }
 
-
+    void updateUltGauge()
+    {
+        gameObject.GetComponent<CharacterControll>().ult = UltimateGauge;
+    }
 
     void Melee(float damage, int attack, Vector2 knockBackDirection)
     {
