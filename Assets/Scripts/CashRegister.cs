@@ -36,55 +36,55 @@ public class CashRegister : MonoBehaviour
 				}
 
 			}
+		}
+		else if (other.CompareTag("Player") && other.gameObject.name == "Melonpixie")
+		{
+			currentInterObj = other.gameObject;
+			currentInterObjScriptInventory = currentInterObj.GetComponent<Inventory>();
 
-			else if (other.CompareTag("Player") && other.gameObject.name == "Melonpixie")
+			Debug.Log(currentInterObjScriptCBC2.Win_percentage);
+			if (currentInterObjScriptInventory.itemAdded)
 			{
-				currentInterObj = other.gameObject;
-				currentInterObjScriptInventory = currentInterObj.GetComponent<Inventory>();
-
-				Debug.Log(currentInterObjScriptCBC2.Win_percentage);
-				if (currentInterObjScriptInventory.itemAdded)
+				if (currentInterObjScriptCBC2.Win_percentage >= 1.0f)
 				{
-					if (currentInterObjScriptCBC2.Win_percentage >= 1.0f)
-					{
-						Debug.Log("P2 WINs");
-					}
+					Debug.Log("P2 WINs");
+				}
+
+			}
+		}
+		else if (other.CompareTag("Player") && other.gameObject.name == "Cat")
+		{
+			currentInterObj = other.gameObject;
+			currentInterObjScriptInventory = currentInterObj.GetComponent<Inventory>();
+
+			Debug.Log(currentInterObjScriptCBC3.Win_percentage);
+			if (currentInterObjScriptInventory.itemAdded)
+			{
+				if (currentInterObjScriptCBC3.Win_percentage >= 1.0f)
+				{
+					Debug.Log("P3 WINs");
 
 				}
+
 			}
-			else if (other.CompareTag("Player") && other.gameObject.name == "Cat")
+		}
+
+		else if (other.CompareTag("Player") && other.gameObject.name == "Bunny")
+		{
+			currentInterObj = other.gameObject;
+			currentInterObjScriptInventory = currentInterObj.GetComponent<Inventory>();
+
+			Debug.Log(currentInterObjScriptCBC4.Win_percentage);
+			if (currentInterObjScriptInventory.itemAdded)
 			{
-				currentInterObj = other.gameObject;
-				currentInterObjScriptInventory = currentInterObj.GetComponent<Inventory>();
-
-				Debug.Log(currentInterObjScriptCBC3.Win_percentage);
-				if (currentInterObjScriptInventory.itemAdded)
+				if (currentInterObjScriptCBC4.Win_percentage >= 1.0f)
 				{
-					if (currentInterObjScriptCBC3.Win_percentage >= 1.0f)
-					{
-						Debug.Log("P3 WINs");
-
-					}
+					Debug.Log("P4 WINs");
 
 				}
+
 			}
-
-			else if (other.CompareTag("Player") && other.gameObject.name == "Bunny")
-			{
-				currentInterObj = other.gameObject;
-				currentInterObjScriptInventory = currentInterObj.GetComponent<Inventory>();
-
-				Debug.Log(currentInterObjScriptCBC4.Win_percentage);
-				if (currentInterObjScriptInventory.itemAdded)
-				{
-					if (currentInterObjScriptCBC4.Win_percentage >= 1.0f)
-					{
-						Debug.Log("P4 WINs");
-
-					}
-
-				}
-			}
+		
 		}
 	}
 }
