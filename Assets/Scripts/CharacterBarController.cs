@@ -43,11 +43,10 @@ public class CharacterBarController : MonoBehaviour {
         GuageControl(Ult_bar, Ult_percentage, Ultconstant1, Ultconstant2);
         GuageControl(Win_bar, Win_percentage, Winconstant1, Winconstant2);
         Health_percentage = CC.hp / MaxHP;
-        Debug.Log(CC.hp);
         if (inventory.itemAdded == true)
         {
             Win_percentage += 0.05f * Time.deltaTime;
-            Debug.Log(Win_percentage);
+            //Debug.Log(Win_percentage);
         }
     }
 
