@@ -22,6 +22,9 @@ public class CatAttack : MonoBehaviour {
     public Transform skillPos;
     public GameObject ultimateCollider;
     public float meleeAttackDelay = 0.3f;
+    public Transform catUltimatePos1;
+    public Transform catUltimatePos2;
+    public GameObject ultimateObject;
 
     ParticleSystem ultimateParticle;
     public float meleeAtaackResetTime = 0.7f;
@@ -37,6 +40,8 @@ public class CatAttack : MonoBehaviour {
     bool isSkillShooting;
 
     GameObject newSkill;
+    GameObject newUltimate1;
+    GameObject newUltimate2;
 
     void Start ()
     {
@@ -111,14 +116,27 @@ public class CatAttack : MonoBehaviour {
     void Ultimate()
     {
         UltimateGauge = 0;
+        newUltimate1 = Instantiate(ultimateObject, catUltimatePos1.position, Quaternion.identity);
+        newUltimate2 = Instantiate(ultimateObject, catUltimatePos2.position, Quaternion.identity);
+        if (this.transform.localScale.x <= 0)
+        {
+            newUltimate1.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (this.transform.localScale.x >0)
+        {
+            newUltimate2.transform.localScale = new Vector3(-1, 1, 1);
+        }
+
         if (ultimateCollider.GetComponent<MeleeCheck>().playersInRange.Count != 0)
         {
             foreach (GameObject player in ultimateCollider.GetComponent<MeleeCheck>().playersInRange)
             {
                 int direction = (int)((player.transform.position.x - transform.position.x) / Mathf.Abs(player.transform.position.x - transform.position.x));
-                player.GetComponent<CharacterControll>().Hit(250f, 20, new Vector2(direction,0));
+                player.GetComponent<CharacterControll>().Hit(250f, 20, new Vector2(direction, 0));
             }
         }
+
+        StartCoroutine(UltimateAnimation());
     }
 
     void Melee(float damage, int attack, Vector2 knockBackDirection)
@@ -168,5 +186,17 @@ public class CatAttack : MonoBehaviour {
         {
             Destroy(newSkill);
         }
+    }
+
+    IEnumerator UltimateAnimation()
+    {
+        yield return new WaitForSeconds(1f);
+
+        if (newUltimate1 != null && newUltimate2 != null)
+        {
+            Destroy(newUltimate1);
+            Destroy(newUltimate2);
+        } 
+        
     }
 }
