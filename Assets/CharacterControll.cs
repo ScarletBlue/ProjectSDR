@@ -31,6 +31,8 @@ public class CharacterControll : MonoBehaviour {
     public bool isDashing = false;
     int dashDirection = 0;
     float airDashDelay = 0f;
+    bool isDead = false;
+
 
     public float hp = 1000;
     public bool isCasting = false;
@@ -78,6 +80,18 @@ public class CharacterControll : MonoBehaviour {
         {
             anim.SetBool("hp_low", false);
         }
+
+        if (GetComponent<CharacterControll>().hp <= 0 && isDead == false)
+        {
+            isDead = true;
+            anim.SetTrigger("death");
+            CharacterControll characterControll = GetComponent<CharacterControll>();
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            characterControll.enabled = false;
+
+        }
+
+        Debug.Log("djkdkd");
     }
 
     int MovingDirection() // retrun 1(right) , -1(left), 0(none)

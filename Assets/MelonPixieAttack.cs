@@ -31,6 +31,7 @@ public class MelonPixieAttack : MonoBehaviour {
     public float coolTime = 6f;
 
     float castingDelay = 6f;
+    bool isDead = false;
     bool isCasting = false;
     float ultimateGauge = 1000;
     public float UltimateGauge { get { return Mathf.Min(1000, ultimateGauge); } set { ultimateGauge = value; } }
@@ -94,15 +95,18 @@ public class MelonPixieAttack : MonoBehaviour {
             GetComponent<CharacterControll>().moveSpeed = speedTemp;
         }
 
-        if (GetComponent<CharacterControll>().hp <= 0)
+        if (GetComponent<CharacterControll>().hp <= 0 && isDead ==false)
         {
-            anim.Play("MP_Death");
+            isDead = true;
+            anim.SetTrigger("death");
             CharacterControll characterControll = GetComponent<CharacterControll>();
             GetComponent<Rigidbody2D>().velocity = new Vector2 (0,0);
             characterControll.enabled = false;
            
         }
     }
+
+    
 
     void Melee(float damage, int attack, Vector2 knockBackDirection)
     {

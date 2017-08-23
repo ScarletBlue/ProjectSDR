@@ -117,7 +117,21 @@ public class KimAttack : MonoBehaviour {
             dashAttack = false;
             CC.isDashing = false;
         }
+
+
+        if (CC.hp == 0 && !anim.GetCurrentAnimatorStateInfo(0).IsName("Kim_Death"))
+        {
+            anim.Play("Kim_Death");
+            
+        }
+
+        if(CC.hp <= 0)
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            CC.enabled = false;
+        }
     }
+
 
     void CancelUltimate()
     {
