@@ -42,47 +42,50 @@ public class CatAttack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        skillCoolTime += Time.deltaTime;
-        if (UltimateGauge == 1000 && !ultimateParticle.isPlaying)
+        if (GetComponent<CharacterControll>().enabled)
         {
-            ultimateParticle.Play();
-        }
-        else if (UltimateGauge < 1000)
-        {
-            ultimateParticle.Stop();
-        }
-
-        if (Input.GetKeyDown(melee))
-        {
-            Melee(100f, 7, new Vector2(transform.localScale.x, 0));
-            anim.Play("Cat_Melee");
-        }
-        if (Input.GetKeyDown(skill) && skillCoolTime > coolTime && GetComponent<CharacterControll>().IsOnFloor())
-        {
-            skillCoolTime = 0;
-            StartCoroutine(SkillCasting());
-            anim.Play("Cat_Skill");
-        }
-        if(Input.GetKeyDown(ultimate) && UltimateGauge == 1000)
-        {
-            StartCoroutine(UltimateCastingDelay());
-            anim.Play("Cat_Ultimate");
-        }
-
-        if (isCasting)
-        {
-            GetComponent<CharacterControll>().moveSpeed = 0;
-            GetComponent<CharacterControll>().isCasting = true;
-            if (GetComponent<CharacterControll>().hit)
+            skillCoolTime += Time.deltaTime;
+            if (UltimateGauge == 1000 && !ultimateParticle.isPlaying)
             {
-                CancelCasting();
-                StopAllCoroutines();
+                ultimateParticle.Play();
             }
-        }
-        else
-        {
-            GetComponent<CharacterControll>().moveSpeed = speedTemp;
-            GetComponent<CharacterControll>().isCasting = false;
+            else if (UltimateGauge < 1000)
+            {
+                ultimateParticle.Stop();
+            }
+
+            if (Input.GetKeyDown(melee))
+            {
+                Melee(100f, 7, new Vector2(transform.localScale.x, 0));
+                anim.Play("Cat_Melee");
+            }
+            if (Input.GetKeyDown(skill) && skillCoolTime > coolTime && GetComponent<CharacterControll>().IsOnFloor())
+            {
+                skillCoolTime = 0;
+                StartCoroutine(SkillCasting());
+                anim.Play("Cat_Skill");
+            }
+            if (Input.GetKeyDown(ultimate) && UltimateGauge == 1000)
+            {
+                StartCoroutine(UltimateCastingDelay());
+                anim.Play("Cat_Ultimate");
+            }
+
+            if (isCasting)
+            {
+                GetComponent<CharacterControll>().moveSpeed = 0;
+                GetComponent<CharacterControll>().isCasting = true;
+                if (GetComponent<CharacterControll>().hit)
+                {
+                    CancelCasting();
+                    StopAllCoroutines();
+                }
+            }
+            else
+            {
+                GetComponent<CharacterControll>().moveSpeed = speedTemp;
+                GetComponent<CharacterControll>().isCasting = false;
+            }
         }
     }
 

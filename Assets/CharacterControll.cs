@@ -85,9 +85,7 @@ public class CharacterControll : MonoBehaviour {
         {
             isDead = true;
             anim.SetTrigger("death");
-            CharacterControll characterControll = GetComponent<CharacterControll>();
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            characterControll.enabled = false;
+            StartCoroutine(DeathDelay());
             
 
         }
@@ -137,6 +135,14 @@ public class CharacterControll : MonoBehaviour {
             rb.velocity = new Vector2(rb.velocity.x, jump2Speed);
             jumpCount++;
         }
+    }
+
+    IEnumerator DeathDelay()
+    {
+        yield return null;
+        CharacterControll characterControll = GetComponent<CharacterControll>();
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        characterControll.enabled = false;
     }
 
     void IsDashing()
