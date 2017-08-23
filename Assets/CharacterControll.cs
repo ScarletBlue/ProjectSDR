@@ -94,7 +94,7 @@ public class CharacterControll : MonoBehaviour {
             anim.SetBool("hp_low", false);
         }
 
-        if (GetComponent<CharacterControll>().hp <= 0 && isDead == false)
+        if (hp <= 0 && isDead == false)
         {
             isDead = true;
             anim.SetTrigger("death");
@@ -159,11 +159,10 @@ public class CharacterControll : MonoBehaviour {
         {
             inventory.regenerate();
         }
-        CharacterControll characterControll = GetComponent<CharacterControll>();
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        characterControll.enabled = false;
+        this.enabled = false;
         yield return new WaitForSeconds(respawnTime);
-        characterControll.enabled = true;
+        this.enabled = true;
         hp = 1000;
         isDead = false;
         GetComponent<Transform>().position = respawnPosition;

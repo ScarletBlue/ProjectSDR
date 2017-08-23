@@ -7,7 +7,6 @@ public class Inventory : MonoBehaviour
 
     public GameObject[] inventory = new GameObject[1];
     public GameObject prefab;
-    GameObject Switch;
     public bool itemAdded = false;
     public void AddItem(GameObject item)
     {
@@ -28,6 +27,6 @@ public class Inventory : MonoBehaviour
 
     public void regenerate()
     {
-        Switch = Instantiate(prefab);
+        Instantiate(prefab);
     }
 }
