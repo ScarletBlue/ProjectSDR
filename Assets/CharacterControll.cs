@@ -91,7 +91,6 @@ public class CharacterControll : MonoBehaviour {
 
         }
 
-        Debug.Log("djkdkd");
     }
 
     int MovingDirection() // retrun 1(right) , -1(left), 0(none)
@@ -241,13 +240,16 @@ public class CharacterControll : MonoBehaviour {
 
     public void Hit(float damage, int attack, Vector2 knockBackDirection)
     {
-        hit = true;
-        hp -= damage;
-        StartCoroutine(KnockBackDelay(damage));
-        rb.velocity = new Vector2(0, 0);
-        rb.AddForce(knockBackDirection * (2000 - hp) * attack * 0.05f);
-        transform.localScale = new Vector3(-(knockBackDirection.x / Mathf.Abs(knockBackDirection.x)), 1, 1);
-        anim.SetTrigger("hit");
+        if(enabled)
+        {   Debug.Log("Hit");
+            hit = true;
+            hp -= damage;
+            StartCoroutine(KnockBackDelay(damage));
+            rb.velocity = new Vector2(0, 0);
+            rb.AddForce(knockBackDirection * (2000 - hp) * attack * 0.05f);
+            transform.localScale = new Vector3(-(knockBackDirection.x / Mathf.Abs(knockBackDirection.x)), 1, 1);
+            anim.SetTrigger("hit");
+        }
     }
 
     IEnumerator KnockBackDelay(float damage)

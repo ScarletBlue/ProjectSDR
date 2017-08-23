@@ -31,7 +31,7 @@ public class MelonPixieAttack : MonoBehaviour {
     public float coolTime = 6f;
 
     float castingDelay = 6f;
-    bool isDead = false;
+  
     bool isCasting = false;
     float ultimateGauge = 1000;
     public float UltimateGauge { get { return Mathf.Min(1000, ultimateGauge); } set { ultimateGauge = value; } }
@@ -53,56 +53,50 @@ public class MelonPixieAttack : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        castingDelay += Time.deltaTime;
-        if (UltimateGauge == 1000 && !ultimateParticle.isPlaying)
+        if (GetComponent<CharacterControll>().enabled)
         {
-            ultimateParticle.Play();
-        }
-        else if(UltimateGauge <1000)
-        {
-            ultimateParticle.Stop();
-        }
-
-        if(Input.GetKeyDown(melee))
-        {
-            Melee(100f, (int)Attack.MP_melee, new Vector2(transform.localScale.x, 0));
-            anim.Play("MP_Melee");
-        }
-
-        if(Input.GetKeyDown(skill) && castingDelay > coolTime && GetComponent<CharacterControll>().IsOnFloor())
-        {
-            FireBall(200f, 8, new Vector3(transform.localScale.x,0,0));
-            StartCoroutine(Casting());
-            castingDelay = 0f;
-        }
-
-        if(Input.GetKeyDown(ultimate) && UltimateGauge == 1000 && GetComponent<CharacterControll>().IsOnFloor())
-        {
-            Ultimate();
-            StartCoroutine(Casting());
-        }
-
-        if (isCasting)
-        {
-            GetComponent<CharacterControll>().moveSpeed = 0;
-            if(GetComponent<CharacterControll>().hit)
+            castingDelay += Time.deltaTime;
+            if (UltimateGauge == 1000 && !ultimateParticle.isPlaying)
             {
-                CancelCasting();
+                ultimateParticle.Play();
             }
-        }
-        else
-        {
-            GetComponent<CharacterControll>().moveSpeed = speedTemp;
-        }
+            else if (UltimateGauge < 1000)
+            {
+                ultimateParticle.Stop();
+            }
 
-        if (GetComponent<CharacterControll>().hp <= 0 && isDead ==false)
-        {
-            isDead = true;
-            anim.SetTrigger("death");
-            CharacterControll characterControll = GetComponent<CharacterControll>();
-            GetComponent<Rigidbody2D>().velocity = new Vector2 (0,0);
-            characterControll.enabled = false;
-           
+            if (Input.GetKeyDown(melee))
+            {
+                Melee(100f, (int)Attack.MP_melee, new Vector2(transform.localScale.x, 0));
+                anim.Play("MP_Melee");
+            }
+
+            if (Input.GetKeyDown(skill) && castingDelay > coolTime && GetComponent<CharacterControll>().IsOnFloor())
+            {
+                FireBall(200f, 8, new Vector3(transform.localScale.x, 0, 0));
+                StartCoroutine(Casting());
+                castingDelay = 0f;
+            }
+
+            if (Input.GetKeyDown(ultimate) && UltimateGauge == 1000 && GetComponent<CharacterControll>().IsOnFloor())
+            {
+                Ultimate();
+                StartCoroutine(Casting());
+            }
+
+            if (isCasting)
+            {
+                GetComponent<CharacterControll>().moveSpeed = 0;
+                if (GetComponent<CharacterControll>().hit)
+                {
+                    CancelCasting();
+                }
+            }
+            else
+            {
+                GetComponent<CharacterControll>().moveSpeed = speedTemp;
+            }
+
         }
     }
 
