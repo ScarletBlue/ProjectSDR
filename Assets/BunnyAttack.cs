@@ -26,6 +26,9 @@ public class BunnyAttack : MonoBehaviour {
     public float castingTime = 1f;
     public float coolTime = 6f;
 
+    float meleeDamage = 100f;
+    bool isUltimate = false;
+
     float castingDelay = 6f;
 
     GameObject newJeondoBunny;
@@ -48,6 +51,10 @@ public class BunnyAttack : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if(isUltimate)
+        {
+            UltimateGauge = 0;
+        }
         if (GetComponent<CharacterControll>().enabled)
         {
             castingDelay += Time.deltaTime;
@@ -62,12 +69,12 @@ public class BunnyAttack : MonoBehaviour {
 
             if (Input.GetKeyDown(melee))
             {
-                Melee(100f, 5, new Vector2(transform.localScale.x, 0));
-                anim.Play("Bunny_Punch");
+                Melee(meleeDamage, 5, new Vector2(transform.localScale.x, 0));
+                anim.SetTrigger("melee");
                 bunnyMeleeAttackSource.Play();
             }
 
-            if (Input.GetKeyDown(skill) && castingDelay > coolTime && GetComponent<CharacterControll>().IsOnFloor())
+            if (Input.GetKeyDown(skill) && castingDelay > coolTime && GetComponent<CharacterControll>().IsOnFloor() && !isUltimate)
             {
                 StartCoroutine(Skill());
                 StartCoroutine(Casting());
@@ -78,8 +85,7 @@ public class BunnyAttack : MonoBehaviour {
 
             if (Input.GetKeyDown(ultimate) && UltimateGauge == 1000 && GetComponent<CharacterControll>().IsOnFloor())
             {
-                //Ultimate();
-
+                StartCoroutine(Ultimate());
             }
 
             if (isCasting)
@@ -137,6 +143,21 @@ public class BunnyAttack : MonoBehaviour {
         GetComponent<CharacterControll>().isCasting = false;
         isCasting = false;
         Destroy(newJeondoBunny);
+    }
+
+    IEnumerator Ultimate()
+    {
+        UltimateGauge = 0;
+        isUltimate = true;
+        float tempSpeed = GetComponent<CharacterControll>().moveSpeed;
+        GetComponent<CharacterControll>().moveSpeed *= 1.7f;
+        meleeDamage = 200f;
+        anim.SetBool("isUWalking", true);
+        yield return new WaitForSeconds(6f);
+        isUltimate = false;
+        GetComponent<CharacterControll>().moveSpeed = tempSpeed;
+        meleeDamage = 100f;
+        anim.SetBool("isUWalking", false);
     }
 
     public void CancelCasting()
