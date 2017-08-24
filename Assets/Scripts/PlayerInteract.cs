@@ -10,7 +10,7 @@ public class PlayerInteract : MonoBehaviour {
 	public Inventory inventory;
 	private void Update()
 	{
-		if (Input.GetButtonDown("Interact") && currentInterObj)
+		if (currentInterObj)
 		{
 			//check to see if object is stored
 			if(currentInterObjScript.inventory)
