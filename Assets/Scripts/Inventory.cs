@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 
     public GameObject[] inventory = new GameObject[1];
     public GameObject prefab;
+    public GameObject itemParticle;
     public bool itemAdded = false;
     public void AddItem(GameObject item)
     {
@@ -19,6 +20,7 @@ public class Inventory : MonoBehaviour
                 Debug.Log(item.name + " was added");
                 itemAdded = true;
                 item.SendMessage("DoInteraction");
+                itemParticle.gameObject.SetActive(true);
                 break;
             }
         }
@@ -27,6 +29,7 @@ public class Inventory : MonoBehaviour
 
     public void regenerate()
     {
+        itemParticle.gameObject.SetActive(false);
         Instantiate(prefab);
     }
 }
