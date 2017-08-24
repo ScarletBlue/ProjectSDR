@@ -26,8 +26,8 @@ public class CharacterControll : MonoBehaviour {
     public KeyCode key_jump;
     //public KeyCode key_right;
     //public KeyCode key_left;
-    public KeyCode key_up;
-    public KeyCode key_down;
+    //public KeyCode key_up;
+    //public KeyCode key_down;
     public string key_H;
     public string key_V;
 

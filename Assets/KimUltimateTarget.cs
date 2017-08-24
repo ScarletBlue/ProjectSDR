@@ -114,16 +114,16 @@ public class KimUltimateTarget : MonoBehaviour {
         }
 
 
-        if(Input.GetKeyDown(CC.key_up) && isControllerable)
+        if (Input.GetAxis(CC.key_V) > 0.5f && isControllerable)
         {
             targetFloor++;
             targetFloor = Mathf.Clamp(targetFloor, minInt, maxInt);
-            if(!hitDic.ContainsKey(targetFloor))
+            if (!hitDic.ContainsKey(targetFloor))
             {
                 findMax();
             }
         }
-        if(Input.GetKeyDown(CC.key_down) && isControllerable)
+        if(Input.GetAxis(CC.key_V) < -0.5f && isControllerable)
         {
             targetFloor--;
             targetFloor = Mathf.Clamp(targetFloor, minInt, maxInt);
