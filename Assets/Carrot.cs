@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Carrot : MonoBehaviour {
 
+    public AudioSource carrotFireSource;
+    public AudioSource carrotExplosionSource;
+    public AudioClip carrotFireClip;
+    public AudioClip carrotExplosionClip;
     public BunnyAttack BA;
 
     public bool isFlying = true;
     public bool isHit = false;
 	void Start () {
-		
-	}
+        carrotFireSource.clip = carrotFireClip;
+        carrotExplosionSource.clip = carrotExplosionClip;
+        carrotFireSource.Play();
+    }
 	
 	void Update () {
 
@@ -20,6 +26,7 @@ public class Carrot : MonoBehaviour {
         }
         if (isHit)
         {
+            carrotExplosionSource.Play();
             Destroy(gameObject);
         }
 		

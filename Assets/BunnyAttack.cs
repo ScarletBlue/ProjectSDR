@@ -7,6 +7,10 @@ public class BunnyAttack : MonoBehaviour {
     Character character;
 
     Animator anim;
+    public AudioSource bunnySkillTeleportSource;
+    public AudioSource bunnyMeleeAttackSource;
+    public AudioClip bunnySkillTeleporitClip;
+    public AudioClip bunnyMeleeAttackclip;
 
     public KeyCode melee;
     public KeyCode skill;
@@ -37,6 +41,8 @@ public class BunnyAttack : MonoBehaviour {
         character = GetComponent<CharacterControll>().character;
         ultimateParticle = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
+        bunnySkillTeleportSource.clip = bunnySkillTeleporitClip;
+        bunnyMeleeAttackSource.clip = bunnyMeleeAttackclip;
     }
 
     // Update is called once per frame
@@ -58,12 +64,14 @@ public class BunnyAttack : MonoBehaviour {
             {
                 Melee(100f, 5, new Vector2(transform.localScale.x, 0));
                 anim.Play("Bunny_Punch");
+                bunnyMeleeAttackSource.Play();
             }
 
             if (Input.GetKeyDown(skill) && castingDelay > coolTime && GetComponent<CharacterControll>().IsOnFloor())
             {
                 StartCoroutine(Skill());
                 StartCoroutine(Casting());
+                bunnySkillTeleportSource.Play();
                 castingDelay = 0f;
 
             }
