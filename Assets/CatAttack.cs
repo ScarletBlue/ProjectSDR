@@ -56,7 +56,7 @@ public class CatAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        
         if (GetComponent<CharacterControll>().enabled)
         {
             skillCoolTime += Time.deltaTime;

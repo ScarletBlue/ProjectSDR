@@ -41,7 +41,7 @@ public class Missile : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Character") && other.gameObject.transform.position.y >= transform.position.y -1 && other.gameObject != CC.gameObject)
+        if (other.gameObject.layer == LayerMask.NameToLayer("Character") && other.tag == "Player" && other.gameObject.transform.position.y >= transform.position.y -1 && other.gameObject != CC.gameObject)
         {
             playersInRange.Add(other.gameObject);
         }
