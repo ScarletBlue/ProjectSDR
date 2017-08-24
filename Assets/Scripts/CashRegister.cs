@@ -8,6 +8,7 @@ public class CashRegister : MonoBehaviour
 	public GameObject currentInterObj = null;
 	public Inventory currentInterObjScriptInventory = null;
     public VictoryControl victoryControl;
+    public bool finished = false;
 	[SerializeField]
 	CharacterBarController currentInterObjScriptCBC1;
 	[SerializeField]
@@ -29,9 +30,10 @@ public class CashRegister : MonoBehaviour
 
 			if (currentInterObjScriptInventory.itemAdded)
 			{
-				if (currentInterObjScriptCBC1.Win_percentage >= 1.0f)
+				if (currentInterObjScriptCBC1.Win_percentage >= 1.0f && !finished)
 				{
                     victoryControl.setVictory(other.gameObject);
+                    finished = true;
 					
 
 				}
@@ -46,12 +48,12 @@ public class CashRegister : MonoBehaviour
 			Debug.Log(currentInterObjScriptCBC2.Win_percentage);
 			if (currentInterObjScriptInventory.itemAdded)
 			{
-				if (currentInterObjScriptCBC2.Win_percentage >= 1.0f)
+				if (currentInterObjScriptCBC2.Win_percentage >= 1.0f && !finished)
 				{
                     victoryControl.setVictory(other.gameObject);
+                    finished = true;
                 }
-
-			}
+            }
 		}
 		else if (other.CompareTag("Player") && other.gameObject.name == "Cat")
 		{
@@ -61,12 +63,11 @@ public class CashRegister : MonoBehaviour
 			Debug.Log(currentInterObjScriptCBC3.Win_percentage);
 			if (currentInterObjScriptInventory.itemAdded)
 			{
-				if (currentInterObjScriptCBC3.Win_percentage >= 1.0f)
+				if (currentInterObjScriptCBC3.Win_percentage >= 1.0f && !finished)
 				{
                     victoryControl.setVictory(other.gameObject);
-
+                    finished = true;
                 }
-
 			}
 		}
 
@@ -78,14 +79,12 @@ public class CashRegister : MonoBehaviour
 			Debug.Log(currentInterObjScriptCBC4.Win_percentage);
 			if (currentInterObjScriptInventory.itemAdded)
 			{
-				if (currentInterObjScriptCBC4.Win_percentage >= 1.0f)
+				if (currentInterObjScriptCBC4.Win_percentage >= 1.0f && !finished)
 				{
                     victoryControl.setVictory(other.gameObject);
-
+                    finished = true;
                 }
-
 			}
-		
 		}
 	}
 }
