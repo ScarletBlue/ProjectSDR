@@ -12,6 +12,7 @@ public class CharacterBarController : MonoBehaviour {
     float Ultconstant2 = 80f;
     float Winconstant1 = -19.1f;
     float Winconstant2 = 74.6f;
+    bool isDead = false;
     Vector3 HealthBarLocalTransform;
     Vector3 UltBarLocalTransform;
     Vector3 WinBarLocalTransform;
@@ -54,6 +55,14 @@ public class CharacterBarController : MonoBehaviour {
             Ult_percentage = CC.ult / 1000;
         else if (Ult_percentage >= 1f)
             Ult_percentage = 1f;
+
+        if (CC.isDead && !isDead)
+        {
+            isDead = true;
+            Win_percentage += -0.2f;
+        }
+        else if(!CC.isDead && isDead)
+            isDead = false;
 
     }
 

@@ -38,7 +38,7 @@ public class CharacterControll : MonoBehaviour {
     public bool isDashing = false;
     int dashDirection = 0;
     float airDashDelay = 0f;
-    bool isDead = false;
+    public bool isDead = false;
     Vector3 respawnPosition;
 
 
@@ -159,6 +159,7 @@ public class CharacterControll : MonoBehaviour {
         if (inventory.itemAdded)
         {
             inventory.regenerate();
+            inventory.itemAdded = false;
         }
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         this.enabled = false;
