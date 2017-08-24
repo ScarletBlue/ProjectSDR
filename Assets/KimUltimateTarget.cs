@@ -26,6 +26,7 @@ public class KimUltimateTarget : MonoBehaviour {
     int minInt = 0;
     int downInt = 0;
 
+    bool isVChanged = false;
     bool isControllerable = true;
 
     void Start ()
@@ -37,16 +38,20 @@ public class KimUltimateTarget : MonoBehaviour {
 	
 	void Update ()
     {
+        if(Input.GetAxis(CC.key_V)<0.2f && Input.GetAxis(CC.key_V) > -0.2f)
+        {
+            isVChanged = false;
+        }
         hitDic.Clear();
         Vector3 tempPos = transform.position;
         if (Input.GetAxis(CC.key_H) > 0.5f && isControllerable)
         {
-            transform.Translate(20 * Time.deltaTime, 0, 0);
+            transform.Translate(40 * Time.deltaTime, 0, 0);
             transform.position = new Vector3(Mathf.Min(transform.position.x, 21f), transform.position.y, transform.position.z);
         }
         if (Input.GetAxis(CC.key_H) < -0.5f && isControllerable)
         {
-            transform.Translate(-20 * Time.deltaTime, 0, 0);
+            transform.Translate(-40 * Time.deltaTime, 0, 0);
             transform.position = new Vector3(Mathf.Max(transform.position.x, -13f), transform.position.y, transform.position.z);
         }
         hitBase = Physics2D.Raycast(transform.position, -Vector2.up, Mathf.Infinity, 1 << LayerMask.NameToLayer("base"));
@@ -114,8 +119,9 @@ public class KimUltimateTarget : MonoBehaviour {
         }
 
 
-        if (Input.GetAxis(CC.key_V) > 0.5f && isControllerable)
+        if (Input.GetAxis(CC.key_V) > 0.5f && isControllerable && !isVChanged)
         {
+            isVChanged = true;
             targetFloor++;
             targetFloor = Mathf.Clamp(targetFloor, minInt, maxInt);
             if (!hitDic.ContainsKey(targetFloor))
@@ -123,8 +129,9 @@ public class KimUltimateTarget : MonoBehaviour {
                 findMax();
             }
         }
-        if(Input.GetAxis(CC.key_V) < -0.5f && isControllerable)
+        if(Input.GetAxis(CC.key_V) < -0.5f && isControllerable && !isVChanged)
         {
+            isVChanged = true;
             targetFloor--;
             targetFloor = Mathf.Clamp(targetFloor, minInt, maxInt);
             if(!hitDic.ContainsKey(targetFloor))

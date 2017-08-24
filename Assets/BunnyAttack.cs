@@ -149,6 +149,7 @@ public class BunnyAttack : MonoBehaviour {
     IEnumerator Ultimate()
     {
         UltimateGauge = 0;
+        anim.SetBool("Ultimate", true);
         Sprite tempSprite = GetComponent<SpriteRenderer>().sprite;
         GetComponent<SpriteRenderer>().sprite = UltimateSprite;
         isUltimate = true;
@@ -157,6 +158,7 @@ public class BunnyAttack : MonoBehaviour {
         meleeDamage = 200f;
         anim.SetBool("isUWalking", true);
         yield return new WaitForSeconds(6f);
+        anim.SetBool("Ultimate", false);
         GetComponent<SpriteRenderer>().sprite = tempSprite;
         isUltimate = false;
         GetComponent<CharacterControll>().moveSpeed = tempSpeed;

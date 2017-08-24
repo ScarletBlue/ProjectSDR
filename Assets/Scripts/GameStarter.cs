@@ -43,16 +43,13 @@ public class GameStarter : MonoBehaviour {
            
     public IEnumerator GameStart()
     {
-        Debug.Log("0개부름");
+
         yield return new WaitForSeconds(1.0f);
         StartWhistleShortSource.Play();
-        Debug.Log("1개부름");
         yield return  new WaitForSeconds(1.0f);
         StartWhistleShortSource.Play();
-        Debug.Log("2개부름");
         yield return  new WaitForSeconds(1.0f);
         StartWhistleLongSource.Play();
-        Debug.Log("3개부름");
 
         Kim.GetComponent<CharacterControll>().enabled = true;
         MP.GetComponent<CharacterControll>().enabled = true;
