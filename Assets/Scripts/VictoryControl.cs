@@ -13,10 +13,12 @@ public class VictoryControl : MonoBehaviour {
     public Text winText;
     string winnerName;
 	public SSBCamera ssbCamera;
-
+    public AudioSource endSoundSource;
+    public AudioClip endSoundClip;
     private void Start()
     {
         victoryUI.gameObject.SetActive(false);
+        endSoundSource.clip = endSoundClip;
     }
 
 	public void setVictory(GameObject winner)
@@ -35,7 +37,8 @@ public class VictoryControl : MonoBehaviour {
         Bunny.GetComponent<CharacterControll>().enabled = false;
         Bunny.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
 
-        //UIPopUp;
         victoryUI.gameObject.SetActive(true);
+
+        endSoundSource.Play();
     }
 }
