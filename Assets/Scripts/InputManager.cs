@@ -5,10 +5,12 @@ using UnityEngine;
 public static class InputManager {
     public static bool P1AButton()
     {
+        Debug.Log("a button pressed");
         return Input.GetButtonDown("P1_A_Button");
     }
     public static bool P1BButton()
     {
+        Debug.Log("b button pressed");
         return Input.GetButtonDown("P1_B_Button");
     }
     public static bool P1XButton()

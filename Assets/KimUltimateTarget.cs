@@ -39,12 +39,12 @@ public class KimUltimateTarget : MonoBehaviour {
     {
         hitDic.Clear();
         Vector3 tempPos = transform.position;
-        if (Input.GetKey(CC.key_right) && isControllerable)
+        if (Input.GetAxis(CC.key_H) > 0.5f && isControllerable)
         {
             transform.Translate(20 * Time.deltaTime, 0, 0);
             transform.position = new Vector3(Mathf.Min(transform.position.x, 21f), transform.position.y, transform.position.z);
         }
-        if (Input.GetKey(CC.key_left) && isControllerable)
+        if (Input.GetAxis(CC.key_H) < -0.5f && isControllerable)
         {
             transform.Translate(-20 * Time.deltaTime, 0, 0);
             transform.position = new Vector3(Mathf.Max(transform.position.x, -13f), transform.position.y, transform.position.z);

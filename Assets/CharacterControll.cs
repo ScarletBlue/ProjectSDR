@@ -24,10 +24,12 @@ public class CharacterControll : MonoBehaviour {
     public float respawnTime = 5f;
 
     public KeyCode key_jump;
-    public KeyCode key_right;
-    public KeyCode key_left;
+    //public KeyCode key_right;
+    //public KeyCode key_left;
     public KeyCode key_up;
     public KeyCode key_down;
+    public string key_H;
+    public string key_V;
 
     Rigidbody2D rb;
     Animator anim;    
@@ -109,12 +111,12 @@ public class CharacterControll : MonoBehaviour {
 
     int MovingDirection() // retrun 1(right) , -1(left), 0(none)
     {
-        if (Input.GetKey(key_right) && !isCasting)
+        if (Input.GetAxis(key_H) > 0.5f && !isCasting)
         {
             transform.localScale = new Vector3(1, 1, 1);
             return 1;
         }
-        else if (Input.GetKey(key_left) && !isCasting)
+        else if (Input.GetAxis(key_H) < -0.5f && !isCasting)
         {
             transform.localScale = new Vector3(-1, 1, 1);
             return -1;
@@ -176,50 +178,51 @@ public class CharacterControll : MonoBehaviour {
 
     void IsDashing()
     {
+        
         dashDelay += Time.deltaTime;
         if(dashDelay> dashDelayTime)
         {
             dashInput = 0;
         }
-        if(Input.GetKeyDown(key_right) && dashInput ==0)
+        if (Input.GetAxis(key_H) > 0.5f && dashInput == 0)
         {
             dashInput++;
             dashDelay = 0;
             return;
         }
-        else if(Input.GetKeyDown(key_right) && dashInput < 0)
+        else if (Input.GetAxis(key_H) > 0.5f && dashInput < 0)
         {
             dashInput = 0;
             dashDelay = 0;
             return;
         }
-        else if (Input.GetKeyDown(key_left) && dashInput == 0)
+        else if (Input.GetAxis(key_H) < -0.5f && dashInput == 0)
         {
             dashInput--;
             dashDelay = 0;
             return;
         }
-        else if (Input.GetKeyDown(key_left) && dashInput > 0)
+        else if (Input.GetAxis(key_H) < -0.5f && dashInput > 0)
         {
             dashInput = 0;
             dashDelay = 0;
             return;
         }
 
-        if (Input.GetKeyDown(key_right) && dashInput == 1 && dashDelay <= dashDelayTime)
+        if (Input.GetAxis(key_H) > 0.5f && dashInput == 1 && dashDelay <= dashDelayTime)
         {
             airDashDelay = 0f;
             dashDirection = 1;
             isDashing = true;
         }
-        else if (Input.GetKeyDown(key_left) && dashInput == -1 && dashDelay <= dashDelayTime)
+        else if (Input.GetAxis(key_H) < -0.5f && dashInput == -1 && dashDelay <= dashDelayTime)
         {
             airDashDelay = 0f;
             dashDirection = -1;
             isDashing = true;
         }
 
-        if(Input.GetKeyUp(key_right) || Input.GetKeyUp(key_left))
+        if(Input.GetAxis(key_H) > 0.5f || Input.GetAxis(key_H) < -0.5f)
         {
             if(isDashing)
             {
