@@ -10,6 +10,8 @@ public class VictoryControl : MonoBehaviour {
     public GameObject Bunny;
     public GameObject victoryUI;
 
+	public SSBCamera ssbCamera;
+
     private void Start()
     {
         victoryUI.gameObject.SetActive(false);
@@ -17,7 +19,8 @@ public class VictoryControl : MonoBehaviour {
 
 	public void setVictory(GameObject winner)
     {
-        //cameraZoomIn();
+		//ssbCamera.victoryCondition = true;
+		ssbCamera.ZoomToWinner(winner);
         
         Kim.GetComponent<CharacterControll>().enabled = false;
         Kim.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);

@@ -24,7 +24,7 @@ public class SSBCamera : MonoBehaviour
 
 	private float CameraEulerX;
 	private Vector3 CameraPosition;
-
+	public bool victoryCondition = false;
 
 	// Use this for initialization
 	void Start()
@@ -35,9 +35,26 @@ public class SSBCamera : MonoBehaviour
 	// Update is called once per frame
 	private void LateUpdate()
 	{
-		CalculateCameraLocations();
-		MoveCamera();
+		
+		if (!victoryCondition)
+		{
+			CalculateCameraLocations();
+			MoveCamera();
+		}
 	}
+
+	public void ZoomToWinner(GameObject winner)
+	{
+		victoryCondition = true;
+		Vector3 position = gameObject.transform.position;
+		Vector3 desiredPosition = winner.transform.position;
+		Vector3 targetPosition = Vector3.zero;
+		targetPosition.x = Mathf.MoveTowards(position.x, desiredPosition.x, PositionUpdateSpeed * Time.deltaTime);
+		targetPosition.y = Mathf.MoveTowards(position.y, desiredPosition.y, PositionUpdateSpeed * Time.deltaTime);
+		targetPosition.z = Mathf.MoveTowards(position.z, desiredPosition.z, DepthUpdateSpeed * Time.deltaTime);
+
+
+	} 
 
 	private void MoveCamera()
 	{
