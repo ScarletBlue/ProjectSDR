@@ -19,6 +19,7 @@ public class BunnyAttack : MonoBehaviour {
     public GameObject meleeAttack;
     public GameObject jeondoBunny;
     public GameObject carrot;
+    public Sprite UltimateSprite;
 
     ParticleSystem ultimateParticle;
     public float meleeAttackDelay = 0.3f;
@@ -148,12 +149,15 @@ public class BunnyAttack : MonoBehaviour {
     IEnumerator Ultimate()
     {
         UltimateGauge = 0;
+        Sprite tempSprite = GetComponent<SpriteRenderer>().sprite;
+        GetComponent<SpriteRenderer>().sprite = UltimateSprite;
         isUltimate = true;
         float tempSpeed = GetComponent<CharacterControll>().moveSpeed;
         GetComponent<CharacterControll>().moveSpeed *= 1.7f;
         meleeDamage = 200f;
         anim.SetBool("isUWalking", true);
         yield return new WaitForSeconds(6f);
+        GetComponent<SpriteRenderer>().sprite = tempSprite;
         isUltimate = false;
         GetComponent<CharacterControll>().moveSpeed = tempSpeed;
         meleeDamage = 100f;
