@@ -51,6 +51,8 @@ public class CharacterBarController : MonoBehaviour {
             Win_percentage += 0.05f * Time.deltaTime;
         else if (Win_percentage >= 1f)
             Win_percentage = 1f;
+        else if (Win_percentage < 0)
+            Win_percentage = 0;
         if (Ult_percentage <= 1f)
             Ult_percentage = CC.ult / 1000;
         else if (Ult_percentage >= 1f)
