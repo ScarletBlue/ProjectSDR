@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VictoryControl : MonoBehaviour {
 
@@ -9,7 +10,8 @@ public class VictoryControl : MonoBehaviour {
     public GameObject Cat;
     public GameObject Bunny;
     public GameObject victoryUI;
-
+    public Text winText;
+    string winnerName;
 	public SSBCamera ssbCamera;
 
     private void Start()
@@ -21,6 +23,8 @@ public class VictoryControl : MonoBehaviour {
     {
 		//ssbCamera.victoryCondition = true;
 		ssbCamera.ZoomToWinner(winner);
+        winnerName = winner.name;
+        winText.GetComponent<Text>().text = winnerName + " Wins!";
         
         Kim.GetComponent<CharacterControll>().enabled = false;
         Kim.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
